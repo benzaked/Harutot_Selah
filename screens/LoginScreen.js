@@ -95,7 +95,7 @@ class LoginScreen extends Component {
       signInWithGoogleAsync = async ()  => {
         try {
           const result = await Google.logInAsync({
-            
+            behavior: 'web',
             androidClientId:"1003696475172-je842d8md4rpd2ds28ld3mja5nppj5km.apps.googleusercontent.com",
             scopes: ['profile', 'email']
           });
@@ -131,7 +131,7 @@ class LoginScreen extends Component {
           this.props.navigation.navigate('Home')
             
           
-          // <LoggedInPage name ={this.state.name} photoUrl={this.state.photoUrl} userID={this.state.userID} pageNo={1} />
+          //  <LoggedInPage name ={this.state.name} photoUrl={this.state.photoUrl} userID={this.state.userID} pageNo={1} />
         ) : (
           <Button title={"Sign In With Google"}
                  onPress={() =>this.signInWithGoogleAsync()}

@@ -6,6 +6,8 @@ import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import LoginScreen from '../screens/LoginScreen'
+import LoggedInPage from '../screens/LoggedInPage'
+
 import SitesCatalog from '../screens/SitesCatalog'
 
 import MenuDrawer from '../components/MenuDrawer';
@@ -32,6 +34,9 @@ const DrawerNavigator = createDrawerNavigator(
     },
     SitesCatalog:{
         screen: SitesCatalog,
+    },
+    LoggedInPage:{
+      screen:LoggedInPage,
     }
   },
   DrawerConfig

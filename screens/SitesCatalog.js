@@ -3,7 +3,7 @@ import { StyleSheet,
     Text,
     View,
     Button,
-    TouchableHighlight,
+    TouchableOpacity,
     Image,
     ScrollView
   } from 'react-native';
@@ -11,47 +11,62 @@ import LoggedInPage from './LoggedInPage'
 import global from '../components/global'
 
 import MenuButton from  '../components/MenuButton'
+import Images_data from '../assets/Images_data'
 
 export default class SitesCatalog extends React.Component {
+  constructor(props){
+        
+    super(props);
+    this.state = {
+      image_clicked : false,
+      pageNo:-1
+    }
+  }
+
     moveToAddNewCustomer =  (pageNo) =>{
         console.log('im here');
-        const L = <LoggedInPage name ={global.userName} photoUrl={global.photoUrl} userID={global.userID} pageNo={pageNo} />
-        return  L 
+        this.setState({
+          image_clicked: true,
+          pageNo: pageNo,
+        });
 
-    }
+    };
 
 
 
   render() {
     return (
+      
       <View style={styles.container}>
-        <MenuButton navigation={this.props.navigation} />
-        <ScrollView scrollEventThrottle={16}>
-          <View style={{flex:1,backgroundColor:'white',paddingTop:20}}>
-          <Text style={{fontSize:24,fontWeight:'700',paddingHorizontal:20}} >
-            Heading
-          </Text>
-         
-            <View style={{height:130,marginTop:20}}>
-            <ScrollView >
-              <View style ={{ height:130 , width :130}}>
-              <TouchableHighlight onPress={() => this.moveToAddNewCustomer(2)}>
-
+        {this.state.image_clicked ? (
+            <LoggedInPage name ={global.userName} photoUrl={global.photoUrl} userID={global.userID} pageNo={this.state.pageNo} />
+            ) : (
+              <View style={styles.container}>  
+              <View style={styles.header}>
+                <MenuButton navigation={this.props.navigation} />
+                <Text style={styles.text}>
+                  לחץ על התמונה כדי לקרוא פרשנות של מבקרים
+                </Text>
+                </View>
                 
-                
-                <Image style={styles.image} source={{ uri: "http://via.placeholder.com/160x160" }} />
-
-                
-            </TouchableHighlight>
+                <View style={styles.bottom}>
+                      {Images_data.url.map((image, index) => {
+                        return (
+                        
+                        <TouchableOpacity
+                          onPress={() => this.moveToAddNewCustomer(index)}
+                          style={styles.image}>
+                          
+                          <Image source={{ uri: image.url }} style={styles.bottomItem} />
+                        </TouchableOpacity>
+                        )
+                    })}
+                  
+              </View>
+              </View>
+          )}
           </View>
-          </ScrollView>
-          </View>
-          
-
-        
-        </View>
-        </ScrollView>
-      </View>
+    
     );
   }
 }
@@ -59,17 +74,31 @@ export default class SitesCatalog extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignContent: 'center',
   },
-  text: {
-    fontSize: 30,
+  header :{
+    height :'10%',
+    backgroundColor:'#f5f5f5'
   },
- image: {
+  text :{
+    fontSize:24,
+    fontWeight:'700',
+    paddingHorizontal:20,
+    paddingTop:30
+  },
+  bottom :{
+    height :'90%',
+    flexDirection: 'row',
+    flexWrap:'wrap',
+    padding:5
+  },
+  bottomItem:{
   flex:1,
-  width: 160,
-  height: 160,
-  resizeMode:'cover'
- }
+  },
+  image: {
+    width: '50%',
+    height: '50%',
+    padding: 5,
+  },
 });

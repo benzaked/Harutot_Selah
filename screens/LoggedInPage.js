@@ -3,6 +3,7 @@ import { StyleSheet, Text, View,TextInput,Button,Image,ScrollView ,Share} from '
 import Comment from '../Comment'
 import firebase from 'firebase'
 import { Icon } from 'react-native-elements'
+import MenuButton from  '../components/MenuButton'
 
 import Input from '../actions/Input'
 // import { Icon } from 'react-native-vector-icons/Icon';
@@ -100,6 +101,8 @@ class LoggedInPage extends Component {
         
         return(
             <ScrollView>
+            <MenuButton navigation={this.props.navigation} />
+
             <Image
           style={{ height:400 }}
           source={{

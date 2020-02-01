@@ -5,7 +5,7 @@
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [
-      "ios",
+      
       "android",
       "web"
     ],
@@ -23,8 +23,9 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "ios": {
-      "supportsTablet": true
+    
+    "android": {
+      "package": "com.yourcompany.yourappname"
     },
     "entryPoint": "node_modules/expo/AppEntry.js"
   },
