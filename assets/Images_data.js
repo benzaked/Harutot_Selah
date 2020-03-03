@@ -1,3 +1,4 @@
+
 export default {
     FAKE: 0,
     REAL: 0,
@@ -8,18 +9,19 @@ export default {
     url: [
       {
         url:
-          'https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313__340.jpg',
+        'https://i.ibb.co/RQscK41/site-1.png',
       },
       {
         url:
-          'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+        'https://i.ibb.co/Y36TkV0/site-2.png',
       },
       {
         url:
-          'https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/hires/2018/2-dog.jpg',
+        'https://i.ibb.co/4Sjj9n9/site-4.png',
       },
       {
-        url: 'https://www.guidedogs.org/wp-content/uploads/2018/01/Mobile.jpg',
+        url:
+        'https://i.ibb.co/CnSfBRF/site-7.png',
       },
       
     ],

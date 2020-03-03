@@ -7,6 +7,7 @@ import LoggedInPage from './LoggedInPage'
 import MenuDrawer from '../components/MenuDrawer'
 import {firebaseConfig} from '../config'
 import global from '../components/global'
+import DrawerNavigator from '../navigation/DrawerNavigator'
 
 
 class LoginScreen extends Component {
@@ -97,17 +98,19 @@ class LoginScreen extends Component {
           const result = await Google.logInAsync({
             behavior: 'web',
             androidClientId:"1003696475172-je842d8md4rpd2ds28ld3mja5nppj5km.apps.googleusercontent.com",
-            scopes: ['profile', 'email']
+            scopes: ['profile', 'email'],
+            androidStandaloneAppClientId:"1003696475172-njkm3g37r9fqgcugnfqqshif23edd33p.apps.googleusercontent.com"
           });
          
           // });
       
           if (result.type === 'success') {
-            // console.log(result.user.id);
+            console.log('the user id is ::::::::::::;' + result.user.id);
             this.onSignIn(result,result.user.id);
             global.userName = result.user.name
             global.photoUrl = result.user.photoUrl
             global.userId = result.user.id
+            console.log('the user id is ::::::::::::;' + global.userId);
             this.setState({
               signedIn: true,
               name: result.user.name,
@@ -127,6 +130,7 @@ class LoginScreen extends Component {
       render() {
         return (
           <View style={styles.container}>
+          
         {this.state.signedIn ? (
           this.props.navigation.navigate('Home')
             

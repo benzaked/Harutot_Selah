@@ -25,7 +25,15 @@
     ],
     
     "android": {
-      "package": "com.yourcompany.yourappname"
+      "package": "com.harutot.selah",
+      "versionCode": 2,
+      "config": {
+        "googleSignIn": {
+          "apiKey": "AIzaSyB-7zpG79ceraLuBvnAKDlWhbmxwjN3aX4",
+          "certificateHash": "EC962687F191231EB1BECCAB4D80C9DEA9AE9B6F"
+        }
+      }
+
     },
     "entryPoint": "node_modules/expo/AppEntry.js"
   },

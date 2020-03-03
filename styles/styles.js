@@ -4,7 +4,8 @@ const styles = StyleSheet.create({
     commentContainer: {
         paddingRight: 5,
         marginBottom: 10,
-        flexDirection: "row"
+        flexDirection: "row",
+
     },
     left: {
         padding: 5
@@ -36,6 +37,7 @@ const styles = StyleSheet.create({
     },
     body: {
         paddingBottom: 10
+
     },
     rightActionBar: {
         paddingRight: 10,

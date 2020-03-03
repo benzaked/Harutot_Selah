@@ -4,9 +4,10 @@ import {
   StyleSheet,
   TextInput,
   Text,
-  View, TouchableOpacity
+  View, TouchableOpacity,ScrollView
 } from 'react-native';
 import PropTypes from 'prop-types'
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview'
 
 export default class Input extends Component {
 
@@ -41,30 +42,36 @@ export default class Input extends Component {
     return (
       // This moves children view with input field and submit button
       // up above the keyboard when it's active
-      <KeyboardAvoidingView
-        behavior='position'
-      >
-        <View style={styles.container}>
-          {/* Comment input field */}
-          <TextInput
-            placeholder="Add a comment..."
-            keyboardType="twitter" // keyboard with no return button
-            autoFocus={true} // focus and show the keyboard
-            style={styles.input}
-            value={this.state.text}
-            onChangeText={this.onChangeText} // handle input changes
-            onSubmitEditing={this.onSubmitEditing} // handle submit event
-          />
-          {/* Post button */}
-          <TouchableOpacity
-            style={styles.button}
-            onPress={this.submit}
-          >
-            {/* Apply inactive style if no input */}
-            <Text style={[styles.text, !this.state.text ? styles.inactive : []]}>Post</Text>
-          </TouchableOpacity>
-        </View>
-      </KeyboardAvoidingView>
+      <KeyboardAwareScrollView
+        style={{fles: 1}}
+        behavior='padding'
+        enabled={true}>
+          <ScrollView>
+            <View  style={styles.container}>
+              {/* Comment input field */}
+              <TextInput
+                placeholder="תן פירוש לחריטה"
+                keyboardType="twitter" // keyboard with no return button
+                autoFocus={true} // focus and show the keyboard
+                style={styles.input}
+                value={this.state.text}
+                onChangeText={this.onChangeText} // handle input changes
+                onSubmitEditing={this.onSubmitEditing} // handle submit event
+              />
+              {/* Post button */}
+              <TouchableOpacity
+                style={styles.button}
+                onPress={this.submit}
+              >
+                {/* Apply inactive style if no input */}
+                <Text style={[styles.text, !this.state.text ? styles.inactive : []]}>Post</Text>
+              </TouchableOpacity>
+            </View>
+          </ScrollView>
+          
+        </KeyboardAwareScrollView>
+      
+      
     );
   }
 

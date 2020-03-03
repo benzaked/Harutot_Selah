@@ -7,6 +7,8 @@ import { StyleSheet,
     Image,
     ScrollView
   } from 'react-native';
+  import { createStackNavigator, createAppContainer, StackActions } from 'react-navigation';
+
 import LoggedInPage from './LoggedInPage'
 import global from '../components/global'
 
@@ -19,16 +21,42 @@ export default class SitesCatalog extends React.Component {
     super(props);
     this.state = {
       image_clicked : false,
-      pageNo:-1
+      pageNo:-1,
+      siteImg: NaN
     }
   }
-
-    moveToAddNewCustomer =  (pageNo) =>{
-        console.log('im here');
-        this.setState({
-          image_clicked: true,
+    
+    moveToAddNewCustomer =  (pageNo,siteImg) =>{
+      console.log("saddssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+      const pushAction = StackActions.push({
+        routeName: 'LoggedInPage',
+        params: {
+          name: global.userName,
+          photoUrl: global.photoUrl,
+          userID: global.userId,
           pageNo: pageNo,
+          siteImg: siteImg,
+        }
         });
+        this.props.navigation.dispatch(pushAction);
+      
+  
+
+      //   this.props.navigation.navigate('LoggedInPage', {
+      //     name: global.userName,
+      //     photoUrl: global.photoUrl,
+      //     userID: global.userId,
+      //     pageNo: pageNo,
+      //     siteImg: siteImg,
+      //     navigation: this.props.navigation,
+      //     go_back_key: this.props.navigation.state.key
+      // })
+        // this.setState({
+        //   image_clicked: true,
+        //   pageNo: pageNo,
+        //   siteImg: siteImg
+        // }
+        // );
 
     };
 
@@ -39,7 +67,8 @@ export default class SitesCatalog extends React.Component {
       
       <View style={styles.container}>
         {this.state.image_clicked ? (
-            <LoggedInPage name ={global.userName} photoUrl={global.photoUrl} userID={global.userID} pageNo={this.state.pageNo} />
+            <LoggedInPage name ={global.userName} photoUrl={global.photoUrl} userID={global.userId} pageNo={this.state.pageNo} siteImg ={this.state.siteImg} navigation={this.props.navigation} />
+            
             ) : (
               <View style={styles.container}>  
               <View style={styles.header}>
@@ -54,10 +83,11 @@ export default class SitesCatalog extends React.Component {
                         return (
                         
                         <TouchableOpacity
-                          onPress={() => this.moveToAddNewCustomer(index)}
-                          style={styles.image}>
+                          onPress={() => this.moveToAddNewCustomer(index,image.url)}
+                          style={styles.image}
+                          key ={image.url}>
                           
-                          <Image source={{ uri: image.url }} style={styles.bottomItem} />
+                          <Image source={{uri : image.url}} style={styles.bottomItem} />
                         </TouchableOpacity>
                         )
                     })}
@@ -71,6 +101,8 @@ export default class SitesCatalog extends React.Component {
   }
 }
 
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -82,10 +114,11 @@ const styles = StyleSheet.create({
     backgroundColor:'#f5f5f5'
   },
   text :{
-    fontSize:24,
+    fontSize:20,
     fontWeight:'700',
     paddingHorizontal:20,
-    paddingTop:30
+    paddingTop:40,
+    paddingRight:50
   },
   bottom :{
     height :'90%',

@@ -1,11 +1,13 @@
 import React ,  {Component} from 'react';
-import { StyleSheet, Text, View,TextInput,Button,Image,ScrollView ,Share} from 'react-native';
+import { StyleSheet, Text, View,TextInput,Button,Image,ScrollView ,Share,BackHandler} from 'react-native';
 import Comment from '../Comment'
 import firebase from 'firebase'
 import { Icon } from 'react-native-elements'
 import MenuButton from  '../components/MenuButton'
-
+import SitesCatalog from '../screens/SitesCatalog'
 import Input from '../actions/Input'
+import { NavigationActions,StackActions } from "react-navigation";
+
 // import { Icon } from 'react-native-vector-icons/Icon';
 // import Comments from "react-native-comments";
 class LoggedInPage extends Component {
@@ -13,10 +15,12 @@ class LoggedInPage extends Component {
         
         super(props);
         this.state = {
-            name: this.props.name,
-            photoUrl: this.props.photoUrl,
-            userID: this.props.userID,
-            pageNo: this.props.pageNo,
+        
+            name: this.props.navigation.state.params.name,
+            photoUrl: this.props.navigation.state.params.photoUrl,
+            userID: this.props.navigation.state.params.userID,
+            pageNo: this.props.navigation.state.params.pageNo,
+            siteImg:this.props.navigation.state.params.siteImg,
             comment_text: '',
             all_comments: []
         }
@@ -25,25 +29,25 @@ class LoggedInPage extends Component {
     }
 
     componentWillMount() {
-
-        pageNo = this.state.pageNo
+        pageNo = this.props.navigation.state.params.pageNo
         const commentsRef = firebase.database().ref('comments');
         this.listenForNotitas(commentsRef);
       };
-      
+  
       listenForNotitas = (commentsRef) => {
         commentsRef.on('value', (dataSnapshot) => {
           var aux = [];
           dataSnapshot.forEach((child) => {
-            aux.push({
-              created_at: child.val().created_at,
-              profile_picture: child.val().profile_picture,
-              name : child.val().name,
-              userID :child.val().userID,
-              content :child.val().content,
-              id: child.key
+            child.val().pageNo == this.state.pageNo ?
+              aux.push({
+                created_at: child.val().created_at,
+                profile_picture: child.val().profile_picture,
+                name : child.val().name,
+                userID :child.val().userID,
+                content :child.val().content,
+                id: child.key
+              }) : null
             });
-          });
           this.setState({all_comments: aux});
         });
       };  // listenForNotitas
@@ -59,12 +63,12 @@ class LoggedInPage extends Component {
     submitComment(content){
         //console.log('photo: ',this.state.photoUrl)
         firebase.database().ref('/comments/').push({
-            
             profile_picture: this.state.photoUrl,
             name: this.state.name,
             created_at: Date.now(),
             userID:this.state.userID,
-            content: content
+            content: content,
+            pageNo: this.state.pageNo
         })
     }
       
@@ -97,39 +101,42 @@ class LoggedInPage extends Component {
                   ></Comment>
 
             );
-          });
-        
+          }
+         
+          );
         return(
-            <ScrollView>
-            <MenuButton navigation={this.props.navigation} />
+          
+                  <ScrollView>
+                  <MenuButton navigation={this.props.navigation} />
 
-            <Image
-          style={{ height:400 }}
-          source={{
-            uri:
-              "https://pbs.twimg.com/profile_images/447374371917922304/P4BzupWu_400x400.jpeg"
-          }}
-            />
-            <ScrollView>
+                  <Image
+                style={{ height:400 }}
+                source={{
+                  uri:
+                  this.state.siteImg
+                }}
+                  />
+                  <ScrollView style={{ backgroundColor: "#FFFFFF" }}>
 
-                
-                
-                <Text >תן פירוש לחריטה</Text>
-                <Icon
-                  raised
-                  reverse
-                  name='share'
-                  type='font-awesome'
-                  color='#51D2A8'
-                  onPress={() => this.ShareStuff('IM Title ','Im content','Im photo')}
-                />
-                <Input onSubmit={this.submitComment.bind(this)} />
-                <ScrollView>
-                {DBcommentsList}
-                </ScrollView>
-                </ScrollView>
-                
-                </ScrollView>
+                      
+                      
+                      <Text >תן פירוש לחריטה</Text>
+                      <Icon
+                        raised
+                        reverse
+                        name='share'
+                        type='font-awesome'
+                        color='#51D2A8'
+                         onPress={() => this.ShareStuff('IM Title ','Im content','Im photo')}
+
+                      />
+                      <Input onSubmit={this.submitComment.bind(this)} />
+                      <ScrollView >
+                      {DBcommentsList}
+                      </ScrollView>
+                      </ScrollView>
+                      
+                      </ScrollView>
         )
       
     }
