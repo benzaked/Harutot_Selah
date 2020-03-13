@@ -15,6 +15,7 @@ import test from './test'
 import SitesCatalog from '../screens/SitesCatalog'
 
 import MenuDrawer from '../components/MenuDrawer';
+import Map from '../components/Map';
 
 const WIDTH = Dimensions.get('window').width;
 
@@ -46,6 +47,9 @@ const DrawerNavigator = createDrawerNavigator(
     StackNavigator:{
         screen: StackNavigator,
     },
+    Map:{
+      screen: Map
+    }
    
     
   },
