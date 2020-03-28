@@ -7,12 +7,13 @@ import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import LoginScreen from '../screens/LoginScreen'
-import LoggedInPage from '../screens/LoggedInPage'
+import Map from '../components/Map'
+import comments_page from '../screens/comments_page'
 
 import SitesCatalog from '../screens/SitesCatalog'
 
-import MenuDrawer from '../components/MenuDrawer';
+import StoryList from '../components/StoryList'
+import QuizeList from '../components/QuizeList'
 
 
 
@@ -28,14 +29,31 @@ const StackNavigator = createStackNavigator(
             disableGestures: true
           }
     },
-    LoggedInPage:{
-      screen:LoggedInPage,
+    comments_page:{
+      screen:comments_page,
       navigationOptions: {
-        title: 'Whatever Title',
+        title: 'התרשמות מחרוטה',
+      },
+    },
+    
+    Map:{
+      screen: Map,
+      navigationOptions: {
+        header: null,
+        drawerLockMode: "locked-closed",
+        disableGestures: true
       }
+      },
+    StoryList:{
+      screen : StoryList,
+      navigationOptions: {
+        header: null,
+            drawerLockMode: "locked-closed",
+            disableGestures: true
+      }
+    },
+    
 
-   
-    }
 }, {
     initialRouteName: 'SitesCatalog',
   });

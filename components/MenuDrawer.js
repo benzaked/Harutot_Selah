@@ -57,7 +57,7 @@ export default class MenuDrawer extends React.Component {
 					</View>
 					<View style={styles.bottomLinks}>
 						{this.navLink('Home', 'Home')}
-						{this.navLink('Map', 'משחק')}
+						{this.navLink('Game_menu', 'משחק')}
                         {this.navLink('StackNavigator', 'התרשמות מחרטות')}
 						
 					</View>

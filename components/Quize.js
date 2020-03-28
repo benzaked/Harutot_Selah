@@ -1,5 +1,7 @@
 import React ,  {Component} from 'react';
-import { StyleSheet, Text, View,TextInput,Button } from 'react-native';
+import { StyleSheet, Text, View,TextInput,Button, TouchableOpacity } from 'react-native';
+
+
 class Quize extends Component {
         constructor(props) {
           super(props);
@@ -24,67 +26,101 @@ class Quize extends Component {
           this.setState({ showQuizeScreen: false });
           if (this.state.RightAnswerNum == 1) {
             this.setState({ showRightAnswerScreen: true });
+            this.props.handlerRight();
           } else {
             this.setState({ showWrongAnswerScreen: true });
           }
+          this.props.handler();
       };  
       
       checkAnswer2 = () => {
         this.setState({ showQuizeScreen: false });
           if (this.state.RightAnswerNum == 2) {
             this.setState({ showRightAnswerScreen: true });
+            this.props.handlerRight();
           } else {
             this.setState({ showWrongAnswerScreen: true });
           }
+          this.props.handler();
       };  
       
       checkAnswer3 = () => {
         this.setState({ showQuizeScreen: false });
           if (this.state.RightAnswerNum == 3) {
             this.setState({ showRightAnswerScreen: true });
+            this.props.handlerRight();
           } else {
             this.setState({ showWrongAnswerScreen: true });
           }
+          this.props.handler();
       };  
       
       checkAnswer4 = () => {
         this.setState({ showQuizeScreen: false });
           if (this.state.RightAnswerNum == 4) {
             this.setState({ showRightAnswerScreen: true });
+            this.props.handlerRight();
           } else {
             this.setState({ showWrongAnswerScreen: true });
           }
+          this.props.handler();
       }; 
       
       
     
     render(){
          return(
-          <View>
-            <View>
+          <View style= { styles.container }>
+            
             {this.state.showQuizeScreen ? ( 
-              <View>
-               <Text>{this.state.QuizeContent}</Text>
-                <Button title = {this.state.Answer1} onPress = {this.checkAnswer1} />
-                <Button title = {this.state.Answer2} onPress = {this.checkAnswer2} />
-                <Button title = {this.state.Answer3} onPress = {this.checkAnswer3} />
-                <Button title = {this.state.Answer4} onPress = {this.checkAnswer4} />
+            <View>
+             <Text style = {styles.text}>{this.state.QuizeContent}</Text>
+              
+              <View style={styles.answerContainer}>
+                <TouchableOpacity style={styles.buttonStyle} onPress = {this.checkAnswer1}>
+                   <Text style={styles.buttontextStyle}> 1 </Text> 
+                </TouchableOpacity>
+                <Text style = {styles.text}>{this.state.Answer1}</Text>
+              </View>  
+
+              <View style={styles.answerContainer}>
+                <TouchableOpacity style={styles.buttonStyle} onPress = {this.checkAnswer2}>
+                   <Text style={styles.buttontextStyle}> 2 </Text>
+                </TouchableOpacity>
+                <Text style = {styles.text}>{this.state.Answer2}</Text>
+              </View>  
+
+              <View style={styles.answerContainer}>
+                <TouchableOpacity style={styles.buttonStyle} onPress = {this.checkAnswer3}>
+                   <Text style={styles.buttontextStyle}> 3 </Text> 
+                </TouchableOpacity>
+                <Text style = {styles.text}>{this.state.Answer3}</Text>
+              </View>  
+
+              <View style={styles.answerContainer}>
+                
+                <TouchableOpacity style={styles.buttonStyle} onPress = {this.checkAnswer4}>
+                   <Text style={styles.buttontextStyle}> 4 </Text> 
+                </TouchableOpacity>
+                <Text style = {styles.text}>{this.state.Answer4}</Text> 
                 </View> 
-                ) : null} 
-               </View>
+            </View>
+            ) : null} 
+              
            
             <View >
                 {this.state.showRightAnswerScreen ? (
-                   <Text>
-                   Good for you! you earned 10 points
+                  <Text style = { styles.text}>
+                   כל הכבוד! הרווחת 10 נקודות
                   </Text>
+
                 ) : null}
             </View>
 
             <View >
                 {this.state.showWrongAnswerScreen ? (
-                    <Text>
-                    Wrong answer, maybe next time...
+                    <Text style = { styles.text}>
+                    תשובה שגויה, אולי תצליח בחידה הבאה...
                   </Text>
                 ) : null}
             </View>
@@ -92,39 +128,80 @@ class Quize extends Component {
         );
     }
 }
- 
+
 export default Quize;
 
 const styles = StyleSheet.create({
-    buttonStyle:{
-      flexDirection: 'row',
-      justifyContent: "center",
-      alignItems: "center"
-      /*justifyContent: 'space-between'*/
-    },
-    backgroundImage:{
-      flex: 1,
-      width: '100%',
-      height: '100%',
-      /*justifyContent: "center",
-      alignItems: "center",*/
-      opacity: 0.5
-  },
+       
     container: {
-      flex: 1,
+      flex:1,
+      paddingTop:4,
+      paddingLeft: 4,
+      paddingRight:4,
+      minHeight: 190,
       justifyContent: "center",
-      alignItems: "center",
-      backgroundColor: "orange"
+      alignItems: "flex-end",
+      backgroundColor: "#f1f3f6",
+      borderTopRightRadius: 20,
+      borderTopLeftRadius: 20,
+      borderBottomRightRadius: 20,
+      borderBottomLeftRadius: 20,
+      marginBottom: 3,
+      marginLeft: 7,
+      marginRight:7,
+      borderWidth:0.5,
+      borderColor:'gainsboro',
   },
-  logoContainer:{
-      paddingTop: 50,
-      alignItems: "center",
+
+  answerContainer:{
+    flex:1,
+    width:'100%',
+    alignItems: "center",
+    minHeight: 45,
+    flexDirection: 'row-reverse',
+    // backgroundColor: 'blue'
   },
-  logoText: {
+
   
-      fontSize: 24,
-      fontWeight: '600',
-      color: 'white'
+  text:{
+    
+    flex:1,
+    lineHeight: 20,
+    fontSize: 15,
+    fontWeight: '600',
+    color: 'black',
+    textAlign: 'right'
+        
   },
+
+  buttontextStyle: {
+    fontSize: 15,
+    fontWeight: '600',
+    paddingTop: 6,
+    paddingBottom:6,
+    color:'#354992',
+    textAlign: 'center',
+    
+  },
+  buttonStyle: {
+    
+    width: 50,
+    height:50,
+    alignSelf: 'stretch',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: 'white',
+    borderWidth:1,
+    borderColor:'gainsboro',
+    marginTop: 7,
+    marginBottom: 7,
+    marginLeft: 7,
+    marginRight:7,
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    borderBottomLeftRadius: 20,
+  }
+  
   
 })

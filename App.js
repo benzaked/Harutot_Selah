@@ -16,14 +16,6 @@ export default function App() {
   </View>
   );
  }
-// const appSwitchNavigator = createSwitchNavigator({
-  
-//   LoginScreen:LoginScreen,
-//   loadingScreen:loadingScreen,
-//   DashboardScreen:DashboardScreen
-// })
-// const AppNavigator = createAppContainer(appSwitchNavigator)
-
 const styles = StyleSheet.create({
   screen: {
     padding: 50

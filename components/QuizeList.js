@@ -1,24 +1,38 @@
 import React ,  {Component} from 'react';
-import { StyleSheet, Text, View,TextInput,Button } from 'react-native';
+import { StyleSheet, Text, View,Alert,TouchableOpacity } from 'react-native';
 import Quize from './Quize'
 import firebase from 'firebase'
 import {firebaseConfig} from '../config'
+import { NavigationActions,StackActions } from "react-navigation";
+import Map from './Map'
 class QuizeList extends Component {
         constructor(props) {
           super(props);
+         
            this.state = {
             numberOfSite: props.numberOfSite,
-            quizeList:[]
+            quizeList:[],
+            numOfAnswersFromUser:0,
+            numOfRightAnswers:0,
+            
+
         };
         if (!firebase.apps.length) {firebase.initializeApp(firebaseConfig)};
-    }  
+    }
+    
+    handler=()=>{
+      this.setState({numOfAnswersFromUser: this.state.numOfAnswersFromUser+1})
+    }//setting the numOfAnswersFromUser from the child every time thr user clicks an answer so we wil know when the quizeList is done
+
+    handlerRight=()=>{
+      this.setState({numOfRightAnswers: this.state.numOfRightAnswers+1})
+    }//setting the numOfRightAnswers from the child every time thr user selects right answer 
     
     //creating the specific list with the numberOfSite from the dataBase
     componentDidMount(){
-
-    const commentsRef = firebase.database().ref('Quizes');
-    this.listenForQuizes(commentsRef);
-    
+    const quizesRef = firebase.database().ref('Quizes');
+    this.listenForQuizes(quizesRef);//taking the data from database
+    this.temp();//inserting fake data to database
     };//componentDidMount
 
     temp = () =>{
@@ -26,34 +40,33 @@ class QuizeList extends Component {
         firebase.database().ref('/Quizes/' + 1).set({
             QuizeID:1,
             numberOfSite:3,
-            QuizeContent :"how many legs to the camel?",
+            QuizeContent :"כמה רגליים יש לגמל?",
             Answer1:"1",
             Answer2:"2",
             Answer3:"3",
             Answer4:"4",
             RightAnswerNum:4
         })
-        //   ).then(function (snapshot){
-        //     // console.log('Snapshot', snapshot);
-        //   });
+        
         firebase.database().ref('/Quizes/' + 2).set({
             QuizeID:2,
             numberOfSite:3,
-            QuizeContent :"how many pines Tal Like?",
+            QuizeContent :"איך מכנים את ציורי הסלע ומדוע?",
             Answer1:"1",
             Answer2:"2",
-            Answer3:"8",
+            Answer3:"יש המכנים את ציורי הסלע כשפת המדבר מאחר והם מאפשרים הצצה לעולמם של אלו שחיים במדבר מתקופת עתיקות ועד היום",
             Answer4:"4",
             RightAnswerNum:3
         })
-        }//temp
+        }//temp - inserting fake data to database
     
-    listenForQuizes = (commentsRef) => {
+    listenForQuizes = (quizesRef) => {
         
-        commentsRef.on('value', (dataSnapshot) => {
+      quizesRef.on('value', (dataSnapshot) => {
           var aux = [];
           dataSnapshot.forEach((child) => {
-            aux.push({
+            child.val().numberOfSite == this.state.numberOfSite ? 
+              aux.push({
               QuizeID:child.val().QuizeID,
               numberOfSite:child.val().numberOfSite,
               QuizeContent:child.val().QuizeContent,
@@ -62,15 +75,16 @@ class QuizeList extends Component {
               Answer3:child.val().Answer3,
               Answer4:child.val().Answer4,
               RightAnswerNum:child.val().RightAnswerNum
-            });
-          });
-          this.setState({quizeList: aux});
+            }) : null
+          
         });
-      };  // listenForQuizes
+          this.setState({quizeList: aux});
+          
+        });
+      };  // listenForQuizes-data loading to the quizeList state
     
-
-    renderList = () => {
-        console.log('################################################# Im here')
+      renderList = () => {
+        
             return(
             this.state.quizeList.map((data,key,val) => {
                 return (
@@ -84,19 +98,78 @@ class QuizeList extends Component {
                 Answer3={data.Answer3}
                 Answer4={data.Answer4}
                 RightAnswerNum={data.RightAnswerNum}
-                 
-                  ></Quize>
+                handler={this.handler}
+                handlerRight={this.handlerRight}
+                ></Quize>
              
                   )}
                 ))
-                 }
+      }//renderList
+ 
+     
+      checkIsQuizeOver = () =>{
+        if (this.state.numOfAnswersFromUser==this.state.quizeList.length){
+          
+          return (alert(
+            'כל הכבוד! סיימת לענות על החידון באתר מספר '+this.state.numberOfSite+', '+
+            'צברת בשלב זה '+this.state.numOfRightAnswers*10+' נקודות ',
+            [
+              {text: 'אישור', onPress:  this.props.QuizeDone()},
+            ],
+            { cancelable: false }
+          ))
+        } 
+
+        else 
+          return (alert(
+            'טרם סיימת לענות על כל החידות בשלב זה',
+            [
+              {text: 'אישור', onPress: () => console.log('OK Pressed')},
+            ],
+            { cancelable: false }
+          ))
+      }
+          
     render(){
         return(
          <View>
-             {this.renderList()}
+          
+        {this.renderList()}
+                
+        <TouchableOpacity style={styles.buttonStyle} onPress = {this.checkIsQuizeOver}>
+          <Text style={styles.buttontextStyle}> לחץ כאן להמשך המשחק </Text>
+        </TouchableOpacity>
+          
          </View>
         );
-    }
-}
+    }//render
+}//class
+
+const styles = StyleSheet.create({
+  buttontextStyle: {
+    fontSize: 15,
+    fontWeight: '900',
+    paddingTop: 6,
+    paddingBottom:6,
+    color:'#354992',
+    textAlign: 'center',
+    fontStyle:  'italic'
+  },
+  buttonStyle: {
+    
+    flex:1,
+    alignSelf: 'stretch',
+    backgroundColor: "#f1f3f6",
+    borderWidth:1,
+    borderColor:'gainsboro',
+    marginBottom:7,
+    marginLeft: 7,
+    marginRight:7,
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    borderBottomLeftRadius: 20,
+  }
+ })
  
 export default QuizeList;

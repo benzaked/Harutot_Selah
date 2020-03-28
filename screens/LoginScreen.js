@@ -3,14 +3,13 @@ import { StyleSheet, Text, View,TextInput,Button } from 'react-native';
 import Expo from "expo"
 import firebase from 'firebase'
 import * as Google from 'expo-google-app-auth';
-import LoggedInPage from './LoggedInPage'
 import MenuDrawer from '../components/MenuDrawer'
 import {firebaseConfig} from '../config'
 import global from '../components/global'
 import DrawerNavigator from '../navigation/DrawerNavigator'
 
 
-class LoginScreen extends Component {
+export default class LoginScreen extends Component {
     constructor(props){
       console.ignoredYellowBox = [
         'Setting a timer'
@@ -132,7 +131,7 @@ class LoginScreen extends Component {
           <View style={styles.container}>
           
         {this.state.signedIn ? (
-          this.props.navigation.navigate('Home')
+        this.props.navigation.navigate('Home')
             
           
           //  <LoggedInPage name ={this.state.name} photoUrl={this.state.photoUrl} userID={this.state.userID} pageNo={1} />
@@ -143,11 +142,11 @@ class LoginScreen extends Component {
             
                 
             
-        )}
+        )} 
         </View>
         )}
 }
-export default LoginScreen;
+
 
 const styles = StyleSheet.create({
     container:{

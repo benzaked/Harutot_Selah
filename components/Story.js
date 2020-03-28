@@ -1,13 +1,11 @@
  
 import React,  { Component } from 'react';
 
-import { StyleSheet, Text, View,TextInput,Button,Image,ImageBackground,} from 'react-native';
-import Quize from './Quize'
+import { StyleSheet, Text, View,TextInput,Button,Image,ImageBackground,ScrollView, TouchableOpacity} from 'react-native';
+import StoryHeader from './StoryHeader'
 import QuizeList from './QuizeList'
-
-
-
-  export default class Story extends Component {
+ 
+export default class Story extends Component {
     constructor(props) {
       super(props);
       this.state = {
@@ -15,111 +13,139 @@ import QuizeList from './QuizeList'
         showQuize: false, 
         storyTitle: this.props.storyTitle,
         story: this.props.story,
-        Quizes: []
        
       };
-    }
-    createQuizData (){ //just to test 
-      QuizesTemp =[]
-      QuizesTemp.push( {
-        key: 1,
-        numberOfSite :3,
-        QuizeContent :"how many legs to the camel?",
-        Answer1:1,
-        Answer2:2,
-        Answer3:3,
-        Answer4:4,
-        RightAnswerNum:4
-      })
       
-      this.setState({Quizes : QuizesTemp})
-    }
+    }//constructor
+   
+
+
+    QuizeDone = () => {
+    this.props.QuizeDone()
+    console.log('Quize Done!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+
+      }
+   
+
 
 render() {
-  this.createQuizData()
-  const QuizesList =  this.Quizes.map((data, key) => {
-    return(
-    <Quize
-    key={data.key}
-    Story={data.Story}
-    QuizeContent={data.QuizeContent}
-    Answer1={data.Answer1}
-    Answer2={data.Answer2}
-    Answer3={data.Answer3}
-    Answer4={data.Answer4}
-    RightAnswerNum={data.RightAnswerNum}
-    ></Quize>
-    
-            );
-          });
-    
+  
 return (
-<View style = {styles.container } >
-    <ImageBackground  style= { styles.backgroundImage } source={require('./assets/back.jpg')} >
 
-      <View style= { styles.logoContainer }>
-        <Text style = { styles.logoText }>
-          {this.props.storyTitle}
+<View>
+      <StoryHeader numOfSite={this.props.numberOfSite}></StoryHeader>
+      <View style= { styles.titleContainer }>
+        <Text style = { styles.StoryTitleText }>
+          {this.state.storyTitle}
         </Text>
+        </View>
+        <View style= {styles.contentContainer }> 
         <Text style = { styles.StoryText }>
-          {this.props.story}
+          {this.state.story}
         </Text>
-      </View>
-      <View style={styles.buttomStyle} >
-      {this.state.showQuize ? (
-          {QuizesList}
+        </View>
+        
+      <View>
+      {!(this.state.showQuize) ? (      
+        <TouchableOpacity style={styles.buttonStyle} onPress = {this.ShowfuncQuize}>
+           <Text style={styles.buttontextStyle}> המשך לחידון </Text>
+        </TouchableOpacity>
         ) : null}
-      
-      <Button title = "המשך לחידה" onPress = {this.ShowHideQuize} />
-      
-      </View>
-      </ImageBackground>
-    </View>
-      )}
- ShowHideQuize = () => {
-  if (this.state.showQuize == true) {
-    this.setState({ showQuize: false });
-  } else {
-    this.setState({ showQuize: true });
-  }
-};
-}
-const styles = StyleSheet.create({
-  buttomStyle:{
-    flexDirection: 'row',
-    justifyContent: "center",
-    alignItems: "center"
-    /*justifyContent: 'space-between'*/
-  },
-  backgroundImage:{
-    flex: 1,
-    width: '100%',
-    height: '100%',
-    /*justifyContent: "center",
-    alignItems: "center",*/
-    opacity: 0.5
-},
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "orange"
-},
-logoContainer:{
-    paddingTop: 50,
-    alignItems: "center",
-},
-logoText: {
+      {this.state.showQuize ? (
+          <QuizeList
+          numberOfSite={this.state.numberOfSite}
+          QuizeDone = {this.QuizeDone}
 
-    fontSize: 24,
+          ></QuizeList>
+        ) : null}
+      </View>
+</View>
+    
+      )} //render
+
+ ShowfuncQuize = () => {
+    this.setState({ showQuize: true });
+};
+
+
+}//class
+
+const styles = StyleSheet.create({
+
+      
+ titleContainer: {
+    paddingLeft: 4,
+    paddingRight:4,
+    minHeight:50,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#f1f3f6",
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
+    marginBottom: 3,
+    marginLeft: 7,
+    marginRight:7,
+    borderWidth:0.5,
+    borderColor:'gainsboro',
+},
+
+contentContainer: {
+  paddingTop: 4,
+  paddingBottom:4,
+  paddingLeft: 4,
+  paddingRight:4,
+  minHeight: 200,
+  justifyContent: "center",
+  alignItems: "center",
+  backgroundColor: "#f1f3f6",
+  borderBottomRightRadius: 20,
+  borderBottomLeftRadius: 20,
+  marginBottom: 3,
+  marginLeft: 7,
+  marginRight:7,
+  borderWidth:0.5,
+  borderColor:'gainsboro',
+},
+
+StoryTitleText: {
+    lineHeight: 33,
+    fontSize: 30,
     fontWeight: '600',
-    color: 'white'
+    color: 'black',
+    textAlign: 'center',
 },
 StoryText:{
-
+    
+    lineHeight: 20,
     fontSize: 15,
     fontWeight: '600',
-    color: 'white'
+    color: 'black',
+    textAlign: 'center',
+    
+},
+buttontextStyle: {
+  fontSize: 15,
+  fontWeight: '900',
+  paddingTop: 6,
+  paddingBottom:6,
+  color:'#354992',
+  textAlign: 'center',
+  fontStyle:  'italic'
+},
+buttonStyle: {
+  
+  flex:1,
+  alignSelf: 'stretch',
+  backgroundColor: "#f1f3f6",
+  borderWidth:1,
+  borderColor:'gainsboro',
+  marginBottom:3,
+  marginLeft: 7,
+  marginRight:7,
+  borderTopRightRadius: 20,
+  borderTopLeftRadius: 20,
+  borderBottomRightRadius: 20,
+  borderBottomLeftRadius: 20,
 }
 });
   

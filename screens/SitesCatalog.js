@@ -9,7 +9,7 @@ import { StyleSheet,
   } from 'react-native';
   import { createStackNavigator, createAppContainer, StackActions } from 'react-navigation';
 
-import LoggedInPage from './LoggedInPage'
+import LoggedInPage from './comments_page'
 import global from '../components/global'
 
 import MenuButton from  '../components/MenuButton'
@@ -22,19 +22,27 @@ export default class SitesCatalog extends React.Component {
     this.state = {
       image_clicked : false,
       pageNo:-1,
-      siteImg: NaN
+      siteImg: NaN,
+      sites: ""
+     
     }
   }
-    
+  
+  componentWillMount() {
+
+  this.setState({
+    sites:global.sites
+  });
+  } 
     moveToAddNewCustomer =  (pageNo,siteImg) =>{
       console.log("saddssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
       const pushAction = StackActions.push({
-        routeName: 'LoggedInPage',
+        routeName: 'comments_page',
         params: {
           name: global.userName,
           photoUrl: global.photoUrl,
           userID: global.userId,
-          pageNo: pageNo,
+          pageNo: pageNo -1,
           siteImg: siteImg,
         }
         });
@@ -63,6 +71,7 @@ export default class SitesCatalog extends React.Component {
 
 
   render() {
+    console.log(global.sites)
     return (
       
       <View style={styles.container}>
@@ -72,27 +81,31 @@ export default class SitesCatalog extends React.Component {
             ) : (
               <View style={styles.container}>  
               <View style={styles.header}>
-                <MenuButton navigation={this.props.navigation} />
+                <MenuButton navigation={this.props.navigation} showIcon={true} />
                 <Text style={styles.text}>
                   לחץ על התמונה כדי לקרוא פרשנות של מבקרים
                 </Text>
                 </View>
                 
-                <View style={styles.bottom}>
-                      {Images_data.url.map((image, index) => {
-                        return (
+                  <View style={styles.bottom}>
+                    <ScrollView>
+                        {global.sites.map((site) => {
                         
-                        <TouchableOpacity
-                          onPress={() => this.moveToAddNewCustomer(index,image.url)}
-                          style={styles.image}
-                          key ={image.url}>
+                          return (
+                            
+                          <TouchableOpacity
+                            onPress={() => this.moveToAddNewCustomer(site.id,site.image)}
+                            style={styles.image}
+                            key ={site.image}>
+                            
+                            <Image source= {site.image} style={styles.bottomItem} />
+                          </TouchableOpacity>
                           
-                          <Image source={{uri : image.url}} style={styles.bottomItem} />
-                        </TouchableOpacity>
-                        )
-                    })}
-                  
-              </View>
+                          )
+                        
+                      })}
+                    </ScrollView>
+                  </View>
               </View>
           )}
           </View>
@@ -130,8 +143,9 @@ const styles = StyleSheet.create({
   flex:1,
   },
   image: {
-    width: '50%',
-    height: '50%',
+    width: 300,
+    height: 250,
     padding: 5,
+    
   },
 });
