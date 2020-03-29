@@ -9,7 +9,7 @@ import { StyleSheet,
   } from 'react-native';
   import { createStackNavigator, createAppContainer, StackActions } from 'react-navigation';
 
-import LoggedInPage from './comments_page'
+import comments_page from './comments_page'
 import global from '../components/global'
 
 import MenuButton from  '../components/MenuButton'

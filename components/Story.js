@@ -22,7 +22,7 @@ export default class Story extends Component {
 
     QuizeDone = () => {
     this.props.QuizeDone()
-    console.log('Quize Done!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+   
 
       }
    
