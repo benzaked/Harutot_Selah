@@ -58,7 +58,7 @@ export default class MenuDrawer extends React.Component {
 					<View style={styles.bottomLinks}>
 						{this.navLink('Home', 'Home')}
 						{this.navLink('Game_menu', 'משחק')}
-                        {this.navLink('StackNavigator', 'התרשמות מחרטות')}
+                        {this.navLink('SitesCatalog', 'התרשמות מחרטות')}
 						
 					</View>
 				</ScrollView>

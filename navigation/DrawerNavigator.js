@@ -27,7 +27,7 @@ const DrawerConfig = {
   },
 };
 
-const DrawerNavigator = createDrawerNavigator(
+const DrawerNavigator = createDrawerNavigator( 
   {
 
    
@@ -42,19 +42,15 @@ const DrawerNavigator = createDrawerNavigator(
     Home: {
       screen: HomeScreen,
     },
-    Links: {
-      screen: LinksScreen,
-    },
+    SitesCatalog:{
+      screen: SitesCatalog,
+  },
     StackNavigator:{
         screen: StackNavigator,
     },
     Game_menu:{
       screen: Game_menu,
     },
-    Map:{
-      screen: Map,
-    },
-    
     comments_page:{
       screen:comments_page,
       navigationOptions: {
@@ -63,14 +59,7 @@ const DrawerNavigator = createDrawerNavigator(
         disableGestures: true
     }
   },
-  StoryList:{
-    screen : StoryList,
-    navigationOptions: {
-      header: null,
-          drawerLockMode: "locked-closed",
-          disableGestures: true
-    }
-  },
+ 
 
    
     

@@ -32,18 +32,11 @@ const StackNavigator = createStackNavigator(
     comments_page:{
       screen:comments_page,
       navigationOptions: {
-        title: 'התרשמות מחרוטה',
+        title: 'התרשמויות של מבקרים מחרותות הסלע',
+        headerTitleStyle : {textAlign: 'center',alignSelf:'center',fontSize:18},
+       
       },
     },
-    
-    Map:{
-      screen: Map,
-      navigationOptions: {
-        header: null,
-        drawerLockMode: "locked-closed",
-        disableGestures: true
-      }
-      },
     StoryList:{
       screen : StoryList,
       navigationOptions: {
@@ -52,6 +45,14 @@ const StackNavigator = createStackNavigator(
             disableGestures: true
       }
     },
+    Map:{
+      screen: Map,
+      navigationOptions: {
+        header: null,
+        drawerLockMode: "locked-closed",
+        disableGestures: true
+      }
+      },
     
 
 }, {

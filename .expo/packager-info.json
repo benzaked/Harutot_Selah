@@ -1,9 +1,9 @@
 {
-  "expoServerNgrokUrl": "https://wu-a8q.benzaked.finalproject-master.exp.direct",
-  "packagerNgrokUrl": "https://packager.wu-a8q.benzaked.finalproject-master.exp.direct",
-  "ngrokPid": 39024,
+  "expoServerNgrokUrl": "https://df-6ae.benzaked.finalproject-master.exp.direct",
+  "packagerNgrokUrl": "https://packager.df-6ae.benzaked.finalproject-master.exp.direct",
+  "ngrokPid": 1020,
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 32256
+  "packagerPid": 14892
 }

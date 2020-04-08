@@ -22,7 +22,11 @@ export default class StoryList extends Component {
       this.setState({
       QuizeDone :true
       })
-      this.props.navigation.navigate('Map')   
+      // this.props.navigation.navigate('Map')  
+      const pushAction = StackActions.push({
+        routeName: 'Map',
+        });
+        this.props.navigation.dispatch(pushAction); 
     }
     componentDidMount(){
       const storiesRef = firebase.database().ref('Stories');

@@ -39,8 +39,8 @@ export default class Comment extends PureComponent {
 
   handleReport() {
     Alert.alert(
-      "Confirm report",
-      "Are you sure you want to report?",
+      "אשר מחיקה",
+      "האם אתה בטוח שברצונך למחוק את הפירוש?",
       [
         {
           text: "Yes",
@@ -65,14 +65,14 @@ export default class Comment extends PureComponent {
 
   handleDelete() {
     Alert.alert(
-      "Confirm delete",
-      "Are you sure you want to delete?",
+      "אשר מחיקה",
+      "האם אתה בטוח שברצונך למחוק את הפירוש?",
       [
         {
-          text: "Yes" + this.props.id,
+          text: "כן",
           onPress: () => this.props.deleteAction(this.props.id)
         },
-        { text: "No", onPress: () => null }
+        { text: "לא", onPress: () => null }
       ],
       true
     );
@@ -187,7 +187,7 @@ export default class Comment extends PureComponent {
         {this.state.menuVisible ? (
           <View style={styles.menu}>
             <View style={{ flex: 1.5 }}>
-              {this.props.canEdit(this.props.userID) ? (
+              {/* {this.props.canEdit(this.props.userID) ? (
                 <TouchableOpacity
                   style={styles.menuItem}
                   onPress={this.handleEdit}
@@ -202,7 +202,7 @@ export default class Comment extends PureComponent {
                     Edit
                   </Text>
                 </TouchableOpacity>
-              ) : null}
+              ) : null} */}
               {this.props.reportAction && !this.props.isOwnComment ? (
                 <TouchableOpacity
                   style={styles.menuItem}

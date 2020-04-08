@@ -110,8 +110,10 @@ class QuizeList extends Component {
       checkIsQuizeOver = () =>{
         if (this.state.numOfAnswersFromUser==this.state.quizeList.length){
           
-          return (alert(
-            'כל הכבוד! סיימת לענות על החידון באתר מספר '+this.state.numberOfSite+', '+
+          return (
+            Alert.alert(
+               'כל הכבוד!!',
+            ' סיימת לענות על החידון באתר מספר '+this.state.numberOfSite+', '+
             'צברת בשלב זה '+this.state.numOfRightAnswers*10+' נקודות ',
             [
               {text: 'אישור', onPress:  this.props.QuizeDone()},

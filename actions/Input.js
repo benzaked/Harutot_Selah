@@ -50,7 +50,7 @@ export default class Input extends Component {
             <View  style={styles.container}>
               {/* Comment input field */}
               <TextInput
-                placeholder="תן פירוש לחריטה"
+                placeholder="תן פירוש לחריתה"
                 keyboardType="twitter" // keyboard with no return button
                 autoFocus={true} // focus and show the keyboard
                 style={styles.input}

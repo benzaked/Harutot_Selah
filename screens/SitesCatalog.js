@@ -9,7 +9,6 @@ import { StyleSheet,
   } from 'react-native';
   import { createStackNavigator, createAppContainer, StackActions } from 'react-navigation';
 
-import comments_page from './comments_page'
 import global from '../components/global'
 
 import MenuButton from  '../components/MenuButton'
@@ -82,8 +81,9 @@ export default class SitesCatalog extends React.Component {
               <View style={styles.container}>  
               <View style={styles.header}>
                 <MenuButton navigation={this.props.navigation} showIcon={true} />
+                
                 <Text style={styles.text}>
-                  לחץ על התמונה כדי לקרוא פרשנות של מבקרים
+                לחץ על התמונה כדי להתרשם מן חרותות הסלע ולהשאיר פרשנות משלך לחרותות
                 </Text>
                 </View>
                 
@@ -94,11 +94,11 @@ export default class SitesCatalog extends React.Component {
                           return (
                             
                           <TouchableOpacity
-                            onPress={() => this.moveToAddNewCustomer(site.id,site.image)}
+                            onPress={() => this.moveToAddNewCustomer(site.id,site.imageBig)}
                             style={styles.image}
-                            key ={site.image}>
+                            key ={site.imageBig}>
                             
-                            <Image source= {site.image} style={styles.bottomItem} />
+                            <Image source= {site.imageBig} style={styles.bottomItem} />
                           </TouchableOpacity>
                           
                           )
@@ -126,12 +126,13 @@ const styles = StyleSheet.create({
     height :'10%',
     backgroundColor:'#f5f5f5'
   },
+  
   text :{
-    fontSize:20,
-    fontWeight:'700',
+    fontSize:18,
+    // fontWeight:'700',
     paddingHorizontal:20,
     paddingTop:40,
-    paddingRight:50
+    paddingRight:60
   },
   bottom :{
     height :'90%',

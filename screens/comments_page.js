@@ -4,7 +4,6 @@ import Comment from '../Comment'
 import firebase from 'firebase'
 import { Icon } from 'react-native-elements'
 import MenuButton from  '../components/MenuButton'
-import SitesCatalog from './SitesCatalog'
 import Input from '../actions/Input'
 import { NavigationActions,StackActions } from "react-navigation";
 const {height, width} = Dimensions.get('window');
@@ -30,7 +29,6 @@ class comments_page extends Component {
     }
 
     componentWillMount() {
-        console.log('Navigations ::::::::::::::::::::::::::::::::: ' + this.props.navigation)
         pageNo = this.props.navigation.state.params.pageNo
         const commentsRef = firebase.database().ref('comments');
         this.listenForNotitas(commentsRef);
@@ -55,7 +53,6 @@ class comments_page extends Component {
       };  // listenForNotitas
        
       deleteAction = (key) => {
-        console.log(key)
         return firebase.database().ref('comments').child('' + key).remove();
     }
     isOwner(userID){
@@ -63,7 +60,6 @@ class comments_page extends Component {
         else return false;
      }
     submitComment(content){
-        //console.log('photo: ',this.state.photoUrl)
         firebase.database().ref('/comments/').push({
             profile_picture: this.state.photoUrl,
             name: this.state.name,
@@ -84,21 +80,30 @@ class comments_page extends Component {
     }
     navigateToStory = () => {
       
-      // const pushAction = StackActions.push({
-      //   routeName: 'StoryList',
-      //   params: {
+      const pushAction = StackActions.push({
+        routeName: 'StoryList',
+        params: {
 
-      //     pageNo:3,
+          pageNo:3,
 
-      //   }
-      //   });
-      //   this.props.navigation.dispatch(pushAction);
-      this.props.navigation.navigate('StoryList' ,params = {pageNo :3})
+        }
+        });
+        this.props.navigation.dispatch(pushAction);
+      //this.props.navigation.navigate('StoryList' ,params = {pageNo :3})
     }
-
+    compare (a, b) {
+      if (a.created_at > b.created_at) {
+        return -1;
+    }
+    if (b.created_at> a.created_at) {
+        return 1;
+    }
+    return 0;
+   }
     render(){
-        
-        const DBcommentsList = this.state.all_comments.map((data,key,val) => {
+
+      console.log(this.state.all_comments.sort(this.compare))
+        const DBcommentsList = this.state.all_comments.sort(this.compare).map((data,key,val) => {
              return (
               
                 <Comment
@@ -125,10 +130,10 @@ class comments_page extends Component {
         return(  
                   <ScrollView>
                     <MenuButton navigation={this.props.navigation} showIcon = {this.state.showMenuButtom} />
-                    {this.state.moveToStory?
-                               ( <TouchableOpacity style={styles.buttonStyle} onPress = { this.navigateToStory}>
-                                          <Text style={styles.buttontextStyleShort}> למעבר לסיפור</Text>
-                                        </TouchableOpacity>):(<Text></Text>) }
+                    
+                    <TouchableOpacity style={styles.share} onPress = { () =>  this.ShareStuff('IM Title ','Im content','Im photo')}>
+                    <Text style={styles.buttontextStyleShort}> לשיתוף </Text>
+                    </TouchableOpacity>
                     <View style={{flex:1,width:"100%",height:"100%"}} >
                         <Image
                       style={{ height:350, width:width}}
@@ -138,8 +143,8 @@ class comments_page extends Component {
 
                             
                             
-                            
-                            <Icon
+                        
+                            {/* <Icon
                               raised
                               reverse
                               name='share'
@@ -147,7 +152,13 @@ class comments_page extends Component {
                               color='#51D2A8'
                               onPress={() => this.ShareStuff('IM Title ','Im content','Im photo')}
 
-                            />
+                            /> */}
+                            <View>
+                            {this.state.moveToStory? (
+                            <TouchableOpacity style={styles.buttonStyle} onPress = { () =>  this.navigateToStory()}>
+                              <Text style={styles.buttontextStyleLong}>למעבר לסיפור </Text>
+                            </TouchableOpacity>):(<Text></Text>) }
+                            </View>
                             
                             
                             <Input onSubmit={this.submitComment.bind(this)} />
@@ -171,12 +182,11 @@ const styles = StyleSheet.create({
         justifyContent:'center'
 
     },
-    buttonStyle: {
+    share: {
       zIndex: 9,
       position: 'absolute',
       top: 40,
       left: 20,
-		  
       flex:1,
       alignSelf: 'center',
       backgroundColor: '#f1f3f6',
@@ -187,14 +197,38 @@ const styles = StyleSheet.create({
       borderBottomRightRadius: 20,
       borderBottomLeftRadius: 20,
     },
+    buttonStyle: {
+      flex:1,
+      alignSelf: 'stretch',
+      backgroundColor: "#f1f3f6",
+      borderWidth:1,
+      borderColor:'gainsboro',
+      marginTop:3,
+      marginBottom:3,
+      marginLeft: 7,
+      marginRight:7,
+      borderTopRightRadius: 20,
+      borderTopLeftRadius: 20,
+      borderBottomRightRadius: 20,
+      borderBottomLeftRadius: 20,
+    },
     
     buttontextStyleShort: {
-      fontSize: 14,
+      fontSize: 18,
       fontWeight: '900',
       paddingTop: 6,
       paddingBottom:6,
-      color:'black',
+      color:'#354992',
       textAlign: 'center',
       fontStyle:  'italic'
     },
+    buttontextStyleLong: {
+      fontSize: 15,
+      fontWeight: '900',
+      paddingTop: 6,
+      paddingBottom:6,
+      color:'#354992',
+      textAlign: 'center',
+      fontStyle:  'italic'
+}
 })

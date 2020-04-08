@@ -11,10 +11,16 @@ const { width, height } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
 const LATITUDE = 31.2674413;//מרכוז לפי משתמש
 const LONGITUDE = 34.8003693;
-const LATITUDE_DELTA = 0.000922;//רדיוס
+const LATITUDE_DELTA = 0.00922;//רדיוס
 const LONGITUDE_DELTA = ASPECT_RATIO*LATITUDE_DELTA;
-const Daniellongitude = 34.8025459
-const Daniellatitude = 31.2658046
+import {  StackActions } from 'react-navigation';
+
+const Daniellongitude =  34.74266393110156
+const Daniellatitude = 31.876715319257883
+
+
+const site2long = 34.7430979
+const site2llat = 30.8219382
 
 export default class Mapp extends React.Component {
   constructor(props) {
@@ -28,15 +34,8 @@ export default class Mapp extends React.Component {
       latitudeDelta: LATITUDE_DELTA,
       longitudeDelta: LONGITUDE_DELTA,
 
-      sites :[
-        {id:1,wasOnsite :0, latitude: Daniellatitude, longitude: Daniellongitude, image : require('../assets/Map/1.png'), imageBig : require('../assets/2.jpg')}, 
-        {id:2,wasOnsite :0, latitude: 30.8219382, longitude: 34.7430979, image : require('../assets/Map/2.png'), imageBig : require('../assets/2.jpg')}, 
-        {id:3,wasOnsite :0, latitude: 30.819284, longitude:34.741121, image : require('../assets/Map/3.png'), imageBig : require('../assets/3.jpg')}, 
-        {id:4,wasOnsite :0, latitude: 30.8211714, longitude:34.7420160, image : require('../assets/Map/4.png'), imageBig : require('../assets/4.jpg')}, 
-        {id:5,wasOnsite :0, latitude: 30.8216163, longitude:34.7449705, image : require('../assets/Map/5.png'), imageBig : require('../assets/5.jpg')}, 
-        {id:6,wasOnsite :0, latitude: 30.8190776, longitude:34.7441376, image : require('../assets/Map/6.png'), imageBig : require('../assets/6.jpg')} , 
-        {id:7,wasOnsite :0, latitude: 30.8201821, longitude:34.7421676, image : require('../assets/Map/7.png'), imageBig : require('../assets/7.jpg')}, 
-      ],
+
+      
       
       coordinate: new AnimatedRegion({
         latitude: LATITUDE,
@@ -92,27 +91,35 @@ export default class Mapp extends React.Component {
 
   Alertt = (siteId,imageBig) =>{
     
-    console.log(imageBig)
-    Alert.alert(
+    Alert.alert(  
       'כל הכבוד!!',
-      ' הגעת לאתר' + 3 + " תרצה להמשיך?",
+      ' הגעת לאתר ' + siteId   + " המשך לתת פרשנות משלך לחרותות שלפינך ",
       [
-        {
-          text: 'Cancel',
-          onPress: () => console.log('Cancel Pressed'),
-          style: 'cancel',
-        },
-        {text: 'OK', onPress: () => {
+        
+        {text: 'יאללה!', onPress: () => {
        
         
-          this.props.navigation.navigate('comments_page', params = {
-            moveToStory: true,
-            name: global.userName,
-            photoUrl: global.photoUrl,
-            userID: global.userId,
-            pageNo: siteId +1 ,
-            siteImg: imageBig,
-          });},
+      const pushAction = StackActions.push({
+        routeName: 'comments_page',
+        params : {
+          moveToStory: true,
+          name: global.userName,
+          photoUrl: global.photoUrl,
+          userID: global.userId,
+          pageNo: siteId,
+          siteImg: imageBig,
+        }
+        });
+        this.props.navigation.dispatch(pushAction);
+        //   this.props.navigation.navigate('comments_page', params = {
+        //     moveToStory: true,
+        //     name: global.userName,
+        //     photoUrl: global.photoUrl,
+        //     userID: global.userId,
+        //     pageNo: siteId,
+        //     siteImg: imageBig,
+        //   });
+        },
         }
       ],
       {cancelable: false},
@@ -121,7 +128,7 @@ export default class Mapp extends React.Component {
   isOnSite = (newCoordinate) => {
       
       
-      temp = this.state.sites
+      temp = global.sites
       temp.map((site, key) =>{
       (((Math.abs(newCoordinate.latitude - site.latitude)< 0.00003 || Math.abs(newCoordinate.longitude - site.longitude) <0.00003) && site.wasOnsite == 0  ?
           
@@ -141,11 +148,7 @@ export default class Mapp extends React.Component {
       }
       
 );
-      this.setState({                
-        sites : temp
-        
-
-      });
+      global.sites = temp;
       
   
  
@@ -178,7 +181,7 @@ export default class Mapp extends React.Component {
   
   render() {
 
-   markers =  this.state.sites.map((site, key) =>{
+   markers =  global.sites.map((site, key) =>{
      return(
       
       <Marker 
@@ -241,7 +244,8 @@ const styles = StyleSheet.create({
     flex :1 
   },
   map: {
-    width: Screen.width,
+    flex :1, 
+    width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
   },
   mapDrawerOverlay: {
