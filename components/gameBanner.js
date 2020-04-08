@@ -1,17 +1,18 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 
-const StoryHeader = (props) => {
+const gameBanner = (props) => {
     const { textStyling, viewStyle} = styles;
     return (
       <View style={viewStyle}>
-      <Text style={textStyling}>הסיפור של אתר {props.numOfSite} </Text>  
+      <Text style={textStyling}> {props.messege} </Text>  
       </View>
     );
 }
 
 const styles = {
-  textStyling: {
+  
+textStyling: {
     fontSize: 22,
     color: '#354992'
   },
@@ -25,4 +26,4 @@ viewStyle: {
 }
 };
 
-export default StoryHeader;
+export default gameBanner;

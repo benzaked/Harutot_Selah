@@ -9,6 +9,8 @@ import {
 	TouchableOpacity,
 } from 'react-native';
 import global from './global'
+import { Icon } from 'react-native-elements'
+
 const WIDTH = Dimensions.get('window').width 
 const HEIGHT = Dimensions.get('window').height 
 
@@ -56,10 +58,18 @@ export default class MenuDrawer extends React.Component {
 						</View>
 					</View>
 					<View style={styles.bottomLinks}>
-						{this.navLink('Home', 'Home')}
-						{this.navLink('Game_menu', 'משחק')}
-                        {this.navLink('SitesCatalog', 'התרשמות מחרטות')}
-						
+						<View style={styles.bottomButton}>
+						<Icon name='home'/>	
+						{this.navLink('Home', 'מסך הבית')}
+						</View>
+						<View style={styles.bottomButton}>
+						<Icon name='navigation'/>
+						{this.navLink('Game_menu', 'התחל את הפעילות באתר')}
+						</View>
+						<View style={styles.bottomButton}>
+						<Icon name='image'/>
+                        {this.navLink('StackNavigator', 'התרשמות מחרותות')}
+						</View>
 					</View>
 				</ScrollView>
 				<View style={styles.footer}>
@@ -87,6 +97,12 @@ const styles = StyleSheet.create({
 		borderBottomWidth: 1,
 		borderBottomColor: '#777777',
 	},
+	bottomButton: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		borderBottomWidth: 1,
+		borderBottomColor: '#777777',
+	},
 	profileText: {
 		flex: 3,
 		flexDirection: 'column',
@@ -97,6 +113,10 @@ const styles = StyleSheet.create({
 		paddingBottom: 5,
 		color: 'white',
 		textAlign: 'left',
+		textShadowOffset: { width: 1, height: 1 },
+  		textShadowRadius: 1,
+		textShadowColor: '#62b1ea',
+		fontWeight: '900',
 	},
 	imgView: {
 		flex: 1,
@@ -110,12 +130,11 @@ const styles = StyleSheet.create({
 	},
 	topLinks:{
 		height: 160,
-		backgroundColor: 'black',
+		backgroundColor: '#a5d3f3',
 	},
 	bottomLinks: {
 		flex: 1,
 		backgroundColor: 'white',
-		paddingTop: 10,
 		paddingBottom: 450,
 	},
 	link: {

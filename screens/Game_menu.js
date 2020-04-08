@@ -1,7 +1,9 @@
+
 import React from 'react';
 import { StyleSheet, Text, View,Button,TouchableOpacity, ImageBackground} from 'react-native';
 import { AuthSession } from 'expo';
 import { getCurrentUserAsync } from 'expo-google-sign-in';
+import MenuButton from '../components/MenuButton'
 
 export default class Game_menu extends React.Component {
   constructor(props){
@@ -16,11 +18,12 @@ export default class Game_menu extends React.Component {
 <ImageBackground source={require('../assets/game_background.png')} style={styles.backgroundImage}> 
       
       <View style= {styles.Container }>
+      <MenuButton navigation={this.props.navigation} showIcon={true} />
       <View style={styles.ButtonsSection}>
-      <TouchableOpacity style={styles.buttonStyle} onPress = { () =>  this.props.navigation.navigate('Map')}>
+      <TouchableOpacity style={styles.buttonStyle} onPress = { () =>  this.props.navigation.navigate('Map', params={path:'short'})}>
       <Text style={styles.buttontextStyleShort}> למסלול הקצר </Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.buttonStyle} onPress = {() =>  this.props.navigation.navigate('Map')}> 
+      <TouchableOpacity style={styles.buttonStyle} onPress = {() =>  this.props.navigation.navigate('Map', params={path:'long'})}> 
       <Text style={styles.buttontextStyleLong}> למסלול הארוך </Text>
       </TouchableOpacity>
       </View>
@@ -79,15 +82,13 @@ buttonStyle: {
   flex:1,
   alignSelf: 'center',
   backgroundColor: 'white',
-  borderWidth:1,
-  borderColor:'gainsboro',
   marginTop: 7,
   marginBottom: 7,
   marginLeft: 7,
   marginRight:7,
-  borderTopRightRadius: 20,
-  borderTopLeftRadius: 20,
-  borderBottomRightRadius: 20,
-  borderBottomLeftRadius: 20,
+  borderTopRightRadius: 100,
+  borderTopLeftRadius: 100,
+  borderBottomRightRadius: 100,
+  borderBottomLeftRadius: 100,
 }
 });

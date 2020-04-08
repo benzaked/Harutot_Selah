@@ -1,5 +1,5 @@
 import React ,  {Component} from 'react';
-import { StyleSheet, Text, View,TextInput,Button } from 'react-native';
+import { StyleSheet, TouchableOpacity, View, Text, ImageBackground } from 'react-native';
 import Expo from "expo"
 import firebase from 'firebase'
 import * as Google from 'expo-google-app-auth';
@@ -128,31 +128,83 @@ export default class LoginScreen extends Component {
       }
       render() {
         return (
-          <View style={styles.container}>
-          
-        {this.state.signedIn ? (
+
+          <ImageBackground source={require('../assets/Login_Back.png')} style={styles.backgroundImage}> 
+            
+          <View style= {styles.Container }>
+          {this.state.signedIn ? (
         this.props.navigation.navigate('Home')
             
           
           //  <LoggedInPage name ={this.state.name} photoUrl={this.state.photoUrl} userID={this.state.userID} pageNo={1} />
         ) : (
-          <Button title={"Sign In With Google"}
-                 onPress={() =>this.signInWithGoogleAsync()}
-                />
-            
-                
-            
-        )} 
-        </View>
+
+          <View style={styles.ButtonsSection}>
+          
+          <TouchableOpacity style={styles.buttonStyle} onPress = {this.signInWithGoogleAsync}>
+                <Text style={styles.buttontextStyle}> Google התחבר באמצעות </Text>
+          </TouchableOpacity> 
+          
+          </View>
+          )}
+          </View>
+          
+          </ImageBackground>  
+
         )}
 }
 
 
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        alignContent:'center',
-        justifyContent:'center'
+       
+backgroundImage:{
+  flex: 1,
+  width: null,
+  height: null,  
+  resizeMode:'stretch',
+},    
+Container: {
+  height: '100%',
+  justifyContent: "center",
+  alignItems: "center",
+      
+},
 
-    }
+ButtonsSection:{
+  justifyContent: "center",
+  alignItems: "center",
+  
+},
+
+buttontextStyle: {
+  
+  fontSize: 25,
+  textShadowOffset: { width: 1, height: 1 },
+  textShadowRadius: 1,
+  textShadowColor: '#62b1ea',
+  fontWeight: '900',
+  paddingTop: 6,
+  paddingBottom:6,
+  color:'white',
+  textAlign: 'center',
+  fontStyle:  'italic'
+},
+
+buttonStyle: {
+  maxHeight: 50,
+  flex:1,
+  alignSelf: 'center',
+  backgroundColor: "#a5d3f3",
+  marginTop: 7,
+  marginBottom: 7,
+  marginLeft: 7,
+  marginRight:7,
+  borderTopRightRadius: 100,
+  borderTopLeftRadius: 100,
+  borderBottomRightRadius: 100,
+  borderBottomLeftRadius: 100,
+}
+
+
+
 })
