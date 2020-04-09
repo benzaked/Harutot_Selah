@@ -48,7 +48,7 @@ return (
       <View>
       {!(this.state.showQuize) ? (      
         <TouchableOpacity style={styles.buttonStyle} onPress = {this.ShowfuncQuize}>
-           <Text style={styles.buttontextStyle}> המשך לחידון </Text>
+           <Text style={styles.buttontextStyle}> לחץ כאן למענה על חידות מעניינות </Text>
         </TouchableOpacity>
         ) : null}
       {this.state.showQuize ? (
