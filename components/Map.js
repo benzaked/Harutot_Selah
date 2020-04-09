@@ -15,12 +15,8 @@ const LATITUDE_DELTA = 0.00922;//רדיוס
 const LONGITUDE_DELTA = ASPECT_RATIO*LATITUDE_DELTA;
 import {  StackActions } from 'react-navigation';
 
-const Daniellongitude =  34.74266393110156
-const Daniellatitude = 31.876715319257883
-
-
-const site2long = 34.7430979
-const site2llat = 30.8219382
+// const site2long = 34.7430979
+// const site2llat = 30.8219382
 
 export default class Mapp extends React.Component {
   constructor(props) {
@@ -34,9 +30,6 @@ export default class Mapp extends React.Component {
       latitudeDelta: LATITUDE_DELTA,
       longitudeDelta: LONGITUDE_DELTA,
 
-
-      
-      
       coordinate: new AnimatedRegion({
         latitude: LATITUDE,
         longitude: LONGITUDE,
@@ -45,10 +38,6 @@ export default class Mapp extends React.Component {
         
         
       }),
-       
-       
-    
-    
     
     };
 
@@ -78,15 +67,11 @@ export default class Mapp extends React.Component {
         maximumAge: 1000,
 
       }
-    )
-      
-      
+    )  
   }
 
   componentWillUnmount() {
     // navigator.geolocation.clearWatch(this.watchID);
-
-    
   }
 
   Alertt = (siteId,imageBig) =>{
@@ -140,18 +125,13 @@ export default class Mapp extends React.Component {
               // console.log('Im in site ' + site.id + " and i changed his Was on site to  " + site.wasOnsite )
           )
           : (console.log('the site id is : '+ site.id + " is Onsite value is  " + site.wasOnsite)
-          ) 
-          
+          )  
        ))
-         
-
       }
       
 );
       global.sites = temp;
       
-  
- 
 }
   
  OnRegionChangeComplete = (region) =>{
@@ -165,8 +145,7 @@ export default class Mapp extends React.Component {
   }
   getMapRegion = () => {
 
-  
-      
+
       return {
         latitude: this.state.latitude,
         longitude: this.state.longitude,

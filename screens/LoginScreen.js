@@ -187,7 +187,6 @@ buttontextStyle: {
   paddingBottom:6,
   color:'white',
   textAlign: 'center',
-  fontStyle:  'italic'
 },
 
 buttonStyle: {

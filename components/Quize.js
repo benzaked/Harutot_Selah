@@ -74,35 +74,35 @@ class Quize extends Component {
             
             {this.state.showQuizeScreen ? ( 
             <View>
-             <Text style = {styles.text}>{this.state.QuizeContent}</Text>
+            <Text style = {styles.contentText}>{this.state.QuizeContent}</Text> 
               
               <View style={styles.answerContainer}>
                 <TouchableOpacity style={styles.buttonStyle} onPress = {this.checkAnswer1}>
-                   <Text style={styles.buttontextStyle}> 1 </Text> 
+                   <Text style={styles.buttontextStyle}> {this.state.Answer1} </Text> 
                 </TouchableOpacity>
-                <Text style = {styles.text}>{this.state.Answer1}</Text>
+                
               </View>  
 
               <View style={styles.answerContainer}>
                 <TouchableOpacity style={styles.buttonStyle} onPress = {this.checkAnswer2}>
-                   <Text style={styles.buttontextStyle}> 2 </Text>
+                   <Text style={styles.buttontextStyle}> {this.state.Answer2} </Text>
                 </TouchableOpacity>
-                <Text style = {styles.text}>{this.state.Answer2}</Text>
+                
               </View>  
 
               <View style={styles.answerContainer}>
                 <TouchableOpacity style={styles.buttonStyle} onPress = {this.checkAnswer3}>
-                   <Text style={styles.buttontextStyle}> 3 </Text> 
+                   <Text style={styles.buttontextStyle}> {this.state.Answer3} </Text> 
                 </TouchableOpacity>
-                <Text style = {styles.text}>{this.state.Answer3}</Text>
+                
               </View>  
 
               <View style={styles.answerContainer}>
                 
                 <TouchableOpacity style={styles.buttonStyle} onPress = {this.checkAnswer4}>
-                   <Text style={styles.buttontextStyle}> 4 </Text> 
+                   <Text style={styles.buttontextStyle}> {this.state.Answer4} </Text> 
                 </TouchableOpacity>
-                <Text style = {styles.text}>{this.state.Answer4}</Text> 
+                
                 </View> 
             </View>
             ) : null} 
@@ -140,28 +140,36 @@ const styles = StyleSheet.create({
       paddingRight:4,
       minHeight: 190,
       justifyContent: "center",
-      alignItems: "flex-end",
-      backgroundColor: "#f1f3f6",
+      alignItems: "stretch",
+      backgroundColor:  "#a5d3f3",
       borderTopRightRadius: 20,
       borderTopLeftRadius: 20,
       borderBottomRightRadius: 20,
       borderBottomLeftRadius: 20,
       marginBottom: 3,
-      marginLeft: 7,
-      marginRight:7,
-      borderWidth:0.5,
-      borderColor:'gainsboro',
+      marginLeft: 40,
+      marginRight:40,
+      
+      
   },
 
   answerContainer:{
     flex:1,
     width:'100%',
-    alignItems: "center",
+    alignItems: 'center',
     minHeight: 45,
-    flexDirection: 'row-reverse',
-    // backgroundColor: 'blue'
+    // backgroundColor: 'blue',
+    
   },
 
+  contentText:{
+    flex:1,
+    lineHeight: 35,
+    fontSize: 22,
+    fontWeight: '600',
+    color: 'black',
+    textAlign: 'center'
+  },
   
   text:{
     
@@ -170,7 +178,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '600',
     color: 'black',
-    textAlign: 'right'
+    textAlign: 'center'
         
   },
 
@@ -179,28 +187,24 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     paddingTop: 6,
     paddingBottom:6,
-    color:'#354992',
+    color:'#777777',
     textAlign: 'center',
     
   },
   buttonStyle: {
-    
-    width: 50,
-    height:50,
+    flex:1,
     alignSelf: 'stretch',
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: 'white',
-    borderWidth:1,
-    borderColor:'gainsboro',
     marginTop: 7,
     marginBottom: 7,
     marginLeft: 7,
     marginRight:7,
-    borderTopRightRadius: 20,
-    borderTopLeftRadius: 20,
-    borderBottomRightRadius: 20,
-    borderBottomLeftRadius: 20,
+    borderTopRightRadius: 5,
+    borderTopLeftRadius: 5,
+    borderBottomRightRadius: 5,
+    borderBottomLeftRadius: 5,
   }
   
   

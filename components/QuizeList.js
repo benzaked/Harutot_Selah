@@ -149,24 +149,24 @@ class QuizeList extends Component {
 
 const styles = StyleSheet.create({
   buttontextStyle: {
-    fontSize: 15,
+    fontSize: 25,
     fontWeight: '900',
     paddingTop: 6,
     paddingBottom:6,
-    color:'#354992',
+    color:'white',
     textAlign: 'center',
-    fontStyle:  'italic'
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 1,
+    textShadowColor: '#62b1ea',
   },
   buttonStyle: {
     
     flex:1,
     alignSelf: 'stretch',
-    backgroundColor: "#f1f3f6",
-    borderWidth:1,
-    borderColor:'gainsboro',
+    backgroundColor: "#a5d3f3",
     marginBottom:7,
-    marginLeft: 7,
-    marginRight:7,
+    marginLeft: 40,
+    marginRight:40,
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
     borderBottomRightRadius: 20,

@@ -83,9 +83,7 @@ class comments_page extends Component {
       const pushAction = StackActions.push({
         routeName: 'StoryList',
         params: {
-
           pageNo:3,
-
         }
         });
         this.props.navigation.dispatch(pushAction);

@@ -1,11 +1,18 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, Image} from 'react-native';
+import global from './global'
 
-const gameBanner = (props) => {
-    const { textStyling, viewStyle} = styles;
+const gameBanner = () => {
+    const { textStyling, viewStyle, messegeSection, scoreSection} = styles;
     return (
       <View style={viewStyle}>
-      <Text style={textStyling}> {props.messege} </Text>  
+      <Image source={require('../assets/gameBanner.png')} />
+      <View style={messegeSection}>
+        <Text style={textStyling}> {global.messege} </Text> 
+      </View>
+      <View style={scoreSection}>
+      <Text style={textStyling}> מצב הניקוד:{"\n"} {global.score} </Text>
+      </View>
       </View>
     );
 }
@@ -13,16 +20,24 @@ const gameBanner = (props) => {
 const styles = {
   
 textStyling: {
-    fontSize: 22,
-    color: '#354992'
+    fontSize: 10,
+    color: 'black'
   },
 
 viewStyle: {
-  height: 70,
-  justifyContent: 'center',
+//height: '100%',
+  position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
+  justifyContent: 'space-between',
   alignItems: 'center',
-  paddingTop: 25
+  justifyContent: 'flex-end',
+},
 
+messegeSection: {
+ m
+},
+
+scoreSection:{
+ paddingBottom: '2%',
 }
 };
 

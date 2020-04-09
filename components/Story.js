@@ -17,14 +17,10 @@ export default class Story extends Component {
       };
       
     }//constructor
-   
-
-
+ 
     QuizeDone = () => {
     this.props.QuizeDone()
-   
-
-      }
+    }
    
 
 
@@ -83,10 +79,9 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
     marginBottom: 3,
-    marginLeft: 7,
-    marginRight:7,
-    borderWidth:0.5,
-    borderColor:'gainsboro',
+    marginLeft: 40,
+    marginRight:40,
+    
 },
 
 contentContainer: {
@@ -101,10 +96,9 @@ contentContainer: {
   borderBottomRightRadius: 20,
   borderBottomLeftRadius: 20,
   marginBottom: 3,
-  marginLeft: 7,
-  marginRight:7,
-  borderWidth:0.5,
-  borderColor:'gainsboro',
+  marginLeft: 40,
+  marginRight:40,
+  
 },
 
 StoryTitleText: {
@@ -124,13 +118,12 @@ StoryText:{
     
 },
 buttontextStyle: {
-  fontSize: 15,
+  fontSize: 25,
   fontWeight: '900',
   paddingTop: 6,
   paddingBottom:6,
   color:'white',
   textAlign: 'center',
-  fontStyle:  'italic',
   textShadowOffset: { width: 1, height: 1 },
   textShadowRadius: 1,
   textShadowColor: '#62b1ea',
@@ -142,12 +135,12 @@ buttonStyle: {
   alignSelf: 'stretch',
   backgroundColor: "#a5d3f3",
   marginBottom:3,
-  marginLeft: 7,
-  marginRight:7,
-  borderTopRightRadius: 100,
-  borderTopLeftRadius: 100,
-  borderBottomRightRadius: 100,
-  borderBottomLeftRadius: 100,
+  marginLeft: 40,
+  marginRight:40,
+  borderTopRightRadius: 20,
+  borderTopLeftRadius: 20,
+  borderBottomRightRadius: 20,
+  borderBottomLeftRadius: 20,
 }
 });
   

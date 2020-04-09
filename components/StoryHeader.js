@@ -5,22 +5,25 @@ const StoryHeader = (props) => {
     const { textStyling, viewStyle} = styles;
     return (
       <View style={viewStyle}>
-      <Text style={textStyling}>הסיפור של אתר {props.numOfSite} </Text>  
+      <Text style={textStyling}> הסיפור של אתר מספר {props.numOfSite} </Text>  
       </View>
     );
 }
 
 const styles = {
+
   textStyling: {
     fontSize: 22,
-    color: '#354992'
+    color: "#777777",
+    fontWeight: '900',
   },
 
 viewStyle: {
   height: 70,
   justifyContent: 'center',
   alignItems: 'center',
-  paddingTop: 25
+  paddingTop: 40,
+  marginBottom: 20
 
 }
 };

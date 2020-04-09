@@ -63,7 +63,7 @@ buttontextStyleShort: {
   paddingBottom:6,
   color:'red',
   textAlign: 'center',
-  fontStyle:  'italic'
+ 
 },
 
 buttontextStyleLong: {
@@ -74,7 +74,6 @@ buttontextStyleLong: {
   paddingBottom:6,
   color:'green',
   textAlign: 'center',
-  fontStyle:  'italic'
 },
 
 buttonStyle: {

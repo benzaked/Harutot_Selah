@@ -2,9 +2,13 @@ import React ,  {Component} from 'react';
 const userName =''
 const photoUrl = ''
 const userId = ''
-const Points = '' // בכל מקום מעדכנים אותו 
-const Daniellongitude =  34.74266393110156
-const Daniellatitude = 31.876715319257883
+var score=0
+var messege='' 
+// const Daniellongitude =  34.74266393110156
+// const Daniellatitude = 31.876715319257883
+
+const Daniellongitude =  34.79855077341199 //Elena
+const Daniellatitude = 31.270935653250866 //Elena
 
 export default {
    
