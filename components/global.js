@@ -7,18 +7,32 @@ var messege=''
 // const Daniellongitude =  34.74266393110156
 // const Daniellatitude = 31.876715319257883
 
-const Daniellongitude =  34.79855077341199 //Elena
-const Daniellatitude = 31.270935653250866 //Elena
+const Daniellongitude =  34.80262940749526 //Elena
+const Daniellatitude = 31.265815977625863 //Elena
 
 export default {
    
   sites :[
-    {id:1,wasOnsite :0, latitude: Daniellatitude, longitude: Daniellongitude, image : require('../assets/Map/1.png'), imageBig : require('../assets/1.jpg')}, 
-    {id:2,wasOnsite :0, latitude: 31.877011, longitude: 34.742276, image : require('../assets/Map/2.png'), imageBig : require('../assets/2.jpg')}, 
-    {id:3,wasOnsite :0, latitude: 30.819284, longitude:34.741121, image : require('../assets/Map/3.png'), imageBig : require('../assets/3.jpg')}, 
-    {id:4,wasOnsite :0, latitude: 30.8211714, longitude:34.7420160, image : require('../assets/Map/4.png'), imageBig : require('../assets/4.jpg')}, 
-    {id:5,wasOnsite :0, latitude: 30.8216163, longitude:34.7449705, image : require('../assets/Map/5.png'), imageBig : require('../assets/5.jpg')}, 
-    {id:6,wasOnsite :0, latitude: 30.8190776, longitude:34.7441376, image : require('../assets/Map/6.png'), imageBig : require('../assets/6.jpg')} , 
-    {id:7,wasOnsite :0, latitude: 30.8201821, longitude:34.7421676, image : require('../assets/Map/7.png'), imageBig : require('../assets/7.jpg')}, 
+    {id:1,wasOnsite :0, latitude: Daniellatitude, longitude: Daniellongitude, 
+      marker :'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/Map%20markers%2F1.png?alt=media&token=4027278c-f489-47de-96b6-abb9e09a6c4b', 
+      imageBig : 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/1.jpg?alt=media&token=bbe8e00a-a52c-4179-8f2f-6d2756010ce5'}, 
+    {id:2,wasOnsite :0, latitude: 31.877011, longitude: 34.742276, 
+      marker : 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/Map%20markers%2F2.png?alt=media&token=af3cadee-7fef-457c-823d-4fd19a1695fa', 
+      imageBig : 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/2.jpg?alt=media&token=a2730f4e-bb8b-4d0c-9869-eb50e6f674fe'}, 
+    {id:3,wasOnsite :0, latitude: 30.819284, longitude:34.741121, 
+      marker : 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/Map%20markers%2F3.png?alt=media&token=72fd5026-71ce-4520-b63b-c06d68775e8c', 
+      imageBig : 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/3.jpg?alt=media&token=512c7954-ada1-408f-99a4-bf968300fc25'}, 
+    {id:4,wasOnsite :0, latitude: 30.8211714, longitude:34.7420160, 
+      marker : 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/Map%20markers%2F4.png?alt=media&token=b3e55dbf-b114-4513-846e-c6832b1daf28', 
+      imageBig : 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/4.jpg?alt=media&token=36094b83-3bb2-477e-9b50-2cb18b905030'}, 
+    {id:5,wasOnsite :0, latitude: 30.8216163, longitude:34.7449705, 
+      marker : 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/Map%20markers%2F5.png?alt=media&token=60e91133-0ea5-458a-8ea2-3ea50f5cc971', 
+      imageBig : 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/5.jpg?alt=media&token=f2fc9ee1-87ce-42cd-9dbc-92d4d9b1a2ba'}, 
+    {id:6,wasOnsite :0, latitude: 30.8190776, longitude:34.7441376, 
+      marker : 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/Map%20markers%2F6.png?alt=media&token=136e7346-baf5-41a4-9181-c8899b8c60a1',
+      imageBig : 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/6.jpg?alt=media&token=f756f880-ad70-4b85-b57e-75a8507ae574'} , 
+    {id:7,wasOnsite :0, latitude: 30.8201821, longitude:34.7421676, 
+      marker : 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/Map%20markers%2F7.png?alt=media&token=b90c6eb3-292e-4729-9443-fba61ef68535', 
+      imageBig : 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/7.jpg?alt=media&token=9dd4d690-8c66-44d4-a14c-3402eb1c22f8'}, 
   ],
       }

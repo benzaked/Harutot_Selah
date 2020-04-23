@@ -37,6 +37,14 @@ const StackNavigator = createStackNavigator(
        
       },
     },
+    comments_page_game:{
+      screen:comments_page,
+      navigationOptions: {
+        header: null,
+            drawerLockMode: "locked-closed",
+            disableGestures: true
+      }
+    },
     StoryList:{
       screen : StoryList,
       navigationOptions: {

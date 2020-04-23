@@ -68,7 +68,7 @@ export default class MenuDrawer extends React.Component {
 						</View>
 						<View style={styles.bottomButton}>
 						<Icon name='image'/>
-                        {this.navLink('StackNavigator', 'התרשמות מחרותות')}
+                        {this.navLink('SitesCatalog', 'התרשמות מחרותות')}
 						</View>
 					</View>
 				</ScrollView>

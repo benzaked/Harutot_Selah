@@ -129,13 +129,14 @@ class comments_page extends Component {
                   <ScrollView>
                     <MenuButton navigation={this.props.navigation} showIcon = {this.state.showMenuButtom} />
                     
-                    <TouchableOpacity style={styles.share} onPress = { () =>  this.ShareStuff('IM Title ','Im content','Im photo')}>
+                    <TouchableOpacity style={styles.share} onPress = { () =>  this.ShareStuff('IM Title ','Im content',this.state.siteImg)}>
                     <Text style={styles.buttontextStyleShort}> לשיתוף </Text>
                     </TouchableOpacity>
                     <View style={{flex:1,width:"100%",height:"100%"}} >
                         <Image
                       style={{ height:350, width:width}}
-                      source={ this.state.siteImg}
+                      source={{uri: this.state.siteImg}}
+                      
                         />
                         <ScrollView style={{ backgroundColor: "#FFFFFF" }}>
 

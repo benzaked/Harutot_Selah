@@ -129,7 +129,7 @@ export default class LoginScreen extends Component {
       render() {
         return (
 
-          <ImageBackground source={require('../assets/Login_Back.png')} style={styles.backgroundImage}> 
+          <ImageBackground source={{uri : 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/backgrounds%2FLogin_Back.png?alt=media&token=2f6e3f4f-d9ff-48a4-943c-800aad31a44a'}} style={styles.backgroundImage}> 
             
           <View style= {styles.Container }>
           {this.state.signedIn ? (

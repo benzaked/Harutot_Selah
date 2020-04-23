@@ -21,7 +21,7 @@ handleBackButton() {
   render() {
     return (
      
-      <ImageBackground source={require('../assets/Home_Back.png')} style={styles.backgroundImage}> 
+      <ImageBackground source={{uri: 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/backgrounds%2FHome_Back.png?alt=media&token=90799c16-0803-4270-98de-2b9cf13b507a' }} style={styles.backgroundImage}> 
       <View style={styles.container}>
       <MenuButton navigation={this.props.navigation} showIcon={true} />
       <View style={styles.TextSection}>

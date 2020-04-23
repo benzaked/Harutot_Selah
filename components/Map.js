@@ -85,7 +85,7 @@ export default class Mapp extends React.Component {
        
         
       const pushAction = StackActions.push({
-        routeName: 'comments_page',
+        routeName: 'comments_page_game',
         params : {
           moveToStory: true,
           name: global.userName,
@@ -167,7 +167,7 @@ export default class Mapp extends React.Component {
         key={key}
         draggable
         coordinate={{ latitude: site.latitude , longitude: site.longitude }}
-        image={site.image}>
+        image={{uri: site.marker}}>
           
         <Callout onPress={this.showWelcomeMessage}>
         </Callout>

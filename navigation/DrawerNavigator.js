@@ -10,7 +10,6 @@ import SettingsScreen from '../screens/SettingsScreen';
 import LoginScreen from '../screens/LoginScreen'
 import comments_page from '../screens/comments_page'
 import StackNavigator from './StackNavigator'
-import test from './test'
 import Game_menu from '../screens/Game_menu';
 
 import SitesCatalog from '../screens/SitesCatalog'
@@ -51,15 +50,7 @@ const DrawerNavigator = createDrawerNavigator(
     Game_menu:{
       screen: Game_menu,
     },
-    comments_page:{
-      screen:comments_page,
-      navigationOptions: {
-        header: null,
-        drawerLockMode: "locked-closed",
-        disableGestures: true
-    }
-  },
- 
+    
 
    
     

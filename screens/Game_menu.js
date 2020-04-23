@@ -15,7 +15,7 @@ export default class Game_menu extends React.Component {
 
   return (
 
-<ImageBackground source={require('../assets/game_background.png')} style={styles.backgroundImage}> 
+<ImageBackground source={{uri : 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/backgrounds%2Fgame_background.png?alt=media&token=a6e50ad3-4940-4368-93e6-cfd3ddeec28f'}} style={styles.backgroundImage}> 
       
       <View style= {styles.Container }>
       <MenuButton navigation={this.props.navigation} showIcon={true} />

@@ -6,7 +6,6 @@ import Story from './Story'
 import firebase from 'firebase'
 import {firebaseConfig} from '../config'
 import { NavigationActions,StackActions } from "react-navigation";
-import MenuButton from '../components/MenuButton'
 
 export default class StoryList extends Component {
     constructor(props) {
@@ -102,7 +101,6 @@ export default class StoryList extends Component {
 render() {
   return (
     <View>
-    <MenuButton navigation={this.props.navigation} showIcon={true}/>
     <ScrollView>
      
      {this.renderList()} 

@@ -98,7 +98,7 @@ export default class SitesCatalog extends React.Component {
                             style={styles.image}
                             key ={site.imageBig}>
                             
-                            <Image source= {site.imageBig} style={styles.bottomItem} />
+                            <Image source= {{uri : site.imageBig}} style={styles.bottomItem} />
                           </TouchableOpacity>
                           
                           )
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
   flex:1,
   },
   image: {
-    width: 300,
+    width: '100%',
     height: 250,
     padding: 5,
     
