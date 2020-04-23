@@ -3,19 +3,13 @@ import { Platform, Dimensions } from 'react-native';
 import {  createAppContainer } from 'react-navigation';
 import{createDrawerNavigator} from 'react-navigation-drawer'
 // import { createStackNavigator } from '@react-navigation/stack';
-import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
 import LoginScreen from '../screens/LoginScreen'
-import comments_page from '../screens/comments_page'
 import StackNavigator from './StackNavigator'
 import Game_menu from '../screens/Game_menu';
 
 import SitesCatalog from '../screens/SitesCatalog'
-import Map from '../components/Map'
 import MenuDrawer from '../components/MenuDrawer';
-import StoryList from '../components/StoryList';
 
 const WIDTH = Dimensions.get('window').width;
 
@@ -50,9 +44,6 @@ const DrawerNavigator = createDrawerNavigator(
     Game_menu:{
       screen: Game_menu,
     },
-    
-
-   
     
   },
   DrawerConfig

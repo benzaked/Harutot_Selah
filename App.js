@@ -1,8 +1,5 @@
 import React , {useState} from 'react';
 import { StyleSheet, Text, View,TextInput,Button,} from 'react-native';
-import {createAppContainer,createSwitchNavigator} from 'react-navigation'
-import loadingScreen from './screens/LoadingScreen'
-import DashboardScreen from './screens/DashboardScreen'
 import * as firebase from 'firebase'
 import {firebaseConfig} from './config'
 import DrawerNavigator from './navigation/DrawerNavigator'

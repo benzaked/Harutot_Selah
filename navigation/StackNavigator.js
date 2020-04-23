@@ -5,8 +5,6 @@ import{createDrawerNavigator} from 'react-navigation-drawer'
 // import { createStackNavigator } from '@react-navigation/stack';
 import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
 import Map from '../components/Map'
 import comments_page from '../screens/comments_page'
 
