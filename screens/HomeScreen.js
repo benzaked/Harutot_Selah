@@ -1,13 +1,35 @@
 import React from 'react';
 import { StyleSheet, Text, View,BackHandler, ImageBackground, ScrollView } from 'react-native';
 import global from '../components/global'
-
+import firebase from 'firebase'
+import {firebaseConfig} from '../config'
 import MenuButton from '../components/MenuButton'
 
 export default class HomeScreen extends React.Component {
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      content: [],     
+    };
+  }//constructor
   componentDidMount() {
     BackHandler.addEventListener('hardwareBackPress', this.handleBackButton);
+    const HomePage = firebase.database().ref('HomePage');
+    HomePage.on('value', (dataSnapshot) => {
+          var aux = [];
+          dataSnapshot.forEach((child) => {
+            
+            aux.push({
+              about:child.val().about,
+              introduction:child.val().introduction,
+            })
+          
+        });
+          this.setState({content: aux});
+          console.log(this.state.content.length+ " !!!!!!!!!!!!!!!!!!!!");
+
+         
+        });
 }
 
 componentWillUnmount() {
@@ -18,7 +40,9 @@ handleBackButton() {
   // ToastAndroid.show('Back button is pressed', ToastAndroid.SHORT);
   return true;
 }
+
   render() {
+    
     return (
      
       <ImageBackground source={{uri: 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/backgrounds%2FHome_Back.png?alt=media&token=90799c16-0803-4270-98de-2b9cf13b507a' }} style={styles.backgroundImage}> 
@@ -31,11 +55,10 @@ handleBackButton() {
       {"\n"}
       </Text>
       <Text style={styles.text}>
-      מצפור ליפא גל ממוקם בדרום הר מחיה ובו ניתן למצוא חרותות סלע אשר שימשו את האוכלוסייה המקומית במאות השנים האחרונות כאמצעי תקשורת בעל חשיבות תרבותית-כלכלית-חברתית. במהלך אלפי השנים האחרונות עברו דרך הנגב קבוצות נוודים רבות וביניהם גל בדואי אשר הביאו עימו מסורת של תקשורת באמצעות חרוטות סלע שהורכבו בעיקר מקבוצות של סימנים מופשטים ומכתובות ערביות. בין החרותות ניתן למצוא דמויות אדם רכובות על חמורים, סוסים וגמלים ,סצנות לחימה וציד ועוד. (Schmidt, Eisenberg-Degen & Nash, 2015).
+      {this.state.content[0].about}
       {"\n"}{"\n"}
-      באפליקציית חרותות הסלע של הר מחיה תוכלו להכיר את הסיפור מאחורי הסלעים, מוזמנים להצטרף אלינו למסע. בלחיצה על התפריט מצד ימין למעלה תוכלו להתחיל את הפעילות או להתרשם מחרותות הסלע במקום.
-       הפעילות באתר מציעה משחק אינטראקטיבי אשר ילווה אתכם במסלול הקצר או הארוך, תתרשמו מהפרשנויות השונות של המבקרים ותוכלו להוסיף התרשמות משלכם, תהנו מסיפורים ותענו על חידות באתרי החרותות שבדרך.
-      בעמוד התרשמויות מחרותות תוכלו להתרשם מהתמונות ומהתגובות השונות גם כן.
+      {this.state.content[0].introduction}
+
       {"\n"}{"\n"}
       מקווים שיהיה לכם מסע פורה ומהנה באתר 😊
 
