@@ -1,5 +1,5 @@
 import React ,  {Component} from 'react';
-import { StyleSheet, TouchableOpacity, View, Text, ImageBackground } from 'react-native';
+import { StyleSheet, TouchableOpacity, View, Text, ImageBackground,ActivityIndicator } from 'react-native';
 import Expo from "expo"
 import firebase from 'firebase'
 import * as Google from 'expo-google-app-auth';
@@ -16,6 +16,7 @@ export default class LoginScreen extends Component {
     ]
       super(props);
       this.state = {
+        buttonPressed : false,
         signedIn: false,
         name:"",
         photoUrl:"",
@@ -93,6 +94,9 @@ export default class LoginScreen extends Component {
   };
       c
       signInWithGoogleAsync = async ()  => {
+        this.setState({
+          buttonPressed: true
+        });
         try {
           const result = await Google.logInAsync({
             behavior: 'web',
@@ -129,9 +133,9 @@ export default class LoginScreen extends Component {
       render() {
         return (
 
-          <ImageBackground source={{uri : 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/backgrounds%2FLogin_Back.png?alt=media&token=2f6e3f4f-d9ff-48a4-943c-800aad31a44a'}} style={styles.backgroundImage}> 
+        <ImageBackground source={{uri : 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/backgrounds%2FLogin_Back.png?alt=media&token=2f6e3f4f-d9ff-48a4-943c-800aad31a44a'}} style={styles.backgroundImage}> 
             
-          <View style= {styles.Container }>
+        <View style= {styles.Container }>
           {this.state.signedIn ? (
         this.props.navigation.navigate('Home')
             
@@ -139,14 +143,17 @@ export default class LoginScreen extends Component {
           //  <LoggedInPage name ={this.state.name} photoUrl={this.state.photoUrl} userID={this.state.userID} pageNo={1} />
         ) : (
 
-          <View style={styles.ButtonsSection}>
-          
-          <TouchableOpacity style={styles.buttonStyle} onPress = {this.signInWithGoogleAsync}>
-                <Text style={styles.buttontextStyle}> Google התחבר באמצעות </Text>
-          </TouchableOpacity> 
-          
-          </View>
-          )}
+            <View style={styles.ButtonsSection}>
+            {this.state.buttonPressed ? (
+                <ActivityIndicator size="large"></ActivityIndicator>
+            ): (
+                <TouchableOpacity style={styles.buttonStyle} onPress = {this.signInWithGoogleAsync}>
+                      <Text style={styles.buttontextStyle}> Google התחבר באמצעות </Text>
+                </TouchableOpacity> 
+            )}
+            </View>
+            )}
+            
           </View>
           
           </ImageBackground>  

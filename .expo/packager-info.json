@@ -1,9 +1,9 @@
 {
   "expoServerNgrokUrl": "https://dx-ecn.benzaked.harutot-selah.exp.direct",
   "packagerNgrokUrl": "https://packager.dx-ecn.benzaked.harutot-selah.exp.direct",
-  "ngrokPid": 11436,
+  "ngrokPid": 11260,
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 19024
+  "packagerPid": 18232
 }
