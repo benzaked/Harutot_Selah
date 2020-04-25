@@ -1,5 +1,5 @@
 import React ,  {Component} from 'react';
-import { StyleSheet, Text, View,TextInput,Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View,TextInput,Button, TouchableOpacity , Image } from 'react-native';
 
 
 class Quize extends Component {
@@ -110,19 +110,23 @@ class Quize extends Component {
            
             <View >
                 {this.state.showRightAnswerScreen ? (
-                  
+                  <View style={styles.answerScreen}>
+                  <Image source={{uri: 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/game%2Fhappy_girl.png?alt=media&token=de37e4bc-bde1-499c-94fd-71a91f7d8207'}} style={styles.image}/>
                   <Text style = { styles.text}>
                    כל הכבוד! הרווחת 10 נקודות
                   </Text>
-
+                  </View>
                 ) : null}
             </View>
 
             <View >
                 {this.state.showWrongAnswerScreen ? (
-                    <Text style = { styles.text}>
-                    תשובה שגויה, אולי תצליח בחידה הבאה...
+                  <View style={styles.answerScreen}>
+                  <Image source={{uri: 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/game%2Funhappy_girl.png?alt=media&token=46390353-c9e7-42ad-934b-6ea9b19a7eff'}} style={styles.image}/>
+                  <Text style = { styles.text}>
+                  תשובה שגויה, אולי תצליח בחידה הבאה...
                   </Text>
+                  </View>
                 ) : null}
             </View>
             </View>
@@ -133,6 +137,11 @@ class Quize extends Component {
 export default Quize;
 
 const styles = StyleSheet.create({
+
+  answerScreen: {
+    alignItems: 'center',
+    alignContent: 'center'
+  },
        
     container: {
       flex:1,
@@ -208,6 +217,13 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 5,
     borderBottomLeftRadius: 5,
     elevation: 2,
+  },
+
+  image: {
+    width:130,
+    height: 130,
+    resizeMode:'contain'
+    
   }
   
   

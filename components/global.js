@@ -14,7 +14,7 @@ const Daniellatitude = 31.27087633366313 //Elena
 
 let icon =  require('../assets/gameBanner.png'); 
 let source = resolveAssetSource(icon);
-const gameHeight=Dimensions.get('window').height-((Dimensions.get('window').width*source.height)/source.width);
+const gameHeight=((Dimensions.get('window').height)-((Dimensions.get('window').width*source.height)/source.width));
 
 export default {
   score,

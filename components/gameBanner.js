@@ -41,7 +41,7 @@ viewStyle=function () {
   bottom: 0,
   left: 0,   
   width: '100%',
-  height: (Dimensions.get('window').width*source.height)/source.width,
+  height: (((Dimensions.get('window').width)*source.height)/source.width),
   alignItems: 'center',
   
   }
@@ -62,7 +62,8 @@ textStyling: {
 
 messegeSection: {
   
-  position: 'absolute', bottom: 68,
+  position: 'absolute', 
+  bottom: 78,
   zIndex: 9,
   width: '50%',
   // backgroundColor: 'blue',

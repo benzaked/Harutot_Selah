@@ -37,6 +37,7 @@ export default class StoryList extends Component {
     }//QuizeDone
 
     componentDidMount(){
+      
       global.messege='יש לנו כמה חידות מעניינות בשבילך...'
       const storiesRef = firebase.database().ref('Stories');
       this.listenForStories(storiesRef);//taking the data from database
@@ -125,14 +126,13 @@ render() {
 }//class
 
 
-
 const styles = {
 
   main:{
-
+    flex:1,
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
-
+    backgroundColor: "#abd6f4", 
   },
   
   viewStory: {

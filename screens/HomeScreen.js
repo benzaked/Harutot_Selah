@@ -45,17 +45,29 @@ handleBackButton() {
     return (
      
       <ImageBackground source={{uri: 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/backgrounds%2FHome_Back.png?alt=media&token=1fc02144-9d63-40ba-8e70-66ce16278a94' }} style={styles.backgroundImage}> 
-      <View style={styles.container}>
+      <View style={styles.main}>
       <MenuButton navigation={this.props.navigation} showIcon={true} />
+      <View style={styles.container}>
       <View style={styles.TextSection}>
       <ScrollView persistentScrollbar={true} >
       <Text style={styles.textHeader}>
-      רקע לחרותות הסלע ופירוט הפעולות באפליקציה
+      רקע לחרותות הסלע
       {"\n"}
       </Text>
       <Text style={styles.text}>
-      {/* {this.state.content[0].about} */}
-      {"\n"}{"\n"}
+      {/* {this.state.content[0].about} */}   
+      </Text>
+      </ScrollView>
+      </View>  
+
+      <View style={styles.TextSection}>
+      <ScrollView persistentScrollbar={true} >
+      <Text style={styles.textHeader}>
+      פירוט הפעולות באפליקציה
+      {"\n"}
+      </Text>
+      <Text style={styles.text}>
+      
       {/* {this.state.content[0].introduction} */}
 
       {"\n"}{"\n"}
@@ -64,6 +76,7 @@ handleBackButton() {
       </Text>
       </ScrollView>
       </View>       
+      </View>
       </View>
       </ImageBackground>  
     );
@@ -78,15 +91,25 @@ const styles = StyleSheet.create({
     height: null,  
     resizeMode:'stretch',
   }, 
-  container: {
-    height: '100%',
-    paddingBottom: '13%',
+
+  main: {
+    flex:1,
     alignItems: 'center',
     justifyContent: 'flex-end',
+    paddingBottom: '12%',
+    // backgroundColor: 'pink'
+  },
+  container: {
+    height: '60%',
+    width: '60%',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    // backgroundColor: 'blue'
   },
   TextSection:{
-    width:'80%',
-    height: '63%',
+    // backgroundColor: 'green',
+    width: '100%',
+    height: '42%',
     justifyContent: "center",
     alignItems: "center",
     
