@@ -38,7 +38,6 @@ export default class StoryList extends Component {
 
     componentDidMount(){
       
-      global.messege='יש לנו כמה חידות מעניינות בשבילך...'
       const storiesRef = firebase.database().ref('Stories');
       this.listenForStories(storiesRef);//taking the data from database
       this.temp();//inserting fake data to database
