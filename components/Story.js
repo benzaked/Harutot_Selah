@@ -22,6 +22,9 @@ export default class Story extends Component {
     this.props.QuizeDone()
     }
    
+    handlerRight=()=>{
+      this.props.handlerRight()
+    }
 
 
 render() {
@@ -44,13 +47,14 @@ return (
       <View>
       {!(this.state.showQuize) ? (      
         <TouchableOpacity style={styles.buttonStyle} onPress = {this.ShowfuncQuize}>
-           <Text style={styles.buttontextStyle}> לחץ כאן למענה על חידות מעניינות </Text>
+           <Text style={styles.buttontextStyle}> המשך לחידון </Text>
         </TouchableOpacity>
         ) : null}
       {this.state.showQuize ? (
           <QuizeList
           numberOfSite={this.state.numberOfSite}
           QuizeDone = {this.QuizeDone}
+          handlerRight={this.handlerRight}
 
           ></QuizeList>
         ) : null}
@@ -75,13 +79,13 @@ const styles = StyleSheet.create({
     minHeight:50,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#a5d3f3",
+    backgroundColor: "#daedf9",
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
     marginBottom: 3,
     marginLeft: 40,
     marginRight:40,
-    
+    elevation: 3,
 },
 
 contentContainer: {
@@ -92,12 +96,13 @@ contentContainer: {
   minHeight: 200,
   justifyContent: "center",
   alignItems: "center",
-  backgroundColor: "#a5d3f3",
+  backgroundColor: "#daedf9",
   borderBottomRightRadius: 20,
   borderBottomLeftRadius: 20,
   marginBottom: 3,
   marginLeft: 40,
   marginRight:40,
+  elevation: 3,
   
 },
 
@@ -118,7 +123,7 @@ StoryText:{
     
 },
 buttontextStyle: {
-  fontSize: 25,
+  fontSize: 22,
   fontWeight: '900',
   paddingTop: 6,
   paddingBottom:6,
@@ -133,14 +138,16 @@ buttonStyle: {
   
   flex:1,
   alignSelf: 'stretch',
-  backgroundColor: "#a5d3f3",
-  marginBottom:3,
+  backgroundColor: "#526674",
+  marginTop:7,
+  marginBottom:7,
   marginLeft: 40,
   marginRight:40,
   borderTopRightRadius: 20,
   borderTopLeftRadius: 20,
   borderBottomRightRadius: 20,
   borderBottomLeftRadius: 20,
+  
 }
 });
   

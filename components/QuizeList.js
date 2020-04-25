@@ -5,6 +5,8 @@ import firebase from 'firebase'
 import {firebaseConfig} from '../config'
 import { NavigationActions,StackActions } from "react-navigation";
 import Map from './Map'
+import global from './global'
+
 class QuizeList extends Component {
         constructor(props) {
           super(props);
@@ -25,7 +27,9 @@ class QuizeList extends Component {
     }//setting the numOfAnswersFromUser from the child every time thr user clicks an answer so we wil know when the quizeList is done
 
     handlerRight=()=>{
-      this.setState({numOfRightAnswers: this.state.numOfRightAnswers+1})
+      global.score=global.score+10;
+      this.props.handlerRight();
+      this.setState({numOfRightAnswers: this.state.numOfRightAnswers+1});
     }//setting the numOfRightAnswers from the child every time thr user selects right answer 
     
     //creating the specific list with the numberOfSite from the dataBase
@@ -109,10 +113,9 @@ class QuizeList extends Component {
      
       checkIsQuizeOver = () =>{
         if (this.state.numOfAnswersFromUser==this.state.quizeList.length){
-          
-          return (
+           return (
             Alert.alert(
-               'כל הכבוד!!',
+               'כל הכבוד!',
             ' סיימת לענות על החידון באתר מספר '+this.state.numberOfSite+', '+
             'צברת בשלב זה '+this.state.numOfRightAnswers*10+' נקודות ',
             [
@@ -123,7 +126,8 @@ class QuizeList extends Component {
         } 
 
         else 
-          return (alert(
+          return (
+            Alert.alert(
             'טרם סיימת לענות על כל החידות בשלב זה',
             [
               {text: 'אישור', onPress: () => console.log('OK Pressed')},
@@ -149,7 +153,7 @@ class QuizeList extends Component {
 
 const styles = StyleSheet.create({
   buttontextStyle: {
-    fontSize: 25,
+    fontSize: 22,
     fontWeight: '900',
     paddingTop: 6,
     paddingBottom:6,
@@ -163,7 +167,8 @@ const styles = StyleSheet.create({
     
     flex:1,
     alignSelf: 'stretch',
-    backgroundColor: "#a5d3f3",
+    backgroundColor: "#526674",
+    marginTop:7,
     marginBottom:7,
     marginLeft: 40,
     marginRight:40,

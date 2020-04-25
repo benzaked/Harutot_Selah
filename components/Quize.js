@@ -110,6 +110,7 @@ class Quize extends Component {
            
             <View >
                 {this.state.showRightAnswerScreen ? (
+                  
                   <Text style = { styles.text}>
                    כל הכבוד! הרווחת 10 נקודות
                   </Text>
@@ -138,10 +139,11 @@ const styles = StyleSheet.create({
       paddingTop:4,
       paddingLeft: 4,
       paddingRight:4,
+      paddingBottom:4,
       minHeight: 190,
       justifyContent: "center",
       alignItems: "stretch",
-      backgroundColor:  "#a5d3f3",
+      backgroundColor: "#daedf9",
       borderTopRightRadius: 20,
       borderTopLeftRadius: 20,
       borderBottomRightRadius: 20,
@@ -149,7 +151,7 @@ const styles = StyleSheet.create({
       marginBottom: 3,
       marginLeft: 40,
       marginRight:40,
-      
+      elevation: 3,
       
   },
 
@@ -205,6 +207,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 5,
     borderBottomRightRadius: 5,
     borderBottomLeftRadius: 5,
+    elevation: 2,
   }
   
   
