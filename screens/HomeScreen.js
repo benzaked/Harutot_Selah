@@ -2,7 +2,6 @@ import React from 'react';
 import { StyleSheet, Text, View,BackHandler, ImageBackground, ScrollView } from 'react-native';
 import global from '../components/global'
 import firebase from 'firebase'
-import {firebaseConfig} from '../config'
 import MenuButton from '../components/MenuButton'
 
 export default class HomeScreen extends React.Component {
@@ -45,7 +44,7 @@ handleBackButton() {
     
     return (
      
-      <ImageBackground source={{uri: 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/backgrounds%2FHome_Back.png?alt=media&token=90799c16-0803-4270-98de-2b9cf13b507a' }} style={styles.backgroundImage}> 
+      <ImageBackground source={{uri: 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/backgrounds%2FHome_Back.png?alt=media&token=1fc02144-9d63-40ba-8e70-66ce16278a94' }} style={styles.backgroundImage}> 
       <View style={styles.container}>
       <MenuButton navigation={this.props.navigation} showIcon={true} />
       <View style={styles.TextSection}>
@@ -55,9 +54,9 @@ handleBackButton() {
       {"\n"}
       </Text>
       <Text style={styles.text}>
-      {this.state.content[0].about}
+      {/* {this.state.content[0].about} */}
       {"\n"}{"\n"}
-      {this.state.content[0].introduction}
+      {/* {this.state.content[0].introduction} */}
 
       {"\n"}{"\n"}
       מקווים שיהיה לכם מסע פורה ומהנה באתר 😊

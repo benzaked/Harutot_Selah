@@ -1,11 +1,12 @@
  
 import React,  { Component } from 'react';
 
-import { StyleSheet, Text, View,TextInput,Button,Image,ImageBackground, ScrollView} from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Dimensions} from 'react-native';
 import Story from './Story'
 import firebase from 'firebase'
-import {firebaseConfig} from '../config'
 import { NavigationActions,StackActions } from "react-navigation";
+import GameBanner from './GameBanner'
+import global from './global'
 
 export default class StoryList extends Component {
     constructor(props) {
@@ -13,11 +14,17 @@ export default class StoryList extends Component {
       this.state = {
         numberOfSite: this.props.navigation.state.params.pageNo,
         stories: [],
-        QuizeDone:false
-       
+        QuizeDone:false,
+        scoreQuize:0
+               
       };
-      if (!firebase.apps.length) {firebase.initializeApp(firebaseConfig)};
+      
     }//constructor
+
+    handlerRight=()=>{
+      this.setState({scoreQuize: this.state.scoreQuize+10})
+    }
+
     QuizeDone = () =>{
       this.setState({
       QuizeDone :true
@@ -27,8 +34,10 @@ export default class StoryList extends Component {
         routeName: 'Map',
         });
         this.props.navigation.dispatch(pushAction); 
-    }
+    }//QuizeDone
+
     componentDidMount(){
+      global.messege='יש לנו כמה חידות מעניינות בשבילך...'
       const storiesRef = firebase.database().ref('Stories');
       this.listenForStories(storiesRef);//taking the data from database
       this.temp();//inserting fake data to database
@@ -90,8 +99,7 @@ export default class StoryList extends Component {
           storyTitle={data.storyTitle}
           story={data.story}
           QuizeDone = {this.QuizeDone}
-
-
+          handlerRight={this.handlerRight}
           ></Story>
        
             )}
@@ -100,14 +108,41 @@ export default class StoryList extends Component {
 
 render() {
   return (
-    <View>
+    
+    <View style={styles.main}>
+    <View style={styles.viewStory}>
     <ScrollView>
      
      {this.renderList()} 
      
     </ScrollView>
     </View>
+    <GameBanner/>
+    </View>
 )}
  
+
 }//class
+
+
+
+const styles = {
+
+  main:{
+
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
+
+  },
+  
+  viewStory: {
+   position: 'absolute',
+   top: 0,
+   right: 0,   
+   height: global.gameHeight,
+   backgroundColor: "#abd6f4",  
+  }
+
+
+};
 

@@ -1,4 +1,6 @@
 import React ,  {Component} from 'react';
+import {Dimensions} from 'react-native';
+import resolveAssetSource from 'resolveAssetSource';
 const userName =''
 const photoUrl = ''
 const userId = ''
@@ -7,11 +9,18 @@ var messege=''
 // const Daniellongitude =  34.74266393110156
 // const Daniellatitude = 31.876715319257883
 
-const Daniellongitude =  34.80262940749526 //Elena
-const Daniellatitude = 31.265815977625863 //Elena
+const Daniellongitude =  34.7985259629786 //Elena
+const Daniellatitude = 31.27087633366313 //Elena
+
+let icon =  require('../assets/gameBanner.png'); 
+let source = resolveAssetSource(icon);
+const gameHeight=Dimensions.get('window').height-((Dimensions.get('window').width*source.height)/source.width);
 
 export default {
-   
+  score,
+  messege,
+  gameHeight,
+
   sites :[
     {id:1,wasOnsite :0, latitude: Daniellatitude, longitude: Daniellongitude, 
       marker :'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/Map%20markers%2F1.png?alt=media&token=4027278c-f489-47de-96b6-abb9e09a6c4b', 

@@ -4,7 +4,7 @@ import MapView, { Marker, AnimatedRegion,Callout } from 'react-native-maps';
 import MenuButton from './MenuButton'
 import global from './global'
 import * as Permissions from 'expo-permissions';
-
+import GameBanner from './GameBanner'
 
 const { width, height } = Dimensions.get('window');
 
@@ -50,6 +50,7 @@ export default class Mapp extends React.Component {
   }
 
   async  componentDidMount() {
+    global.messege='התקדם לאתר חרותות הסלע שלפניך'
     const { coordinate } = this.state;
     const { status } = await Permissions.getAsync(Permissions.LOCATION)
 
@@ -206,6 +207,7 @@ export default class Mapp extends React.Component {
           
           <View style={styles.mapDrawerOverlay} />
           <MenuButton navigation={this.props.navigation} showIcon={true} /> 
+          <GameBanner/>
         </View>
      
     );

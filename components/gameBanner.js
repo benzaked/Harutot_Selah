@@ -1,44 +1,87 @@
-import React from 'react';
-import {Text, View, Image} from 'react-native';
+import React,  { Component } from 'react';
+import {Text, View, Image, Dimensions} from 'react-native';
 import global from './global'
+import resolveAssetSource from 'resolveAssetSource';
 
-const gameBanner = () => {
-    const { textStyling, viewStyle, messegeSection, scoreSection} = styles;
-    return (
-      <View style={viewStyle}>
-      <Image source={require('../assets/gameBanner.png')} />
+
+export default class GameBanner extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+     
+    };
+    
+  }//constructor
+
+
+render() {
+  
+  const { textStyling, messegeSection, scoreSection, } = styles;
+  
+return (
+  <View style={this.viewStyle()}>
+      
+      <Image source={require('../assets/gameBanner.png')} style={styles.image}/>
       <View style={messegeSection}>
         <Text style={textStyling}> {global.messege} </Text> 
       </View>
       <View style={scoreSection}>
-      <Text style={textStyling}> מצב הניקוד:{"\n"} {global.score} </Text>
+      <Text style={textStyling}>צברת {global.score}{"\n"}נקודות</Text>
       </View>
       </View>
-    );
+)}
+
+
+viewStyle=function () {
+  let icon =  require('../assets/gameBanner.png'); 
+  let source = resolveAssetSource(icon);
+
+  return {
+  position: 'absolute',
+  bottom: 0,
+  left: 0,   
+  width: '100%',
+  height: (Dimensions.get('window').width*source.height)/source.width,
+  alignItems: 'center',
+  
+  }
 }
+
+
+}//class
+
 
 const styles = {
   
 textStyling: {
-    fontSize: 10,
-    color: 'black'
+    fontSize: 11,
+    fontWeight: '600',
+    color: 'black',
+    textAlign: 'center',
   },
 
-viewStyle: {
-//height: '100%',
-  position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  justifyContent: 'flex-end',
-},
-
 messegeSection: {
- m
+  
+  position: 'absolute', bottom: 68,
+  zIndex: 9,
+  width: '50%',
+  // backgroundColor: 'blue',
+  alignItems: 'center',
 },
 
 scoreSection:{
- paddingBottom: '2%',
-}
-};
+//  paddingBottom: '2%',
+ position: 'absolute', bottom: 18,
+ zIndex: 9,
+ alignItems: 'center',
+},
 
-export default gameBanner;
+image: {
+  flex: 1,
+  height: '100%', 
+  width: '100%', 
+  resizeMode: 'contain',
+  
+}
+
+};
