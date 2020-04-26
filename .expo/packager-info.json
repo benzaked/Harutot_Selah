@@ -1,9 +1,9 @@
 {
-  "expoServerNgrokUrl": "https://bu-g2v.anonymous.harutot-selah.exp.direct",
-  "packagerNgrokUrl": "https://packager.bu-g2v.anonymous.harutot-selah.exp.direct",
-  "ngrokPid": 15412,
+  "expoServerNgrokUrl": "https://ag-hiu.anonymous.harutot-selah.exp.direct",
+  "packagerNgrokUrl": "https://packager.ag-hiu.anonymous.harutot-selah.exp.direct",
+  "ngrokPid": 7536,
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 3412
+  "packagerPid": 5108
 }

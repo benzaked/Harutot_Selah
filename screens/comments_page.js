@@ -5,6 +5,8 @@ import firebase from 'firebase'
 import { Icon } from 'react-native-elements'
 import MenuButton from  '../components/MenuButton'
 import Input from '../actions/Input'
+import GameBanner from '../components/GameBanner'
+import global from '../components/global'
 import { NavigationActions,StackActions } from "react-navigation";
 const {height, width} = Dimensions.get('window');
 // import { Icon } from 'react-native-vector-icons/Icon';
@@ -79,7 +81,7 @@ class comments_page extends Component {
       }, {dialogTitle: 'shate' + title});
     }
     navigateToStory = () => {
-      
+      global.messege='יש לנו כמה חידות מעניינות בשבילך...'
       const pushAction = StackActions.push({
         routeName: 'StoryList',
         params: {
@@ -126,19 +128,21 @@ class comments_page extends Component {
           );
       
         return(  
-                  <ScrollView>
+          <View style={styles.main}>
+                  <ScrollView style={styles.viewComments}>
                     <MenuButton navigation={this.props.navigation} showIcon = {this.state.showMenuButtom} />
                     
-                    <TouchableOpacity style={styles.share} onPress = { () =>  this.ShareStuff('IM Title ','Im content',this.state.siteImg)}>
-                    <Text style={styles.buttontextStyleShort}> לשיתוף </Text>
+                    <TouchableOpacity style={styles.share} onPress = { () =>  this.ShareStuff('טעימה מהטיול בליפא גל','  לחצו על הקישור',this.state.siteImg)}>
+                    <Icon name='share' color='white'/>	
+                    <Text style={styles.buttontextStyle}> שתף </Text>
                     </TouchableOpacity>
                     <View style={{flex:1,width:"100%",height:"100%"}} >
                         <Image
-                      style={{ height:350, width:width}}
+                      style={{ height:350, width:width,}}
                       source={{uri: this.state.siteImg}}
                       
                         />
-                        <ScrollView style={{ backgroundColor: "#FFFFFF" }}>
+                        <ScrollView style={{ backgroundColor: "#abd6f4" }}>
 
                             
                             
@@ -155,7 +159,7 @@ class comments_page extends Component {
                             <View>
                             {this.state.moveToStory? (
                             <TouchableOpacity style={styles.buttonStyle} onPress = { () =>  this.navigateToStory()}>
-                              <Text style={styles.buttontextStyleLong}>למעבר לסיפור </Text>
+                              <Text style={styles.buttontextStyle}>למעבר לסיפור</Text>
                             </TouchableOpacity>):(<Text></Text>) }
                             </View>
                             
@@ -168,6 +172,8 @@ class comments_page extends Component {
                           </ScrollView>
                       </View>
                     </ScrollView>
+                    <GameBanner/>
+                  </View>
         )
       
     }
@@ -175,22 +181,18 @@ class comments_page extends Component {
 export default comments_page;
 
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        alignContent:'center',
-        justifyContent:'center'
-
-    },
+    
     share: {
       zIndex: 9,
       position: 'absolute',
       top: 40,
       left: 20,
       flex:1,
+      flexDirection: 'row',
+      alignItems: 'center',
       alignSelf: 'center',
-      backgroundColor: '#f1f3f6',
-      borderWidth:1,
-      borderColor:'gainsboro',
+      backgroundColor: "#526674",
+      paddingStart: 4,
       borderTopRightRadius: 20,
       borderTopLeftRadius: 20,
       borderBottomRightRadius: 20,
@@ -199,35 +201,40 @@ const styles = StyleSheet.create({
     buttonStyle: {
       flex:1,
       alignSelf: 'stretch',
-      backgroundColor: "#f1f3f6",
-      borderWidth:1,
-      borderColor:'gainsboro',
-      marginTop:3,
-      marginBottom:3,
-      marginLeft: 7,
-      marginRight:7,
+      backgroundColor: "#526674",
+      marginTop:20,
+      marginBottom:20,
+      marginLeft: 5,
+      marginRight:5,
       borderTopRightRadius: 20,
       borderTopLeftRadius: 20,
       borderBottomRightRadius: 20,
       borderBottomLeftRadius: 20,
+          
     },
     
-    buttontextStyleShort: {
-      fontSize: 18,
+    buttontextStyle: {
+      fontSize: 22,
       fontWeight: '900',
       paddingTop: 6,
       paddingBottom:6,
-      color:'#354992',
+      color:'white',
       textAlign: 'center',
-      fontStyle:  'italic'
-    },
-    buttontextStyleLong: {
-      fontSize: 15,
       fontWeight: '900',
-      paddingTop: 6,
-      paddingBottom:6,
-      color:'#354992',
-      textAlign: 'center',
-      fontStyle:  'italic'
+},
+
+main:{
+  flex:1,
+  width: Dimensions.get('window').width,
+  height: Dimensions.get('window').height,
+  backgroundColor: "#abd6f4", 
+},
+
+viewComments: {
+ position: 'absolute',
+ top: 0,
+ right: 0,   
+ height: global.gameHeight,
+ backgroundColor: "#abd6f4",  
 }
 })

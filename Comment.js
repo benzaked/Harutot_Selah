@@ -43,10 +43,10 @@ export default class Comment extends PureComponent {
       "האם אתה בטוח שברצונך למחוק את הפירוש?",
       [
         {
-          text: "Yes",
+          text: "כן",
           onPress: () => this.props.reportAction(this.props.id)
         },
-        { text: "No", onPress: () => null }
+        { text: "לא", onPress: () => null }
       ],
       true
     );

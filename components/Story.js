@@ -129,9 +129,6 @@ buttontextStyle: {
   paddingBottom:6,
   color:'white',
   textAlign: 'center',
-  textShadowOffset: { width: 1, height: 1 },
-  textShadowRadius: 1,
-  textShadowColor: '#62b1ea',
   fontWeight: '900',
 },
 buttonStyle: {

@@ -34,7 +34,7 @@ export default class Input extends Component {
     if (text) {
       this.setState({ text: undefined }, () => this.props.onSubmit(text));
     } else {
-      alert('Please enter your comment first');
+      alert('תחילה הזן בבקשה את התגובה');
     }
   };
 
@@ -50,7 +50,8 @@ export default class Input extends Component {
             <View  style={styles.container}>
               {/* Comment input field */}
               <TextInput
-                placeholder="תן פירוש לחריתה"
+                placeholder="חרותת הסלע מזכירה לי..."
+                placeholderTextColor='#777777'
                 keyboardType="twitter" // keyboard with no return button
                 autoFocus={true} // focus and show the keyboard
                 style={styles.input}
@@ -64,7 +65,7 @@ export default class Input extends Component {
                 onPress={this.submit}
               >
                 {/* Apply inactive style if no input */}
-                <Text style={[styles.text, !this.state.text ? styles.inactive : []]}>Post</Text>
+                <Text style={[styles.text, !this.state.text ? styles.inactive : []]}> פרסם </Text>
               </TouchableOpacity>
             </View>
           </ScrollView>
@@ -79,12 +80,16 @@ export default class Input extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#FFF',
+    backgroundColor: 'white',
+    // backgroundColor: "#daedf9", 
     flexDirection: 'row',
     borderTopWidth: 1,
-    borderColor: '#EEE',
+    borderBottomWidth:1,
+    borderColor: '#526674',
     alignItems: 'center',
     paddingLeft: 15,
+    marginBottom: 20,
+    elevation: 3,
   },
   input: {
     flex: 1,
@@ -98,7 +103,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   inactive: {
-    color: '#CCC',
+    // color: '#CCC',
+    color: '#526674',
   },
   text: {
     color: '#3F51B5',

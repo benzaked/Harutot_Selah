@@ -22,10 +22,10 @@ return (
   <View style={this.viewStyle()}>
       
       <Image source={require('../assets/gameBanner.png')} style={styles.image}/>
-      <View style={messegeSection}>
+      <View style={this.messegeSection()}>
         <Text style={textStyling}> {global.messege} </Text> 
       </View>
-      <View style={scoreSection}>
+      <View style={this.scoreSection()}>
       <Text style={textStyling}>צברת {global.score}{"\n"}נקודות</Text>
       </View>
       </View>
@@ -47,6 +47,41 @@ viewStyle=function () {
   }
 }
 
+messegeSection=function () {
+  let icon =  require('../assets/gameBanner.png'); 
+  let source = resolveAssetSource(icon);
+
+  return {
+    position: 'absolute', 
+    // bottom: 62,
+    bottom: (((Dimensions.get('window').width)*source.height)/source.width)*0.51,
+    zIndex: 9,
+    width: '48%',
+    height: '38%',
+    // backgroundColor: 'blue',
+    alignItems: 'center',
+    justifyContent: "center",
+  
+  }
+}
+
+scoreSection=function () {
+  let icon =  require('../assets/gameBanner.png'); 
+  let source = resolveAssetSource(icon);
+
+  return {
+    
+      // backgroundColor: 'blue',
+       position: 'absolute', 
+       bottom: (((Dimensions.get('window').width)*source.height)/source.width)*0.12,
+       zIndex: 9,
+       alignItems: 'center',
+      
+  
+  }
+}
+
+
 
 }//class
 
@@ -58,24 +93,8 @@ textStyling: {
     fontWeight: '600',
     color: 'black',
     textAlign: 'center',
+    lineHeight: 15,
   },
-
-messegeSection: {
-  
-  position: 'absolute', 
-  bottom: 78,
-  zIndex: 9,
-  width: '50%',
-  // backgroundColor: 'blue',
-  alignItems: 'center',
-},
-
-scoreSection:{
-//  paddingBottom: '2%',
- position: 'absolute', bottom: 18,
- zIndex: 9,
- alignItems: 'center',
-},
 
 image: {
   flex: 1,

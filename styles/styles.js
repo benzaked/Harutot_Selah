@@ -21,7 +21,10 @@ const styles = StyleSheet.create({
     rightContent: {
         borderRadius: 10,
         padding: 5,
-        backgroundColor: "#f1f3f6"
+        // backgroundColor: "#f1f3f6"
+        backgroundColor: "#daedf9",
+        elevation: 3,
+
     },
     rightContentTop: {
         flexDirection: "row"

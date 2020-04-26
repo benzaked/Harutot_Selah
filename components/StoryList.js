@@ -110,13 +110,11 @@ render() {
   return (
     
     <View style={styles.main}>
-    <View style={styles.viewStory}>
-    <ScrollView>
+    <ScrollView style={styles.viewStory}>
      
      {this.renderList()} 
      
     </ScrollView>
-    </View>
     <GameBanner/>
     </View>
 )}

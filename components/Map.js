@@ -84,7 +84,7 @@ export default class Mapp extends React.Component {
         
         {text: 'יאללה!', onPress: () => {
        
-      global.messege='יש לנו כמה חידות מעניינות בשבילך...'  
+      global.messege='כאן תוכל לתת פרשנות משלך לחרותת הסלע ולהתרשם מפרשנויות המבקרים האחרים'  
       const pushAction = StackActions.push({
         routeName: 'comments_page_game',
         params : {
