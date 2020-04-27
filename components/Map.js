@@ -20,6 +20,7 @@ import {  StackActions } from 'react-navigation';
 
 export default class Mapp extends React.Component {
   constructor(props) {
+    global.messege='התקדם לאתר חרותות הסלע שלפניך'
     super(props);
 
     this.state = {
@@ -50,7 +51,7 @@ export default class Mapp extends React.Component {
   }
 
   async  componentDidMount() {
-    global.messege='התקדם לאתר חרותות הסלע שלפניך'
+    
     const { coordinate } = this.state;
     const { status } = await Permissions.getAsync(Permissions.LOCATION)
 
@@ -84,7 +85,7 @@ export default class Mapp extends React.Component {
         
         {text: 'יאללה!', onPress: () => {
        
-      global.messege='כאן תוכל לתת פרשנות משלך לחרותת הסלע ולהתרשם מפרשנויות המבקרים האחרים'  
+      
       const pushAction = StackActions.push({
         routeName: 'comments_page_game',
         params : {

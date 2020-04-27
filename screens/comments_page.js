@@ -13,7 +13,7 @@ const {height, width} = Dimensions.get('window');
 // import Comments from "react-native-comments";
 class comments_page extends Component {
     constructor(props){
-        
+        global.messege='כאן תוכל לתת פרשנות משלך לחרותת הסלע ולהתרשם מפרשנויות המבקרים האחרים'
         super(props);
         this.state = {
             moveToStory : this.props.navigation.state.params.moveToStory,
@@ -163,7 +163,7 @@ class comments_page extends Component {
                             </TouchableOpacity>):(<Text></Text>) }
                             </View>
                                                       
-                            <Input onSubmit={this.submitComment.bind(this)} />
+                            {/* <Input onSubmit={this.submitComment.bind(this)} /> */}
                             <ScrollView >
                               {DBcommentsList}
                             </ScrollView>
@@ -171,10 +171,11 @@ class comments_page extends Component {
                           </ScrollView>
                       </View>
                     </ScrollView>
-                    {/* <View style={styles.footer} >
-                    <Input onSubmit={this.submitComment.bind(this)} /> */}
+                    <View style={styles.inputBottom} >
+                    <Input onSubmit={this.submitComment.bind(this)} />
+                    </View>
                     <GameBanner/>
-                    {/* </View> */}
+                    
                   </View>
         )
       
@@ -184,13 +185,15 @@ export default comments_page;
 
 const styles = StyleSheet.create({
 
-  footer: {
-    position: 'absolute',
-  bottom: 0,
-  left: 0,   
-  width: '100%',
-  height: 100,
-  alignItems: 'center',
+  inputBottom: {
+    width: '98%',
+    marginLeft: 5,
+    marginRight:5,
+    alignSelf: 'center',
+    position: 'absolute', 
+    bottom: 2,
+    zIndex: 20,
+    
   },
     
     share: {
@@ -231,7 +234,6 @@ const styles = StyleSheet.create({
       paddingBottom:6,
       color:'white',
       textAlign: 'center',
-      fontWeight: '900',
 },
 
 main:{

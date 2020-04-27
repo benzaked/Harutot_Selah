@@ -7,6 +7,7 @@ import {
   View, TouchableOpacity,ScrollView
 } from 'react-native';
 import PropTypes from 'prop-types'
+import { Icon } from 'react-native-elements'
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview'
 
 export default class Input extends Component {
@@ -64,8 +65,10 @@ export default class Input extends Component {
                 style={styles.button}
                 onPress={this.submit}
               >
+                <Icon name='send' color='white' />
                 {/* Apply inactive style if no input */}
-                <Text style={[styles.text, !this.state.text ? styles.inactive : []]}> פרסם </Text>
+                
+                {/* <Text style={[styles.text, !this.state.text ? styles.inactive : []]}> פרסם </Text> */}
               </TouchableOpacity>
             </View>
           </ScrollView>
@@ -80,37 +83,52 @@ export default class Input extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
-    // backgroundColor: "#daedf9", 
+    
     flexDirection: 'row',
-    borderTopWidth: 1,
-    borderBottomWidth:1,
-    borderColor: '#526674',
+    backgroundColor: 'rgba(255,255,255, 0.7)',
+    borderWidth:1,
+    borderColor: 'rgba(0,0,0, 0.7)',
     alignItems: 'center',
     paddingLeft: 15,
-    marginBottom: 20,
-    elevation: 3,
+    paddingRight:4,
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    borderBottomLeftRadius: 20,
+    
   },
   input: {
+    
     flex: 1,
-    height: 40,
+    height: 35,
     fontSize: 15,
+    
   },
   button: {
-    height: 40,
-    paddingHorizontal: 20,
+    // height: 40,
+    paddingVertical: 3,
+    paddingHorizontal: 3,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: "#526674",
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    borderBottomLeftRadius: 20,
+    marginLeft: 15,
   },
-  inactive: {
-    // color: '#CCC',
-    color: '#526674',
-  },
-  text: {
-    color: '#3F51B5',
-    fontWeight: 'bold',
-    fontStyle: "italic",
-    textAlign: 'center',
-    fontSize: 15,
-  },
+  // inactive: {
+  //   color:'white',
+  //   // fontWeight: '900',
+  //   // paddingTop: 6,
+  //   // paddingBottom:6,
+  //   // color:'white',
+  // },
+  // text: {
+    
+  //   color: '#3F51B5',
+  //   // fontWeight: 'bold',
+  //   // textAlign: 'center',
+  //   // fontSize: 15,
+  // },
 });
