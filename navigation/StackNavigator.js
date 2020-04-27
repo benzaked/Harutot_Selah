@@ -30,10 +30,10 @@ const StackNavigator = createStackNavigator(
     comments_page:{
       screen:comments_page,
       navigationOptions: {
-        title: 'התרשמויות של מבקרים מחרותות הסלע',
-        headerTitleStyle : {textAlign: 'center',alignSelf:'center',fontSize:18},
-       
-      },
+        header: null,
+        drawerLockMode: "locked-closed",
+        disableGestures: true
+      }
     },
     comments_page_game:{
       screen:comments_page,
