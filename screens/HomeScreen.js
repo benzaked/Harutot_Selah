@@ -8,9 +8,12 @@ export default class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      content: [],     
+      content: [
+        
+      ],     
     };
   }//constructor
+  
   componentDidMount() {
     BackHandler.addEventListener('hardwareBackPress', this.handleBackButton);
     const HomePage = firebase.database().ref('HomePage');
@@ -21,7 +24,7 @@ export default class HomeScreen extends React.Component {
             aux.push({
               about:child.val().about,
               introduction:child.val().introduction,
-            })
+            }) 
           
         });
           this.setState({content: aux});
@@ -50,8 +53,10 @@ handleBackButton() {
       <View style={styles.container}>
       <View style={styles.TextSection}>
       <ScrollView persistentScrollbar={true} >
-      <Text style={styles.textHeader}>
-      רקע לחרותות הסלע
+      <Text style={styles.textHeader}>{this.state.content[0]!=undefined ?(
+        this.state.content[0].about):(<Text style={styles.text}>
+           
+        </Text>)}
       {"\n"}
       </Text>
       <Text style={styles.text}>
@@ -63,7 +68,12 @@ handleBackButton() {
       <View style={styles.TextSection}>
       <ScrollView persistentScrollbar={true} >
       <Text style={styles.textHeader}>
+      
       פירוט הפעולות באפליקציה
+      {this.state.content[0]!=undefined ?(
+        this.state.content[0].introduction):(<Text style={styles.text}>
+           
+        </Text>)}
       {"\n"}
       </Text>
       <Text style={styles.text}>
