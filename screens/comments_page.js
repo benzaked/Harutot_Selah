@@ -128,7 +128,7 @@ class comments_page extends Component {
           );
       
         return(  
-          <View style={styles.main}>
+          <View style={styles.main} >
                   <ScrollView style={styles.viewComments}>
                     <MenuButton navigation={this.props.navigation} showIcon = {this.state.showMenuButtom} />
                     
@@ -162,8 +162,7 @@ class comments_page extends Component {
                               <Text style={styles.buttontextStyle}>למעבר לסיפור</Text>
                             </TouchableOpacity>):(<Text></Text>) }
                             </View>
-                            
-                            
+                                                      
                             <Input onSubmit={this.submitComment.bind(this)} />
                             <ScrollView >
                               {DBcommentsList}
@@ -172,7 +171,10 @@ class comments_page extends Component {
                           </ScrollView>
                       </View>
                     </ScrollView>
+                    {/* <View style={styles.footer} >
+                    <Input onSubmit={this.submitComment.bind(this)} /> */}
                     <GameBanner/>
+                    {/* </View> */}
                   </View>
         )
       
@@ -181,6 +183,15 @@ class comments_page extends Component {
 export default comments_page;
 
 const styles = StyleSheet.create({
+
+  footer: {
+    position: 'absolute',
+  bottom: 0,
+  left: 0,   
+  width: '100%',
+  height: 100,
+  alignItems: 'center',
+  },
     
     share: {
       zIndex: 9,
@@ -225,8 +236,6 @@ const styles = StyleSheet.create({
 
 main:{
   flex:1,
-  width: Dimensions.get('window').width,
-  height: Dimensions.get('window').height,
   backgroundColor: "#abd6f4", 
 },
 
