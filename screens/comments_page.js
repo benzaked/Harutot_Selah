@@ -141,7 +141,7 @@ class comments_page extends Component {
                             {!(this.state.moveToStory)? (
                             <TouchableOpacity style={styles.back} onPress = { () =>  this.props.navigation.goBack(null)}>
                               <Image source={require('../assets/arrow-back-outline.png')} style={styles.image}/>
-                              <Text style={styles.buttontextStyle}>חזור </Text>
+                              <Text style={styles.buttontextStyle}> חזור </Text>
                             </TouchableOpacity>):(<Text></Text>) }
                     </View>
 
