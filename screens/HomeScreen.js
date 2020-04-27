@@ -47,20 +47,21 @@ handleBackButton() {
     
     return (
      
-      <ImageBackground source={{uri: 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/backgrounds%2FHome_Back.png?alt=media&token=1fc02144-9d63-40ba-8e70-66ce16278a94' }} style={styles.backgroundImage}> 
+      <ImageBackground source={{uri: 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/backgrounds%2FHome_.png?alt=media&token=c424ee5a-e4fd-4a18-90fb-dda7ed55d797' }} style={styles.backgroundImage}> 
       <View style={styles.main}>
       <MenuButton navigation={this.props.navigation} showIcon={true} />
       <View style={styles.container}>
       <View style={styles.TextSection}>
       <ScrollView persistentScrollbar={true} >
-      <Text style={styles.textHeader}>{this.state.content[0]!=undefined ?(
-        this.state.content[0].about):(<Text style={styles.text}>
-           
-        </Text>)}
-      {"\n"}
+      <Text style={styles.textHeader}>
+      רקע לחרותות הסלע
       </Text>
       <Text style={styles.text}>
-      {/* {this.state.content[0].about} */}   
+      
+      {this.state.content[0]!=undefined ?(
+        this.state.content[0].about):(<Text style={styles.text}>
+           
+        </Text>)} 
       </Text>
       </ScrollView>
       </View>  
@@ -68,17 +69,14 @@ handleBackButton() {
       <View style={styles.TextSection}>
       <ScrollView persistentScrollbar={true} >
       <Text style={styles.textHeader}>
-      
       פירוט הפעולות באפליקציה
+      </Text>
+      <Text style={styles.text}>
+      
       {this.state.content[0]!=undefined ?(
         this.state.content[0].introduction):(<Text style={styles.text}>
            
         </Text>)}
-      {"\n"}
-      </Text>
-      <Text style={styles.text}>
-      
-      {/* {this.state.content[0].introduction} */}
 
       {"\n"}{"\n"}
       מקווים שיהיה לכם מסע פורה ומהנה באתר 😊
@@ -111,7 +109,7 @@ const styles = StyleSheet.create({
   },
   container: {
     height: '60%',
-    width: '60%',
+    width: '70%',
     alignItems: 'center',
     justifyContent: 'space-between',
     // backgroundColor: 'blue'

@@ -76,11 +76,23 @@ scoreSection=function () {
 
   return {
     
-      // backgroundColor: 'blue',
-       position: 'absolute', 
-       bottom: (((Dimensions.get('window').width)*source.height)/source.width)*0.12,
-       zIndex: 9,
-       alignItems: 'center',
+    backgroundColor: 'rgba(255,255,255, 0.7)',
+    borderWidth:1,
+    borderColor: 'rgba(0,0,0, 0.7)',
+    paddingTop: 10,
+    paddingBottom: 1,
+    paddingRight: 10,
+    paddingLeft: 2,
+    borderTopRightRadius: 70,
+    // borderTopLeftRadius: 20,
+    // borderBottomRightRadius: 20,
+    // borderBottomLeftRadius: 20,
+    alignSelf: 'flex-start',
+    position: 'absolute', 
+    // bottom: (((Dimensions.get('window').width)*source.height)/source.width)*0.12,
+    bottom: 0,
+    zIndex: 9,
+    alignItems: 'center',
       
   
   }

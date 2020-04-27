@@ -9,7 +9,7 @@ import GameBanner from '../components/GameBanner'
 import global from '../components/global'
 import { NavigationActions,StackActions } from "react-navigation";
 const {height, width} = Dimensions.get('window');
-// import { Icon } from 'react-native-vector-icons/Icon';
+// import  Icon  from 'react-native-vector-icons/Ionicons';
 // import Comments from "react-native-comments";
 class comments_page extends Component {
     constructor(props){
@@ -136,6 +136,15 @@ class comments_page extends Component {
                     <Icon name='share' color='white'/>	
                     <Text style={styles.buttontextStyle}> שתף </Text>
                     </TouchableOpacity>
+
+                    <View>
+                            {!(this.state.moveToStory)? (
+                            <TouchableOpacity style={styles.back} onPress = { () =>  this.props.navigation.goBack(null)}>
+                              <Image source={require('../assets/arrow-back-outline.png')} style={styles.image}/>
+                              <Text style={styles.buttontextStyle}>חזור </Text>
+                            </TouchableOpacity>):(<Text></Text>) }
+                    </View>
+
                     <View style={{flex:1,width:"100%",height:"100%"}} >
                         <Image
                       style={{ height:350, width:width,}}
@@ -144,18 +153,6 @@ class comments_page extends Component {
                         />
                         <ScrollView style={{ backgroundColor: "#abd6f4" }}>
 
-                            
-                            
-                        
-                            {/* <Icon
-                              raised
-                              reverse
-                              name='share'
-                              type='font-awesome'
-                              color='#51D2A8'
-                              onPress={() => this.ShareStuff('IM Title ','Im content','Im photo')}
-
-                            /> */}
                             <View>
                             {this.state.moveToStory? (
                             <TouchableOpacity style={styles.buttonStyle} onPress = { () =>  this.navigateToStory()}>
@@ -212,6 +209,24 @@ const styles = StyleSheet.create({
       borderBottomRightRadius: 20,
       borderBottomLeftRadius: 20,
     },
+
+    back: {
+      zIndex: 9,
+      position: 'absolute',
+      top: 40,
+      right: 20,
+      flex:1,
+      flexDirection: 'row',
+      alignItems: 'center',
+      alignSelf: 'center',
+      backgroundColor: "#526674",
+      paddingStart: 4,
+      borderTopRightRadius: 20,
+      borderTopLeftRadius: 20,
+      borderBottomRightRadius: 20,
+      borderBottomLeftRadius: 20,
+    },
+
     buttonStyle: {
       flex:1,
       alignSelf: 'stretch',
@@ -247,5 +262,12 @@ viewComments: {
  right: 0,   
  height: global.gameHeight,
  backgroundColor: "#abd6f4",  
+},
+
+image: {
+  width:26,
+  height: 26,
+  // resizeMode:'contain'
+  
 }
 })
