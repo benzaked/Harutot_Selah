@@ -8,7 +8,7 @@ export default class GameBanner extends Component {
   constructor(props) {
     super(props);
     this.state = {
-     
+     showScore: props.showScore,
     };
     
   }//constructor
@@ -25,10 +25,15 @@ return (
       <View style={this.messegeSection()}>
         <Text style={textStyling}> {global.messege} </Text> 
       </View>
-      <View style={this.scoreSection()}>
-      <Text style={textStyling}>צברת {global.score}{"\n"}נקודות</Text>
-      </View>
-      </View>
+
+      {this.state.showScore ? (
+          <View style={this.scoreSection()}>
+          <Text style={textStyling}>צברת {global.score}{"\n"}נקודות</Text>
+          </View>
+                
+      ) : null}
+  </View>  
+      
 )}
 
 

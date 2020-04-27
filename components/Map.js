@@ -208,7 +208,7 @@ export default class Mapp extends React.Component {
           
           <View style={styles.mapDrawerOverlay} />
           <MenuButton navigation={this.props.navigation} showIcon={true} /> 
-          <GameBanner/>
+          <GameBanner showScore={true}/>
         </View>
      
     );
