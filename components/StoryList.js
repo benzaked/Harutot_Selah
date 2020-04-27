@@ -115,7 +115,7 @@ render() {
      {this.renderList()} 
      
     </ScrollView>
-    <GameBanner/>
+    <GameBanner showScore={true}/>
     </View>
 )}
  

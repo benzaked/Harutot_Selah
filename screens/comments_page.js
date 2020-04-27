@@ -174,7 +174,7 @@ class comments_page extends Component {
                     <View style={styles.inputBottom} >
                     <Input onSubmit={this.submitComment.bind(this)} />
                     </View>
-                    <GameBanner/>
+                    <GameBanner showScore={false}/>
                     
                   </View>
         )
