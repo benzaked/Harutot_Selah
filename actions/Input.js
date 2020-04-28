@@ -65,7 +65,7 @@ export default class Input extends Component {
                 style={styles.button}
                 onPress={this.submit}
               >
-                <Icon name='send' color='white' />
+                <Icon name='send' color='white' size={19} />
                 {/* Apply inactive style if no input */}
                 
                 {/* <Text style={[styles.text, !this.state.text ? styles.inactive : []]}> פרסם </Text> */}

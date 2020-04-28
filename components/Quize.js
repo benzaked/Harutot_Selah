@@ -195,6 +195,7 @@ const styles = StyleSheet.create({
 
   buttontextStyle: {
     fontSize: 15,
+    lineHeight: 20,
     fontWeight: '600',
     paddingTop: 6,
     paddingBottom:6,

@@ -81,7 +81,7 @@ class comments_page extends Component {
       }, {dialogTitle: 'shate' + title});
     }
     navigateToStory = () => {
-      global.messege='יש לנו כמה חידות מעניינות בשבילך...'
+      
       const pushAction = StackActions.push({
         routeName: 'StoryList',
         params: {

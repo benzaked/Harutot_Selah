@@ -2,7 +2,7 @@
 import React,  { Component } from 'react';
 
 import { StyleSheet, Text, View,TextInput,Button,Image,ImageBackground,ScrollView, TouchableOpacity} from 'react-native';
-import StoryHeader from './StoryHeader'
+import Header from './Header'
 import QuizeList from './QuizeList'
  
 export default class Story extends Component {
@@ -32,7 +32,7 @@ render() {
 return (
 
 <View>
-      <StoryHeader numOfSite={this.props.numberOfSite}></StoryHeader>
+      <Header content={' הסיפור של אתר מספר ' + this.props.numberOfSite}/>
       <View style= { styles.titleContainer }>
         <Text style = { styles.StoryTitleText }>
           {this.state.storyTitle}

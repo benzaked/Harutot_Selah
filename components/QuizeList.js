@@ -36,33 +36,33 @@ class QuizeList extends Component {
     componentDidMount(){
     const quizesRef = firebase.database().ref('Quizes');
     this.listenForQuizes(quizesRef);//taking the data from database
-    this.temp();//inserting fake data to database
+    // this.temp();//inserting fake data to database
     };//componentDidMount
 
-    temp = () =>{
+    // temp = () =>{
         
-        firebase.database().ref('/Quizes/' + 1).set({
-            QuizeID:1,
-            numberOfSite:3,
-            QuizeContent :"כמה רגליים יש לגמל?",
-            Answer1:"1",
-            Answer2:"2",
-            Answer3:"3",
-            Answer4:"4",
-            RightAnswerNum:4
-        })
+    //     firebase.database().ref('/Quizes/' + 1).set({
+    //         QuizeID:1,
+    //         numberOfSite:3,
+    //         QuizeContent :"כמה רגליים יש לגמל?",
+    //         Answer1:"1",
+    //         Answer2:"2",
+    //         Answer3:"3",
+    //         Answer4:"4",
+    //         RightAnswerNum:4
+    //     })
         
-        firebase.database().ref('/Quizes/' + 2).set({
-            QuizeID:2,
-            numberOfSite:3,
-            QuizeContent :"איך מכנים את ציורי הסלע ומדוע?",
-            Answer1:"1",
-            Answer2:"2",
-            Answer3:"יש המכנים את ציורי הסלע כשפת המדבר מאחר והם מאפשרים הצצה לעולמם של אלו שחיים במדבר מתקופת עתיקות ועד היום",
-            Answer4:"4",
-            RightAnswerNum:3
-        })
-        }//temp - inserting fake data to database
+    //     firebase.database().ref('/Quizes/' + 2).set({
+    //         QuizeID:2,
+    //         numberOfSite:3,
+    //         QuizeContent :"איך מכנים את ציורי הסלע ומדוע?",
+    //         Answer1:"1",
+    //         Answer2:"2",
+    //         Answer3:"יש המכנים את ציורי הסלע כשפת המדבר מאחר והם מאפשרים הצצה לעולמם של אלו שחיים במדבר מתקופת עתיקות ועד היום",
+    //         Answer4:"4",
+    //         RightAnswerNum:3
+    //     })
+    //     }//temp - inserting fake data to database
     
     listenForQuizes = (quizesRef) => {
         

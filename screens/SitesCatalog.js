@@ -8,9 +8,8 @@ import { StyleSheet,
     ScrollView
   } from 'react-native';
   import { createStackNavigator, createAppContainer, StackActions } from 'react-navigation';
-
+  import Header from '../components/Header'
 import global from '../components/global'
-
 import MenuButton from  '../components/MenuButton'
 import Images_data from '../assets/Images_data'
 
@@ -74,19 +73,16 @@ export default class SitesCatalog extends React.Component {
     return (
       
       <View style={styles.container}>
+      <MenuButton navigation={this.props.navigation} showIcon={true} />
+      <Header content={'התרשמות מחרותות הסלע'}/>
+      <Text style={styles.text}> לחץ על התמונה להתרשמות, שיתוף עם חברים, השארת פרשנות משלך לחרותה וצפייה בפרשנויות מבקרים </Text>
+
         {this.state.image_clicked ? (
             <LoggedInPage name ={global.userName} photoUrl={global.photoUrl} userID={global.userId} pageNo={this.state.pageNo} siteImg ={this.state.siteImg} navigation={this.props.navigation} />
             
             ) : (
               <View style={styles.container}>  
-              <View style={styles.header}>
-                <MenuButton navigation={this.props.navigation} showIcon={true} />
-                
-                <Text style={styles.text}>
-                לחץ על התמונה כדי להתרשם מן חרותות הסלע ולהשאיר פרשנות משלך לחרותות
-                </Text>
-                </View>
-                
+              
                   <View style={styles.bottom}>
                     <ScrollView>
                         {global.sites.map((site) => {
@@ -98,7 +94,7 @@ export default class SitesCatalog extends React.Component {
                             style={styles.image}
                             key ={site.imageBig}>
                             
-                            <Image source= {{uri : site.imageBig}} style={styles.bottomItem} />
+                          <Image source= {{uri : site.imageBig}} style={styles.bottomItem} />
                           </TouchableOpacity>
                           
                           )
@@ -121,32 +117,30 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignContent: 'center',
+    backgroundColor: "#abd6f4", 
   },
-  header :{
-    height :'10%',
-    backgroundColor:'#f5f5f5'
-  },
-  
+    
   text :{
-    fontSize:18,
-    // fontWeight:'700',
-    paddingHorizontal:20,
-    paddingTop:40,
-    paddingRight:60
+    fontSize:15,
+    color: "#526674",
+    fontWeight: '700',
+    textAlign: 'center',
   },
   bottom :{
     height :'90%',
     flexDirection: 'row',
     flexWrap:'wrap',
-    padding:5
+    // padding:5
   },
   bottomItem:{
   flex:1,
+  
   },
   image: {
     width: '100%',
     height: 250,
     padding: 5,
+    
     
   },
 });

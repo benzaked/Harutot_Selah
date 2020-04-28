@@ -10,6 +10,7 @@ import global from './global'
 
 export default class StoryList extends Component {
     constructor(props) {
+      global.messege='יש לנו כמה חידות מעניינות בשבילך...'
       super(props);
       this.state = {
         numberOfSite: this.props.navigation.state.params.pageNo,
@@ -40,35 +41,35 @@ export default class StoryList extends Component {
       
       const storiesRef = firebase.database().ref('Stories');
       this.listenForStories(storiesRef);//taking the data from database
-      this.temp();//inserting fake data to database
+      // this.temp();//inserting fake data to database
     };//componentDidMount
 
-    temp = () =>{
+  //   temp = () =>{
         
-      firebase.database().ref('/Stories/' + 1).set({
-          numberOfSite:1,
-          storyTitle :"story title 1",
-          story: "story 1"
-      })
+  //     firebase.database().ref('/Stories/' + 1).set({
+  //         numberOfSite:1,
+  //         storyTitle :"story title 1",
+  //         story: "story 1"
+  //     })
      
-      firebase.database().ref('/Stories/' + 2).set({
-          numberOfSite:2,
-          storyTitle :"story title 2",
-          story: "story 2"
-      })
+  //     firebase.database().ref('/Stories/' + 2).set({
+  //         numberOfSite:2,
+  //         storyTitle :"story title 2",
+  //         story: "story 2"
+  //     })
 
-      firebase.database().ref('/Stories/' + 3).set({
-        numberOfSite:3,
-        storyTitle :"פארק חרותות הסלע",
-        story: "מצפור ליפא גל נמצא באזור הר הנגב, בהר מחיה, והוא בגובה של 600 מ' מעל פני הים. המצפור הוקם לזכרו של ליפא גל אשר היה איש קקל במשך רוב שנות חייו ונהרג בתאונה מצערת. מן המצפור נשקף נוף מרהיב הצופה אל עבר עתיקות עבדת והנגב הצפוני. בנוסף, הוא גם מהווה נקודת יציאה לכמה מסלולי טיול קלילים. בדרכנו נפגוש את חרותות הסלע שהם ציורי סלע עתיקים ומיוחדים. יש המכנים את ציורי הסלע כ שפת המדבר מאחר והם מאפשרים הצצה לעולמם של אלו שחיים במדבר מתקופת עתיקות ועד היום."
-    })
+  //     firebase.database().ref('/Stories/' + 3).set({
+  //       numberOfSite:3,
+  //       storyTitle :"פארק חרותות הסלע",
+  //       story: "מצפור ליפא גל נמצא באזור הר הנגב, בהר מחיה, והוא בגובה של 600 מ' מעל פני הים. המצפור הוקם לזכרו של ליפא גל אשר היה איש קקל במשך רוב שנות חייו ונהרג בתאונה מצערת. מן המצפור נשקף נוף מרהיב הצופה אל עבר עתיקות עבדת והנגב הצפוני. בנוסף, הוא גם מהווה נקודת יציאה לכמה מסלולי טיול קלילים. בדרכנו נפגוש את חרותות הסלע שהם ציורי סלע עתיקים ומיוחדים. יש המכנים את ציורי הסלע כ שפת המדבר מאחר והם מאפשרים הצצה לעולמם של אלו שחיים במדבר מתקופת עתיקות ועד היום."
+  //   })
 
-    firebase.database().ref('/Stories/' + 4).set({
-      numberOfSite:4,
-      storyTitle :"story title 4",
-      story: "story 4"
-  })
-      }//temp- writing to te database
+  //   firebase.database().ref('/Stories/' + 4).set({
+  //     numberOfSite:4,
+  //     storyTitle :"story title 4",
+  //     story: "story 4"
+  // })
+  //     }//temp- writing to te database
   
   listenForStories = (storiesRef) => {
       
