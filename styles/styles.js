@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
     rightContent: {
         borderRadius: 10,
         padding: 5,
-        // backgroundColor: "#f1f3f6"
         backgroundColor: "#daedf9",
         elevation: 3,
 
@@ -170,7 +169,81 @@ const styles = StyleSheet.create({
     },
     menuText: {
         textAlign: "center"
-    }
+    },
+
+    darkButtonStyle: {
+        
+        flexDirection: 'row',
+        alignItems: 'center',
+        alignSelf: 'center',
+        backgroundColor: "#526674",
+        marginTop:7,
+        marginBottom:7,
+        paddingHorizontal: 4,
+        borderTopRightRadius: 20,
+        borderTopLeftRadius: 20,
+        borderBottomRightRadius: 20,
+        borderBottomLeftRadius: 20,
+      },
+
+      darkButtonStyleStretch:{
+        flex:1,
+        alignSelf: 'stretch',
+        backgroundColor: "#526674",
+        marginTop:7,
+        marginBottom:7,
+        marginLeft: 40,
+        marginRight:40,
+        borderTopRightRadius: 20,
+        borderTopLeftRadius: 20,
+        borderBottomRightRadius: 20,
+        borderBottomLeftRadius: 20,
+      },
+      
+      darkButtonText: {
+        fontSize: 22,
+        fontWeight: '900',
+        paddingTop: 6,
+        paddingBottom:6,
+        color:'white',
+        textAlign: 'center',
+    },
+
+    lightBlueContainer: {
+        
+        paddingTop:4,
+        paddingLeft: 4,
+        paddingRight:4,
+        paddingBottom:4,
+        minHeight: 190,
+        backgroundColor: "#daedf9",
+        borderTopRightRadius: 20,
+        borderTopLeftRadius: 20,
+        borderBottomRightRadius: 20,
+        borderBottomLeftRadius: 20,
+        marginBottom: 3,
+        marginLeft: 40,
+        marginRight:40,
+        elevation: 3,
+    },
+
+    smallBlackText:{
+    
+        lineHeight: 20,
+        fontSize: 15,
+        fontWeight: '600',
+        color: 'black',
+        textAlign: 'center'
+            
+      },
+
+      medumBlackText:{
+        lineHeight: 35,
+        fontSize: 22,
+        fontWeight: '600',
+        color: 'black',
+        textAlign: 'center'
+      }
 });
 
 export default styles;

@@ -1,6 +1,6 @@
 import React ,  {Component} from 'react';
 import { StyleSheet, Text, View,TextInput,Button, TouchableOpacity , Image } from 'react-native';
-
+import styles from "../styles/styles";
 
 class Quize extends Component {
         constructor(props) {
@@ -70,37 +70,37 @@ class Quize extends Component {
     
     render(){
          return(
-          <View style= { styles.container }>
-            
+          <View style= { styles.lightBlueContainer }>
+            <View style={{flex:1, alignItems: "stretch", justifyContent: "center",}}>
             {this.state.showQuizeScreen ? ( 
             <View>
-            <Text style = {styles.contentText}>{this.state.QuizeContent}</Text> 
+            <Text style = {styles.medumBlackText}>{this.state.QuizeContent}</Text> 
               
-              <View style={styles.answerContainer}>
-                <TouchableOpacity style={styles.buttonStyle} onPress = {this.checkAnswer1}>
-                   <Text style={styles.buttontextStyle}> {this.state.Answer1} </Text> 
+              <View style={quizeStyles.answerContainer}>
+                <TouchableOpacity style={quizeStyles.buttonStyle} onPress = {this.checkAnswer1}>
+                   <Text style={quizeStyles.buttontextStyle}> {this.state.Answer1} </Text> 
                 </TouchableOpacity>
                 
               </View>  
 
-              <View style={styles.answerContainer}>
-                <TouchableOpacity style={styles.buttonStyle} onPress = {this.checkAnswer2}>
-                   <Text style={styles.buttontextStyle}> {this.state.Answer2} </Text>
+              <View style={quizeStyles.answerContainer}>
+                <TouchableOpacity style={quizeStyles.buttonStyle} onPress = {this.checkAnswer2}>
+                   <Text style={quizeStyles.buttontextStyle}> {this.state.Answer2} </Text>
                 </TouchableOpacity>
                 
               </View>  
 
-              <View style={styles.answerContainer}>
-                <TouchableOpacity style={styles.buttonStyle} onPress = {this.checkAnswer3}>
-                   <Text style={styles.buttontextStyle}> {this.state.Answer3} </Text> 
+              <View style={quizeStyles.answerContainer}>
+                <TouchableOpacity style={quizeStyles.buttonStyle} onPress = {this.checkAnswer3}>
+                   <Text style={quizeStyles.buttontextStyle}> {this.state.Answer3} </Text> 
                 </TouchableOpacity>
                 
               </View>  
 
-              <View style={styles.answerContainer}>
+              <View style={quizeStyles.answerContainer}>
                 
-                <TouchableOpacity style={styles.buttonStyle} onPress = {this.checkAnswer4}>
-                   <Text style={styles.buttontextStyle}> {this.state.Answer4} </Text> 
+                <TouchableOpacity style={quizeStyles.buttonStyle} onPress = {this.checkAnswer4}>
+                   <Text style={quizeStyles.buttontextStyle}> {this.state.Answer4} </Text> 
                 </TouchableOpacity>
                 
                 </View> 
@@ -110,9 +110,9 @@ class Quize extends Component {
            
             <View >
                 {this.state.showRightAnswerScreen ? (
-                  <View style={styles.answerScreen}>
-                  <Image source={{uri: 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/game%2Fhappy_girl.png?alt=media&token=de37e4bc-bde1-499c-94fd-71a91f7d8207'}} style={styles.image}/>
-                  <Text style = { styles.text}>
+                  <View style={quizeStyles.answerScreen}>
+                  <Image source={{uri: 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/game%2Fhappy_girl.png?alt=media&token=de37e4bc-bde1-499c-94fd-71a91f7d8207'}} style={quizeStyles.image}/>
+                  <Text style = { styles.smallBlackText}>
                    כל הכבוד! הרווחת 10 נקודות
                   </Text>
                   </View>
@@ -121,13 +121,14 @@ class Quize extends Component {
 
             <View >
                 {this.state.showWrongAnswerScreen ? (
-                  <View style={styles.answerScreen}>
-                  <Image source={{uri: 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/game%2Funhappy_girl.png?alt=media&token=46390353-c9e7-42ad-934b-6ea9b19a7eff'}} style={styles.image}/>
-                  <Text style = { styles.text}>
+                  <View style={quizeStyles.answerScreen}>
+                  <Image source={{uri: 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/game%2Funhappy_girl.png?alt=media&token=46390353-c9e7-42ad-934b-6ea9b19a7eff'}} style={quizeStyles.image}/>
+                  <Text style = { styles.smallBlackText}>
                   תשובה שגויה, אולי תצליח בחידה הבאה...
                   </Text>
                   </View>
                 ) : null}
+            </View>
             </View>
             </View>
         );
@@ -136,34 +137,14 @@ class Quize extends Component {
 
 export default Quize;
 
-const styles = StyleSheet.create({
+const quizeStyles = StyleSheet.create({
 
   answerScreen: {
     alignItems: 'center',
-    alignContent: 'center'
+    alignContent: 'center',
+    // backgroundColor: 'green'
   },
-       
-    container: {
-      flex:1,
-      paddingTop:4,
-      paddingLeft: 4,
-      paddingRight:4,
-      paddingBottom:4,
-      minHeight: 190,
-      justifyContent: "center",
-      alignItems: "stretch",
-      backgroundColor: "#daedf9",
-      borderTopRightRadius: 20,
-      borderTopLeftRadius: 20,
-      borderBottomRightRadius: 20,
-      borderBottomLeftRadius: 20,
-      marginBottom: 3,
-      marginLeft: 40,
-      marginRight:40,
-      elevation: 3,
-      
-  },
-
+  
   answerContainer:{
     flex:1,
     width:'100%',
@@ -171,26 +152,6 @@ const styles = StyleSheet.create({
     minHeight: 45,
     // backgroundColor: 'blue',
     
-  },
-
-  contentText:{
-    flex:1,
-    lineHeight: 35,
-    fontSize: 22,
-    fontWeight: '600',
-    color: 'black',
-    textAlign: 'center'
-  },
-  
-  text:{
-    
-    flex:1,
-    lineHeight: 20,
-    fontSize: 15,
-    fontWeight: '600',
-    color: 'black',
-    textAlign: 'center'
-        
   },
 
   buttontextStyle: {

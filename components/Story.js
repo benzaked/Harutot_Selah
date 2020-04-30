@@ -1,9 +1,10 @@
  
 import React,  { Component } from 'react';
 
-import { StyleSheet, Text, View,TextInput,Button,Image,ImageBackground,ScrollView, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import Header from './Header'
 import QuizeList from './QuizeList'
+import styles from "../styles/styles";
  
 export default class Story extends Component {
     constructor(props) {
@@ -33,21 +34,21 @@ return (
 
 <View>
       <Header content={' הסיפור של אתר מספר ' + this.props.numberOfSite}/>
-      <View style= { styles.titleContainer }>
-        <Text style = { styles.StoryTitleText }>
+      <View style= { storyStyles.titleContainer }>
+        <Text style = { styles.medumBlackText }>
           {this.state.storyTitle}
         </Text>
         </View>
-        <View style= {styles.contentContainer }> 
-        <Text style = { styles.StoryText }>
+        <View style= {storyStyles.contentContainer }> 
+        <Text style = { styles.smallBlackText }>
           {this.state.story}
         </Text>
         </View>
         
       <View>
       {!(this.state.showQuize) ? (      
-        <TouchableOpacity style={styles.buttonStyle} onPress = {this.ShowfuncQuize}>
-           <Text style={styles.buttontextStyle}> המשך לחידון </Text>
+        <TouchableOpacity style={styles.darkButtonStyleStretch} onPress = {this.ShowfuncQuize}>
+           <Text style={styles.darkButtonText}> המשך לחידון </Text>
         </TouchableOpacity>
         ) : null}
       {this.state.showQuize ? (
@@ -70,7 +71,7 @@ return (
 
 }//class
 
-const styles = StyleSheet.create({
+const storyStyles = StyleSheet.create({
 
       
  titleContainer: {
@@ -106,46 +107,6 @@ contentContainer: {
   
 },
 
-StoryTitleText: {
-    lineHeight: 33,
-    fontSize: 30,
-    fontWeight: '600',
-    color: 'black',
-    textAlign: 'center',
-},
-StoryText:{
-    
-    lineHeight: 20,
-    fontSize: 15,
-    fontWeight: '600',
-    color: 'black',
-    textAlign: 'center',
-    
-},
-buttontextStyle: {
-  fontSize: 22,
-  fontWeight: '900',
-  paddingTop: 6,
-  paddingBottom:6,
-  color:'white',
-  textAlign: 'center',
-  fontWeight: '900',
-},
-buttonStyle: {
-  
-  flex:1,
-  alignSelf: 'stretch',
-  backgroundColor: "#526674",
-  marginTop:7,
-  marginBottom:7,
-  marginLeft: 40,
-  marginRight:40,
-  borderTopRightRadius: 20,
-  borderTopLeftRadius: 20,
-  borderBottomRightRadius: 20,
-  borderBottomLeftRadius: 20,
-  
-}
 });
   
   

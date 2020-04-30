@@ -12,6 +12,7 @@ import { StyleSheet,
 import global from '../components/global'
 import MenuButton from  '../components/MenuButton'
 import Images_data from '../assets/Images_data'
+import styles from "../styles/styles";
 
 export default class SitesCatalog extends React.Component {
   constructor(props){
@@ -71,76 +72,74 @@ export default class SitesCatalog extends React.Component {
   render() {
     console.log(global.sites)
     return (
-      
-      <View style={styles.container}>
+      <View style={catalogStyles.container}>
+      <ScrollView>
       <MenuButton navigation={this.props.navigation} showIcon={true} />
       <Header content={'התרשמות מחרותות הסלע'}/>
-      <Text style={styles.text}> לחץ על התמונה להתרשמות, שיתוף עם חברים, השארת פרשנות משלך לחרותה וצפייה בפרשנויות מבקרים </Text>
-
+      <View style={catalogStyles.rightContent}>
+      <Text style={styles.smallBlackText}> לחץ על התמונה להתרשמות, שיתוף עם חברים, השארת פרשנות משלך לחרותה וצפייה בפרשנויות מבקרים </Text>
+      </View>
         {this.state.image_clicked ? (
             <LoggedInPage name ={global.userName} photoUrl={global.photoUrl} userID={global.userId} pageNo={this.state.pageNo} siteImg ={this.state.siteImg} navigation={this.props.navigation} />
             
             ) : (
-              <View style={styles.container}>  
-              
-                  <View style={styles.bottom}>
-                    <ScrollView>
+                            
+                  <View>
+                   
                         {global.sites.map((site) => {
                         
                           return (
-                            
+                          <View style={catalogStyles.rightContent}> 
+                          <Text style={styles.smallBlackText}> אתר מספר {site.id} </Text>
                           <TouchableOpacity
                             onPress={() => this.moveToAddNewCustomer(site.id,site.imageBig)}
-                            style={styles.image}
+                            style={catalogStyles.image}
                             key ={site.imageBig}>
                             
-                          <Image source= {{uri : site.imageBig}} style={styles.bottomItem} />
+                          <Image source= {{uri : site.imageBig}} style={catalogStyles.bottomItem} />
                           </TouchableOpacity>
-                          
+                          </View>
                           )
                         
                       })}
-                    </ScrollView>
+                   
                   </View>
-              </View>
           )}
-          </View>
-    
+        </ScrollView>
+    </View>
     );
   }
 }
 
 
 
-const styles = StyleSheet.create({
+const catalogStyles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignContent: 'center',
     backgroundColor: "#abd6f4", 
   },
+
+  rightContent: {
     
-  text :{
-    fontSize:15,
-    color: "#526674",
-    fontWeight: '700',
-    textAlign: 'center',
-  },
-  bottom :{
-    height :'90%',
-    flexDirection: 'row',
-    flexWrap:'wrap',
-    // padding:5
-  },
+    borderRadius: 10,
+    padding: 5,
+    backgroundColor: "#daedf9",
+    elevation: 3,
+    marginHorizontal: 10,
+    marginBottom: 10,
+},
+    
   bottomItem:{
   flex:1,
+
   
   },
   image: {
     width: '100%',
     height: 250,
     padding: 5,
-    
     
   },
 });

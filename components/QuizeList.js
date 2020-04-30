@@ -1,11 +1,11 @@
 import React ,  {Component} from 'react';
-import { StyleSheet, Text, View,Alert,TouchableOpacity } from 'react-native';
+import { Text, View,Alert,TouchableOpacity } from 'react-native';
 import Quize from './Quize'
 import firebase from 'firebase'
 import {firebaseConfig} from '../config'
-import { NavigationActions,StackActions } from "react-navigation";
-import Map from './Map'
 import global from './global'
+import Modal from 'react-native-modal';
+import styles from "../styles/styles";
 
 class QuizeList extends Component {
         constructor(props) {
@@ -125,7 +125,7 @@ class QuizeList extends Component {
           ))
         } 
 
-        else 
+        else {
           return (
             Alert.alert(
             'טרם סיימת לענות על כל החידות בשלב זה',
@@ -134,7 +134,8 @@ class QuizeList extends Component {
             ],
             { cancelable: false }
           ))
-      }
+        }
+      }//checkIsQuizeOver
           
     render(){
         return(
@@ -142,8 +143,8 @@ class QuizeList extends Component {
           
         {this.renderList()}
                 
-        <TouchableOpacity style={styles.buttonStyle} onPress = {this.checkIsQuizeOver}>
-          <Text style={styles.buttontextStyle}> לחץ כאן להמשך המשחק </Text>
+        <TouchableOpacity style={styles.darkButtonStyleStretch} onPress = {this.checkIsQuizeOver}>
+          <Text style={styles.darkButtonText}> לחץ כאן להמשך המשחק </Text>
         </TouchableOpacity>
           
          </View>
@@ -151,29 +152,5 @@ class QuizeList extends Component {
     }//render
 }//class
 
-const styles = StyleSheet.create({
-  buttontextStyle: {
-    fontSize: 22,
-    fontWeight: '900',
-    paddingTop: 6,
-    paddingBottom:6,
-    color:'white',
-    textAlign: 'center',
-  },
-  buttonStyle: {
-    
-    flex:1,
-    alignSelf: 'stretch',
-    backgroundColor: "#526674",
-    marginTop:7,
-    marginBottom:7,
-    marginLeft: 40,
-    marginRight:40,
-    borderTopRightRadius: 20,
-    borderTopLeftRadius: 20,
-    borderBottomRightRadius: 20,
-    borderBottomLeftRadius: 20,
-  }
- })
- 
+
 export default QuizeList;

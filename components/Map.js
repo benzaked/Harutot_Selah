@@ -1,10 +1,12 @@
 import React from 'react';
-import { StyleSheet, View, Platform, Dimensions, SafeAreaView,Alert } from 'react-native';
+import { StyleSheet, View,Text,TouchableOpacity, Platform, Dimensions, SafeAreaView,Alert, Image } from 'react-native';
 import MapView, { Marker, AnimatedRegion,Callout } from 'react-native-maps';
 import MenuButton from './MenuButton'
 import global from './global'
 import * as Permissions from 'expo-permissions';
 import GameBanner from './GameBanner'
+import Modal from 'react-native-modal';
+import styles from "../styles/styles";
 
 const { width, height } = Dimensions.get('window');
 
@@ -30,6 +32,9 @@ export default class Mapp extends React.Component {
       longitude: LONGITUDE,
       latitudeDelta: LATITUDE_DELTA,
       longitudeDelta: LONGITUDE_DELTA,
+      isModalVisible: false,
+      siteId:-1 ,
+      imageBig: -1,
 
       coordinate: new AnimatedRegion({
         latitude: LATITUDE,
@@ -77,15 +82,43 @@ export default class Mapp extends React.Component {
   }
 
   Alertt = (siteId,imageBig) =>{
+    this.setState({siteId: siteId})
+    this.setState({imageBig: imageBig})
+    this.setState({isModalVisible: !this.state.isModalVisible});
     
-    Alert.alert(  
-      'כל הכבוד!!',
-      ' הגעת לאתר ' + siteId   + " המשך לתת פרשנות משלך לחרותות שלפינך ",
-      [
+    // Alert.alert(  
+    //   'כל הכבוד!',
+    //   ' הגעת לאתר ' + siteId   + " המשך לתת פרשנות משלך לחרותות שלפינך ",
+    
+    //   [
         
-        {text: 'יאללה!', onPress: () => {
+    //     {text: 'יאללה!', onPress: () => {
        
       
+    //   const pushAction = StackActions.push({
+    //     routeName: 'comments_page_game',
+    //     params : {
+    //       moveToStory: true,
+    //       name: global.userName,
+    //       photoUrl: global.photoUrl,
+    //       userID: global.userId,
+    //       pageNo: siteId,
+    //       siteImg: imageBig,
+    //     }
+    //     });
+    //     this.props.navigation.dispatch(pushAction);
+        
+    //     },
+    //     }
+    //   ],
+    //   {cancelable: false},
+    // );
+  }//Alertt
+
+  moveToComments = () =>{
+       
+    this.setState({isModalVisible: !this.state.isModalVisible});
+    
       const pushAction = StackActions.push({
         routeName: 'comments_page_game',
         params : {
@@ -93,25 +126,14 @@ export default class Mapp extends React.Component {
           name: global.userName,
           photoUrl: global.photoUrl,
           userID: global.userId,
-          pageNo: siteId,
-          siteImg: imageBig,
+          pageNo: this.state.siteId,
+          siteImg: this.state.imageBig,
         }
         });
         this.props.navigation.dispatch(pushAction);
-        //   this.props.navigation.navigate('comments_page', params = {
-        //     moveToStory: true,
-        //     name: global.userName,
-        //     photoUrl: global.photoUrl,
-        //     userID: global.userId,
-        //     pageNo: siteId,
-        //     siteImg: imageBig,
-        //   });
-        },
-        }
-      ],
-      {cancelable: false},
-    );
-  }
+        
+}//moveToComments
+
   isOnSite = (newCoordinate) => {
       
       
@@ -180,10 +202,24 @@ export default class Mapp extends React.Component {
    const {latitude,longitude} = this.state
     return (
      
-        <View style={styles.container}>
-            
+        <View style={mapStyles.container}>
 
-          <MapView style={styles.map} 
+          <Modal isVisible={this.state.isModalVisible}>
+          <View style={styles.lightBlueContainer}>
+            <View style={{alignItems: "center"}}>
+            <Text style={styles.medumBlackText}>כל הכבוד!</Text>
+            <Text style={styles.smallBlackText}>
+            {"\n"}
+           הגעת לאתר מספר {this.state.siteId} המשך לתת פרשנות משלך לחרותה שלפינך
+          </Text>
+          <Image source={require('../assets/welcome_site.png')} style={mapStyles.image}/>
+          <TouchableOpacity style={styles.darkButtonStyle} onPress = { () =>  this.moveToComments()}>
+          <Text style={styles.darkButtonText}> קדימה </Text>
+          </TouchableOpacity>
+          </View></View>
+          </Modal> 
+
+          <MapView style={mapStyles.map} 
           showsUserLocation={true}
           followsUserLocation 
           loadingEnabled
@@ -206,7 +242,7 @@ export default class Mapp extends React.Component {
             {markers}
           </MapView>
           
-          <View style={styles.mapDrawerOverlay} />
+          <View style={mapStyles.mapDrawerOverlay} />
           <MenuButton navigation={this.props.navigation} showIcon={true} /> 
           <GameBanner showScore={true}/>
         </View>
@@ -218,7 +254,7 @@ const Screen = {
   width: Dimensions.get('window').width,
   height: Dimensions.get('window').height,
 };
-const styles = StyleSheet.create({
+const mapStyles = StyleSheet.create({
   container: {
     // ...StyleSheet.absoluteFillObject,
     // justifyContent: 'flex-end',
@@ -238,4 +274,13 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').height,
     width: 10,
   },
+
+  image: {
+    width:300,
+    height: 300,
+    resizeMode:'contain'
+    
+  },
+  
+
 });

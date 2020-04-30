@@ -7,6 +7,8 @@ import MenuButton from  '../components/MenuButton'
 import Input from '../actions/Input'
 import GameBanner from '../components/GameBanner'
 import global from '../components/global'
+import styles from "../styles/styles";
+
 import { NavigationActions,StackActions } from "react-navigation";
 const {height, width} = Dimensions.get('window');
 // import  Icon  from 'react-native-vector-icons/Ionicons';
@@ -128,20 +130,20 @@ class comments_page extends Component {
           );
       
         return(  
-          <View style={styles.main} >
-                  <ScrollView style={styles.viewComments}>
+          <View style={commentsStyles.main} >
+                  <ScrollView style={commentsStyles.viewComments}>
                     <MenuButton navigation={this.props.navigation} showIcon = {this.state.showMenuButtom} />
                     
-                    <TouchableOpacity style={styles.share} onPress = { () =>  this.ShareStuff('טעימה מהטיול בליפא גל','  לחצו על הקישור',this.state.siteImg)}>
+                    <TouchableOpacity style={commentsStyles.share} onPress = { () =>  this.ShareStuff('טעימה מהטיול בליפא גל','  לחצו על הקישור',this.state.siteImg)}>
                     <Icon name='share' color='white'/>	
-                    <Text style={styles.buttontextStyle}> שתף </Text>
+                    {/* <Text style={styles.darkButtonText}> שתף </Text> */}
                     </TouchableOpacity>
 
                     <View>
                             {!(this.state.moveToStory)? (
-                            <TouchableOpacity style={styles.back} onPress = { () =>  this.props.navigation.goBack(null)}>
-                              <Image source={require('../assets/arrow-back-outline.png')} style={styles.image}/>
-                              <Text style={styles.buttontextStyle}> חזור </Text>
+                            <TouchableOpacity style={commentsStyles.back} onPress = { () =>  this.props.navigation.goBack(null)}>
+                              <Image source={require('../assets/arrow-back-outline.png')} style={commentsStyles.image}/>
+                              {/* <Text style={styles.darkButtonText}> חזור </Text> */}
                             </TouchableOpacity>):(<Text></Text>) }
                     </View>
 
@@ -155,8 +157,8 @@ class comments_page extends Component {
 
                             <View>
                             {this.state.moveToStory? (
-                            <TouchableOpacity style={styles.buttonStyle} onPress = { () =>  this.navigateToStory()}>
-                              <Text style={styles.buttontextStyle}>למעבר לסיפור</Text>
+                            <TouchableOpacity style={commentsStyles.buttonStyle} onPress = { () =>  this.navigateToStory()}>
+                              <Text style={styles.darkButtonText}>למעבר לסיפור</Text>
                             </TouchableOpacity>):(<Text></Text>) }
                             </View>
                                                       
@@ -168,7 +170,7 @@ class comments_page extends Component {
                           </ScrollView>
                       </View>
                     </ScrollView>
-                    <View style={styles.inputBottom} >
+                    <View style={commentsStyles.inputBottom} >
                     <Input onSubmit={this.submitComment.bind(this)} />
                     </View>
                     <GameBanner showScore={false}/>
@@ -180,7 +182,7 @@ class comments_page extends Component {
 }
 export default comments_page;
 
-const styles = StyleSheet.create({
+const commentsStyles = StyleSheet.create({
 
   inputBottom: {
     width: '98%',
@@ -203,7 +205,8 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       alignSelf: 'center',
       backgroundColor: "#526674",
-      paddingStart: 4,
+      paddingHorizontal: 8,
+      paddingVertical:8,
       borderTopRightRadius: 20,
       borderTopLeftRadius: 20,
       borderBottomRightRadius: 20,
@@ -220,7 +223,8 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       alignSelf: 'center',
       backgroundColor: "#526674",
-      paddingStart: 4,
+      paddingHorizontal: 8,
+      paddingVertical:8,
       borderTopRightRadius: 20,
       borderTopLeftRadius: 20,
       borderBottomRightRadius: 20,
@@ -242,15 +246,6 @@ const styles = StyleSheet.create({
           
     },
     
-    buttontextStyle: {
-      fontSize: 22,
-      fontWeight: '900',
-      paddingTop: 6,
-      paddingBottom:6,
-      color:'white',
-      textAlign: 'center',
-},
-
 main:{
   flex:1,
   backgroundColor: "#abd6f4", 

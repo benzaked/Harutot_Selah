@@ -1,9 +1,9 @@
 {
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null,
+  "expoServerNgrokUrl": "https://ec-m69.anonymous.harutot-selah.exp.direct",
+  "packagerNgrokUrl": "https://packager.ec-m69.anonymous.harutot-selah.exp.direct",
+  "ngrokPid": 2092,
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 14892
+  "packagerPid": 12096
 }
