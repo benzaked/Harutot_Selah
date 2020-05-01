@@ -19,6 +19,7 @@ export default class StoryList extends Component {
         scoreQuize:0
                
       };
+
       
     }//constructor
 
@@ -42,6 +43,10 @@ export default class StoryList extends Component {
       const storiesRef = firebase.database().ref('Stories');
       this.listenForStories(storiesRef);//taking the data from database
       // this.temp();//inserting fake data to database
+      if(global.firtSiteVisit==-1){
+        global.firtSiteVisit=this.state.numberOfSite
+      }
+      
     };//componentDidMount
 
   //   temp = () =>{

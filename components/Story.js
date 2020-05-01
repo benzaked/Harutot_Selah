@@ -5,6 +5,7 @@ import { StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import Header from './Header'
 import QuizeList from './QuizeList'
 import styles from "../styles/styles";
+import global from './global'
  
 export default class Story extends Component {
     constructor(props) {
@@ -65,6 +66,7 @@ return (
       )} //render
 
  ShowfuncQuize = () => {
+  
     this.setState({ showQuize: true });
 };
 

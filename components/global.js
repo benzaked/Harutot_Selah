@@ -6,6 +6,8 @@ const photoUrl = ''
 const userId = ''
 var score=0
 var messege='' 
+var firtSiteVisit=-1
+var totalNumberOfQiueses=0
 // const Daniellongitude =  34.74266393110156
 // const Daniellatitude = 31.876715319257883
 
@@ -19,6 +21,8 @@ const gameHeight=((Dimensions.get('window').height)-((Dimensions.get('window').w
 export default {
   score,
   messege,
+  firtSiteVisit,
+  totalNumberOfQiueses,
   gameHeight,
 
   sites :[

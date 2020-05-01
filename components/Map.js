@@ -84,7 +84,7 @@ export default class Mapp extends React.Component {
   Alertt = (siteId,imageBig) =>{
     this.setState({siteId: siteId})
     this.setState({imageBig: imageBig})
-    this.setState({isModalVisible: !this.state.isModalVisible});
+    this.setState({isModalVisible: true});
     
     // Alert.alert(  
     //   'כל הכבוד!',
@@ -117,7 +117,7 @@ export default class Mapp extends React.Component {
 
   moveToComments = () =>{
        
-    this.setState({isModalVisible: !this.state.isModalVisible});
+    this.setState({isModalVisible: false});
     
       const pushAction = StackActions.push({
         routeName: 'comments_page_game',
@@ -212,7 +212,7 @@ export default class Mapp extends React.Component {
             {"\n"}
            הגעת לאתר מספר {this.state.siteId} המשך לתת פרשנות משלך לחרותה שלפינך
           </Text>
-          <Image source={require('../assets/welcome_site.png')} style={mapStyles.image}/>
+          <Image source={require('../assets/welcome_site.png')} style={styles.modalImage}/>
           <TouchableOpacity style={styles.darkButtonStyle} onPress = { () =>  this.moveToComments()}>
           <Text style={styles.darkButtonText}> קדימה </Text>
           </TouchableOpacity>
@@ -274,13 +274,5 @@ const mapStyles = StyleSheet.create({
     height: Dimensions.get('window').height,
     width: 10,
   },
-
-  image: {
-    width:300,
-    height: 300,
-    resizeMode:'contain'
-    
-  },
-  
 
 });

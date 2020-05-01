@@ -189,6 +189,7 @@ const styles = StyleSheet.create({
       darkButtonStyleStretch:{
         flex:1,
         alignSelf: 'stretch',
+        justifyContent: "center",
         backgroundColor: "#526674",
         marginTop:7,
         marginBottom:7,
@@ -229,7 +230,7 @@ const styles = StyleSheet.create({
 
     smallBlackText:{
     
-        lineHeight: 20,
+        lineHeight: 25,
         fontSize: 15,
         fontWeight: '600',
         color: 'black',
@@ -238,11 +239,17 @@ const styles = StyleSheet.create({
       },
 
       medumBlackText:{
-        lineHeight: 35,
+        lineHeight: 32,
         fontSize: 22,
         fontWeight: '600',
         color: 'black',
         textAlign: 'center'
+      },
+
+      modalImage:{
+        width:300,
+        height: 300,
+        resizeMode:'contain'
       }
 });
 
