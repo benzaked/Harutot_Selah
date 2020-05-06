@@ -196,7 +196,7 @@ class QuizeList extends Component {
             {"\n"}
             טרם סיימת לענות על כל החידות בשלב זה, האם ברצונך לעזוב בכל זאת?
           </Text>
-          <Image source={require('../assets/leave_quize.png')} style={styles.modalImage}/>
+          <Image source={{uri: 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/game%2Fleave_quize.png?alt=media&token=74c87a95-3127-4cdf-ae0a-0d9e5662dfbf'}} style={styles.modalImage}/>
           <View style={{width: '100%', height: 50}}>
           <TouchableOpacity style={quizeStyles.darkButtonStyleStretch} onPress = {() => this.toggleQuitModal()}>
           <Text style={styles.darkButtonText}> לא, המשך בחידון </Text>
@@ -222,7 +222,7 @@ class QuizeList extends Component {
            {"\n"}
            נתראה בסיבוב הבא :)
           </Text>
-          <Image source={require('../assets/end_Banner.png')} style={styles.modalImage}/>
+          <Image source={{uri: 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/game%2Fend_Banner.png?alt=media&token=a26c216b-cd5f-492c-8c6c-911002eae4c1'}} style={styles.modalImage}/>
           <TouchableOpacity style={styles.darkButtonStyle} onPress =  {() =>  this.moveToMap()}>
           <Text style={styles.darkButtonText}> אישור </Text>
           </TouchableOpacity>
@@ -240,7 +240,7 @@ class QuizeList extends Component {
             {"\n"}
             סיימת לענות על החידון באתר מספר {this.state.numberOfSite}, צברת בשלב זה {this.state.numOfRightAnswers*10} נקודות          
           </Text>
-          <Image source={require('../assets/quize_score.png')} style={styles.modalImage}/>
+          <Image source={{uri: 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/game%2Fquize_score.png?alt=media&token=d34cdbba-8afd-4d44-9234-e77674d0c4d0'}} style={styles.modalImage}/>
           
           <TouchableOpacity style={styles.darkButtonStyle} onPress = {() =>  this.checkLastSite()}>
           <Text style={styles.darkButtonText}> אישור </Text>

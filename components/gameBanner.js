@@ -16,7 +16,7 @@ export default class GameBanner extends Component {
 
 render() {
   
-  const { textStyling, messegeSection, scoreSection, } = styles;
+  const { textStyling } = styles;
   
 return (
   <View style={this.viewStyle()}>
@@ -55,7 +55,6 @@ viewStyle=function () {
 messegeSection=function () {
   let icon =  require('../assets/gameBanner.png'); 
   let source = resolveAssetSource(icon);
-
   return {
     position: 'absolute', 
     // bottom: 62,
@@ -71,8 +70,6 @@ messegeSection=function () {
 }
 
 scoreSection=function () {
-  let icon =  require('../assets/gameBanner.png'); 
-  let source = resolveAssetSource(icon);
 
   return {
     
@@ -84,12 +81,8 @@ scoreSection=function () {
     paddingRight: 10,
     paddingLeft: 2,
     borderTopRightRadius: 70,
-    // borderTopLeftRadius: 20,
-    // borderBottomRightRadius: 20,
-    // borderBottomLeftRadius: 20,
     alignSelf: 'flex-start',
     position: 'absolute', 
-    // bottom: (((Dimensions.get('window').width)*source.height)/source.width)*0.12,
     bottom: 0,
     zIndex: 9,
     alignItems: 'center',

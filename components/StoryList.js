@@ -143,7 +143,5 @@ const styles = {
    height: global.gameHeight,
    backgroundColor: "#abd6f4",  
   }
-
-
 };
 

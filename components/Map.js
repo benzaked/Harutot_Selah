@@ -212,7 +212,7 @@ export default class Mapp extends React.Component {
             {"\n"}
            הגעת לאתר מספר {this.state.siteId} המשך לתת פרשנות משלך לחרותה שלפינך
           </Text>
-          <Image source={require('../assets/welcome_site.png')} style={styles.modalImage}/>
+          <Image source={{uri:'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/game%2Fwelcome_site.png?alt=media&token=3e6dc6a7-f56b-4897-bbb4-beb4c61bb679'}} style={styles.modalImage}/>
           <TouchableOpacity style={styles.darkButtonStyle} onPress = { () =>  this.moveToComments()}>
           <Text style={styles.darkButtonText}> קדימה </Text>
           </TouchableOpacity>
