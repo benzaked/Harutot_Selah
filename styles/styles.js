@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 20,
         borderBottomRightRadius: 20,
         borderBottomLeftRadius: 20,
-        // marginBottom: 3,
+        marginBottom: 3,
         marginTop: 7,
         marginLeft: 40,
         marginRight:40,
