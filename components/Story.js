@@ -66,8 +66,8 @@ return (
       )} //render
 
  ShowfuncQuize = () => {
-  
-    this.setState({ showQuize: true });
+  this.props.QuizeStart()
+  this.setState({ showQuize: true });
 };
 
 

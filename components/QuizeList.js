@@ -55,30 +55,163 @@ class QuizeList extends Component {
     
     };//componentDidMount
 
-    // temp = () =>{
-        
-    //     firebase.database().ref('/Quizes/' + 1).set({
-    //         QuizeID:1,
-    //         numberOfSite:3,
-    //         QuizeContent :"כמה רגליים יש לגמל?",
-    //         Answer1:"1",
-    //         Answer2:"2",
-    //         Answer3:"3",
-    //         Answer4:"4",
-    //         RightAnswerNum:4
-    //     })
-        
-    //     firebase.database().ref('/Quizes/' + 2).set({
-    //         QuizeID:2,
-    //         numberOfSite:3,
-    //         QuizeContent :"איך מכנים את ציורי הסלע ומדוע?",
-    //         Answer1:"1",
-    //         Answer2:"2",
-    //         Answer3:"יש המכנים את ציורי הסלע כשפת המדבר מאחר והם מאפשרים הצצה לעולמם של אלו שחיים במדבר מתקופת עתיקות ועד היום",
-    //         Answer4:"4",
-    //         RightAnswerNum:3
-    //     })
-    //     }//temp - inserting fake data to database
+//     temp = () =>{
+//       firebase.database().ref('/Quizes/' + 1).set({
+//         QuizeID:1,
+//         numberOfSite:1,
+//         QuizeContent :"כמה רגליים יש לגמל?",
+//         Answer1:"1",
+//         Answer2:"2",
+//         Answer3:"3",
+//         Answer4:"4",
+//         RightAnswerNum:4
+//     })
+    
+//     firebase.database().ref('/Quizes/' + 2).set({
+//         QuizeID:2,
+//         numberOfSite:1,
+//         QuizeContent :"איך מכנים את ציורי הסלע ומדוע?",
+//         Answer1:"1",
+//         Answer2:"2",
+//         Answer3:"יש המכנים את ציורי הסלע כשפת המדבר מאחר והם מאפשרים הצצה לעולמם של אלו שחיים במדבר מתקופת עתיקות ועד היום",
+//         Answer4:"4",
+//         RightAnswerNum:3
+//     })
+
+//     firebase.database().ref('/Quizes/' + 3).set({
+//       QuizeID:3,
+//       numberOfSite:2,
+//       QuizeContent :"כמה רגליים יש לגמל?",
+//       Answer1:"1",
+//       Answer2:"2",
+//       Answer3:"3",
+//       Answer4:"4",
+//       RightAnswerNum:4
+//   })
+  
+//   firebase.database().ref('/Quizes/' + 4).set({
+//       QuizeID:4,
+//       numberOfSite:2,
+//       QuizeContent :"איך מכנים את ציורי הסלע ומדוע?",
+//       Answer1:"1",
+//       Answer2:"2",
+//       Answer3:"יש המכנים את ציורי הסלע כשפת המדבר מאחר והם מאפשרים הצצה לעולמם של אלו שחיים במדבר מתקופת עתיקות ועד היום",
+//       Answer4:"4",
+//       RightAnswerNum:3
+//   })
+
+//   firebase.database().ref('/Quizes/' + 5).set({
+//     QuizeID:5,
+//     numberOfSite:3,
+//     QuizeContent :"כמה רגליים יש לגמל?",
+//     Answer1:"1",
+//     Answer2:"2",
+//     Answer3:"3",
+//     Answer4:"4",
+//     RightAnswerNum:4
+// })
+
+// firebase.database().ref('/Quizes/' + 6).set({
+//     QuizeID:6,
+//     numberOfSite:3,
+//     QuizeContent :"איך מכנים את ציורי הסלע ומדוע?",
+//     Answer1:"1",
+//     Answer2:"2",
+//     Answer3:"יש המכנים את ציורי הסלע כשפת המדבר מאחר והם מאפשרים הצצה לעולמם של אלו שחיים במדבר מתקופת עתיקות ועד היום",
+//     Answer4:"4",
+//     RightAnswerNum:3
+// })
+
+// firebase.database().ref('/Quizes/' + 7).set({
+//   QuizeID:7,
+//   numberOfSite:4,
+//   QuizeContent :"כמה רגליים יש לגמל?",
+//   Answer1:"1",
+//   Answer2:"2",
+//   Answer3:"3",
+//   Answer4:"4",
+//   RightAnswerNum:4
+// })
+
+// firebase.database().ref('/Quizes/' + 8).set({
+//   QuizeID:8,
+//   numberOfSite:4,
+//   QuizeContent :"איך מכנים את ציורי הסלע ומדוע?",
+//   Answer1:"1",
+//   Answer2:"2",
+//   Answer3:"יש המכנים את ציורי הסלע כשפת המדבר מאחר והם מאפשרים הצצה לעולמם של אלו שחיים במדבר מתקופת עתיקות ועד היום",
+//   Answer4:"4",
+//   RightAnswerNum:3
+// })
+
+// firebase.database().ref('/Quizes/' + 9).set({
+//     QuizeID:9,
+//     numberOfSite:5,
+//     QuizeContent :"כמה רגליים יש לגמל?",
+//     Answer1:"1",
+//     Answer2:"2",
+//     Answer3:"3",
+//     Answer4:"4",
+//     RightAnswerNum:4
+// })
+
+// firebase.database().ref('/Quizes/' + 10).set({
+//     QuizeID:10,
+//     numberOfSite:5,
+//     QuizeContent :"איך מכנים את ציורי הסלע ומדוע?",
+//     Answer1:"1",
+//     Answer2:"2",
+//     Answer3:"יש המכנים את ציורי הסלע כשפת המדבר מאחר והם מאפשרים הצצה לעולמם של אלו שחיים במדבר מתקופת עתיקות ועד היום",
+//     Answer4:"4",
+//     RightAnswerNum:3
+// })
+
+
+// firebase.database().ref('/Quizes/' + 11).set({
+//   QuizeID:11,
+//   numberOfSite:6,
+//   QuizeContent :"כמה רגליים יש לגמל?",
+//   Answer1:"1",
+//   Answer2:"2",
+//   Answer3:"3",
+//   Answer4:"4",
+//   RightAnswerNum:4
+// })
+
+// firebase.database().ref('/Quizes/' + 12).set({
+//   QuizeID:12,
+//   numberOfSite:6,
+//   QuizeContent :"איך מכנים את ציורי הסלע ומדוע?",
+//   Answer1:"1",
+//   Answer2:"2",
+//   Answer3:"יש המכנים את ציורי הסלע כשפת המדבר מאחר והם מאפשרים הצצה לעולמם של אלו שחיים במדבר מתקופת עתיקות ועד היום",
+//   Answer4:"4",
+//   RightAnswerNum:3
+// })
+
+
+// firebase.database().ref('/Quizes/' + 13).set({
+//   QuizeID:13,
+//   numberOfSite:7,
+//   QuizeContent :"כמה רגליים יש לגמל?",
+//   Answer1:"1",
+//   Answer2:"2",
+//   Answer3:"3",
+//   Answer4:"4",
+//   RightAnswerNum:4
+// })
+
+// firebase.database().ref('/Quizes/' + 14).set({
+//   QuizeID:14,
+//   numberOfSite:7,
+//   QuizeContent :"איך מכנים את ציורי הסלע ומדוע?",
+//   Answer1:"1",
+//   Answer2:"2",
+//   Answer3:"יש המכנים את ציורי הסלע כשפת המדבר מאחר והם מאפשרים הצצה לעולמם של אלו שחיים במדבר מתקופת עתיקות ועד היום",
+//   Answer4:"4",
+//   RightAnswerNum:3
+// })
+//         }//temp - inserting fake data to database
     
     listenForQuizes = (quizesRef) => {
         
@@ -131,30 +264,13 @@ class QuizeList extends Component {
         if (this.state.numOfAnswersFromUser==this.state.quizeList.length){
           
           this.toggleScoreModal();
-          //  return (
-          //   Alert.alert(
-          //      'כל הכבוד!',
-          //   ' סיימת לענות על החידון באתר מספר '+this.state.numberOfSite+', '+
-          //   'צברת בשלב זה '+this.state.numOfRightAnswers*10+' נקודות ',
-          //   [
-          //     {text: 'אישור', onPress:  this.props.QuizeDone()},
-          //   ],
-          //   { cancelable: false }
-          // ))
+         
         } 
 
         else {
 
           this.toggleQuitModal();
 
-          // return (
-          //   Alert.alert(
-          //   'טרם סיימת לענות על כל החידות בשלב זה',
-          //   [
-          //     {text: 'אישור', onPress: () => console.log('OK Pressed')},
-          //   ],
-          //   { cancelable: false }
-          // ))
         }
       }//checkIsQuizeOver
 
@@ -166,8 +282,8 @@ class QuizeList extends Component {
 
       checkLastSite= ()=>{
         this.setState({isScoreModalVisible: false});
-        // if((this.state.numberOfSite==4 && global.firtSiteVisit==1) ||(this.state.numberOfSite==1 && global.firtSiteVisit==4 )){ //real if
-        if(global.firtSiteVisit==3 ){ // check end modal
+        if((this.state.numberOfSite==4 && global.firtSiteVisit==1) ||(this.state.numberOfSite==1 && global.firtSiteVisit==4 )){ //real if
+        // if(global.firtSiteVisit==1 ){ // check end modal
 
         
           this.toggleEndGameModal();

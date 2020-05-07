@@ -87,11 +87,11 @@ class comments_page extends Component {
       const pushAction = StackActions.push({
         routeName: 'StoryList',
         params: {
-          pageNo:3,
+          pageNo:this.state.pageNo,
         }
         });
         this.props.navigation.dispatch(pushAction);
-      //this.props.navigation.navigate('StoryList' ,params = {pageNo :3})
+      
     }
     compare (a, b) {
       if (a.created_at > b.created_at) {

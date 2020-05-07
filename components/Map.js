@@ -85,34 +85,6 @@ export default class Mapp extends React.Component {
     this.setState({siteId: siteId})
     this.setState({imageBig: imageBig})
     this.setState({isModalVisible: true});
-    
-    // Alert.alert(  
-    //   'כל הכבוד!',
-    //   ' הגעת לאתר ' + siteId   + " המשך לתת פרשנות משלך לחרותות שלפינך ",
-    
-    //   [
-        
-    //     {text: 'יאללה!', onPress: () => {
-       
-      
-    //   const pushAction = StackActions.push({
-    //     routeName: 'comments_page_game',
-    //     params : {
-    //       moveToStory: true,
-    //       name: global.userName,
-    //       photoUrl: global.photoUrl,
-    //       userID: global.userId,
-    //       pageNo: siteId,
-    //       siteImg: imageBig,
-    //     }
-    //     });
-    //     this.props.navigation.dispatch(pushAction);
-        
-    //     },
-    //     }
-    //   ],
-    //   {cancelable: false},
-    // );
   }//Alertt
 
   moveToComments = () =>{
