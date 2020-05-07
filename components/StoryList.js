@@ -156,16 +156,12 @@ render() {
 const styles = {
 
   main:{
-    flex:1,
+    flex:(Dimensions.get('window').height),
     backgroundColor: "#abd6f4", 
   },
-  
-  viewStory: {
-   position: 'absolute',
-   top: 0,
-   right: 0,   
-   height: global.gameHeight,
-   backgroundColor: "#abd6f4",  
+
+  viewStory:{
+    flex: global.gameHeight,
   }
 };
 

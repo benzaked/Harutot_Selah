@@ -16,19 +16,18 @@ export default class GameBanner extends Component {
 
 render() {
   
-  const { textStyling } = styles;
   
 return (
   <View style={this.viewStyle()}>
       
       <Image source={require('../assets/gameBanner.png')} style={styles.image}/>
       <View style={this.messegeSection()}>
-        <Text style={textStyling}> {global.messege} </Text> 
+        <Text style={styles.textStyling}> {global.messege} </Text> 
       </View>
 
       {this.state.showScore ? (
           <View style={this.scoreSection()}>
-          <Text style={textStyling}>צברת {global.score}{"\n"}נקודות</Text>
+          <Text style={styles.textStyling}>צברת {global.score}{"\n"}נקודות</Text>
           </View>
                 
       ) : null}
@@ -41,15 +40,11 @@ viewStyle=function () {
   let icon =  require('../assets/gameBanner.png'); 
   let source = resolveAssetSource(icon);
 
-  return {
-  position: 'absolute',
-  bottom: 0,
-  left: 0,   
-  width: '100%',
-  height: (((Dimensions.get('window').width)*source.height)/source.width),
-  alignItems: 'center',
-  
-  }
+    return {
+    
+    height: (((Dimensions.get('window').width)*source.height)/source.width),
+    alignItems: 'center',
+    }
 }
 
 messegeSection=function () {

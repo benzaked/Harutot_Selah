@@ -11,8 +11,7 @@ import styles from "../styles/styles";
 
 import { NavigationActions,StackActions } from "react-navigation";
 const {height, width} = Dimensions.get('window');
-// import  Icon  from 'react-native-vector-icons/Ionicons';
-// import Comments from "react-native-comments";
+
 class comments_page extends Component {
     constructor(props){
         global.messege='כאן תוכל לתת פרשנות משלך לחרותת הסלע ולהתרשם מפרשנויות המבקרים האחרים'
@@ -119,8 +118,6 @@ class comments_page extends Component {
                  body = {data.content}
                  id = {data.id}
                  deleteAction = {this.deleteAction.bind(this) }
-                 
-                 
                  
                   ></Comment>
 
@@ -246,18 +243,16 @@ const commentsStyles = StyleSheet.create({
           
     },
     
+
 main:{
-  flex:1,
+  flex:(Dimensions.get('window').height),
   backgroundColor: "#abd6f4", 
 },
 
+
 viewComments: {
- position: 'absolute',
- top: 0,
- right: 0,   
- height: global.gameHeight,
- backgroundColor: "#abd6f4",  
-},
+  flex: global.gameHeight,
+ },
 
 image: {
   width:26,

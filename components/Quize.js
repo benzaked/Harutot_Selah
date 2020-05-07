@@ -71,7 +71,7 @@ class Quize extends Component {
     render(){
          return(
           <View style= { styles.lightBlueContainer }>
-            <View style={{flex:1, alignItems: "stretch", justifyContent: "center",}}>
+            <View style={{flex:1, alignItems: "stretch", justifyContent: "center"}}>
             {this.state.showQuizeScreen ? ( 
             <View>
             <Text style = {styles.medumBlackText}>{this.state.QuizeContent}</Text> 
