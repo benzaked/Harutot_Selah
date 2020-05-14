@@ -10,6 +10,7 @@ class Quize extends Component {
             QuizeID: props.QuizeID,
             numberOfSite: props.numberOfSite,
             QuizeContent : props.QuizeContent,
+            image:props.image,
             Answer1: props.Answer1,
             Answer2: props.Answer2, 
             Answer3: props.Answer3, 
@@ -75,7 +76,9 @@ class Quize extends Component {
             {this.state.showQuizeScreen ? ( 
             <View>
             <Text style = {styles.medumBlackText}>{this.state.QuizeContent}</Text> 
-              
+            {(this.state.image!=null) ? (
+            <View style={quizeStyles.imageSection}><Image source={{uri:this.state.image}} style={quizeStyles.quizeImage}/></View>
+            ) : null}              
               <View style={quizeStyles.answerContainer}>
                 <TouchableOpacity style={quizeStyles.buttonStyle} onPress = {this.checkAnswer1}>
                    <Text style={quizeStyles.buttontextStyle}> {this.state.Answer1} </Text> 
@@ -108,7 +111,7 @@ class Quize extends Component {
             ) : null} 
               
            
-            <View >
+            <View>
                 {this.state.showRightAnswerScreen ? (
                   <View style={quizeStyles.answerScreen}>
                   <Image source={{uri: 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/game%2Fhappy_girl.png?alt=media&token=de37e4bc-bde1-499c-94fd-71a91f7d8207'}} style={quizeStyles.image}/>
@@ -119,7 +122,7 @@ class Quize extends Component {
                 ) : null}
             </View>
 
-            <View >
+            <View>
                 {this.state.showWrongAnswerScreen ? (
                   <View style={quizeStyles.answerScreen}>
                   <Image source={{uri: 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/game%2Funhappy_girl.png?alt=media&token=46390353-c9e7-42ad-934b-6ea9b19a7eff'}} style={quizeStyles.image}/>
@@ -174,10 +177,7 @@ const quizeStyles = StyleSheet.create({
     marginBottom: 7,
     marginLeft: 7,
     marginRight:7,
-    borderTopRightRadius: 5,
-    borderTopLeftRadius: 5,
-    borderBottomRightRadius: 5,
-    borderBottomLeftRadius: 5,
+    borderRadius:5,
     elevation: 2,
   },
 
@@ -186,6 +186,22 @@ const quizeStyles = StyleSheet.create({
     height: 130,
     resizeMode:'contain'
     
+  },
+
+  imageSection:{
+    alignItems: 'center',
+    alignContent: 'center',
+    marginTop: 7,
+    marginBottom: 7,
+    marginLeft: 7,
+    marginRight:7,
+  },
+
+  quizeImage:{
+    width:'100%',
+    height: 220,
+    resizeMode:'contain',
+    borderRadius:5
   }
   
   

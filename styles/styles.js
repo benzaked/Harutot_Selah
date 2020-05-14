@@ -180,10 +180,7 @@ const styles = StyleSheet.create({
         marginTop:7,
         marginBottom:7,
         paddingHorizontal: 4,
-        borderTopRightRadius: 20,
-        borderTopLeftRadius: 20,
-        borderBottomRightRadius: 20,
-        borderBottomLeftRadius: 20,
+        borderRadius:20
       },
 
       darkButtonStyleStretch:{
@@ -195,10 +192,7 @@ const styles = StyleSheet.create({
         marginBottom:7,
         marginLeft: 40,
         marginRight:40,
-        borderTopRightRadius: 20,
-        borderTopLeftRadius: 20,
-        borderBottomRightRadius: 20,
-        borderBottomLeftRadius: 20,
+        borderRadius:20
       },
       
       darkButtonText: {
@@ -218,10 +212,7 @@ const styles = StyleSheet.create({
         paddingBottom:4,
         minHeight: 190,
         backgroundColor: "#daedf9",
-        borderTopRightRadius: 20,
-        borderTopLeftRadius: 20,
-        borderBottomRightRadius: 20,
-        borderBottomLeftRadius: 20,
+        borderRadius:20,
         marginBottom: 3,
         marginTop: 7,
         marginLeft: 40,

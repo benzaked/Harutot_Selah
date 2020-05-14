@@ -223,6 +223,7 @@ class QuizeList extends Component {
               QuizeID:child.val().QuizeID,
               numberOfSite:child.val().numberOfSite,
               QuizeContent:child.val().QuizeContent,
+              image:child.val().image,
               Answer1:child.val().Answer1,
               Answer2:child.val().Answer2,
               Answer3:child.val().Answer3,
@@ -246,6 +247,7 @@ class QuizeList extends Component {
                 QuizeID={data.QuizeID}
                 numberOfSite={data.numberOfSite}
                 QuizeContent={data.QuizeContent}
+                image={data.image}
                 Answer1={data.Answer1}
                 Answer2={data.Answer2}
                 Answer3={data.Answer3}

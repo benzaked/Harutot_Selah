@@ -133,13 +133,12 @@ const catalogStyles = StyleSheet.create({
     
   bottomItem:{
   flex:1,
-
-  
+  borderRadius:5   
   },
+  
   image: {
     width: '100%',
     height: 250,
     padding: 5,
-    
   },
 });

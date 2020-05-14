@@ -8,8 +8,6 @@ var score=0
 var messege='' 
 var firtSiteVisit=-1
 var totalNumberOfQiueses=0
-// const Daniellongitude =  34.74266393110156
-// const Daniellatitude = 31.876715319257883
 
 const Daniellongitude =  34.7985259629786 //Elena
 const Daniellatitude = 31.27087633366313 //Elena
@@ -26,13 +24,15 @@ export default {
   gameHeight,
 
   sites :[
-    {id:1,wasOnsite :0, latitude: Daniellatitude, longitude: Daniellongitude, 
+    // {id:1,wasOnsite :0, latitude: Daniellatitude, longitude:Daniellongitude, 
+    {id:1,wasOnsite :0, latitude: 30, longitude: 34, 
       marker :'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/Map%20markers%2F1.png?alt=media&token=4027278c-f489-47de-96b6-abb9e09a6c4b', 
       imageBig : 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/1.jpg?alt=media&token=bbe8e00a-a52c-4179-8f2f-6d2756010ce5'}, 
     {id:2,wasOnsite :0, latitude: 31.877011, longitude: 34.742276, 
       marker : 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/Map%20markers%2F2.png?alt=media&token=af3cadee-7fef-457c-823d-4fd19a1695fa', 
       imageBig : 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/2.jpg?alt=media&token=a2730f4e-bb8b-4d0c-9869-eb50e6f674fe'}, 
-    {id:3,wasOnsite :0, latitude: 30.819284, longitude:34.741121, 
+    // {id:3,wasOnsite :0, latitude: 30.819284, longitude:34.741121, 
+    {id:3,wasOnsite :0, latitude: Daniellatitude, longitude:Daniellongitude, 
       marker : 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/Map%20markers%2F3.png?alt=media&token=72fd5026-71ce-4520-b63b-c06d68775e8c', 
       imageBig : 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/3.jpg?alt=media&token=512c7954-ada1-408f-99a4-bf968300fc25'}, 
     {id:4,wasOnsite :0, latitude: 30.8211714, longitude:34.7420160, 

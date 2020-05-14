@@ -4,6 +4,7 @@ import {  createAppContainer } from 'react-navigation';
 import{createDrawerNavigator} from 'react-navigation-drawer'
 // import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from '../screens/HomeScreen';
+import AboutScreen from '../screens/AboutScreen'
 import LoginScreen from '../screens/LoginScreen'
 import StackNavigator from './StackNavigator'
 import Game_menu from '../screens/Game_menu';
@@ -43,6 +44,10 @@ const DrawerNavigator = createDrawerNavigator(
     },
     Game_menu:{
       screen: Game_menu,
+    },
+
+    AboutScreen: {
+      screen: AboutScreen,
     },
     
   },

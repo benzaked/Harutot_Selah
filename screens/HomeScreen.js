@@ -1,6 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View,BackHandler, ImageBackground, ScrollView, Linking } from 'react-native';
-import global from '../components/global'
+import { StyleSheet, Text, View,BackHandler, ImageBackground, ScrollView} from 'react-native';
 import firebase from 'firebase'
 import MenuButton from '../components/MenuButton'
 
@@ -79,14 +78,7 @@ handleBackButton() {
         </Text>)}
 
       {"\n"}
-      מקווים שיהיה לכם מסע פורה ומהנה באתר 😊
-      {"\n"}
-      <Text style={{textDecorationLine: 'underline'}}
-      onPress={() => Linking.openURL('http://www.freepik.com')}>
-      Game character designed by brgfx / Freepik
-      </Text> 
-      
-
+      מקווים שיהיה לכם מסע פורה ומהנה 😊
       </Text>
       </ScrollView>
       </View>       
