@@ -191,8 +191,8 @@ const quizeStyles = StyleSheet.create({
   imageSection:{
     alignItems: 'center',
     alignContent: 'center',
-    marginTop: 7,
-    marginBottom: 7,
+    // marginTop: 7,
+    // marginBottom: 7,
     marginLeft: 7,
     marginRight:7,
   },
