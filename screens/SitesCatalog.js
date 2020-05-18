@@ -89,16 +89,19 @@ export default class SitesCatalog extends React.Component {
                         {global.sites.map((site) => {
                         
                           return (
-                          <View style={catalogStyles.rightContent}> 
-                          <Text style={styles.smallBlackText}> אתר מספר {site.id} </Text>
-                          <TouchableOpacity
-                            onPress={() => this.moveToAddNewCustomer(site.id,site.imageBig)}
-                            style={catalogStyles.image}
-                            key ={site.imageBig}>
-                            
-                          <Image source= {{uri : site.imageBig}} style={catalogStyles.bottomItem} />
-                          </TouchableOpacity>
-                          </View>
+                            <View>
+                            {(site.id!=0) ? ( 
+                              <View style={catalogStyles.rightContent}>      
+                              <Text style={styles.smallBlackText}> אתר מספר {site.id} </Text>
+                              <TouchableOpacity
+                                onPress={() => this.moveToAddNewCustomer(site.id,site.imageBig)}
+                                style={catalogStyles.image}
+                                key ={site.imageBig}>
+                              <Image source= {{uri : site.imageBig}} style={catalogStyles.bottomItem} />
+                              </TouchableOpacity>
+                              </View>
+                              ) : null}
+                            </View>
                           )
                         
                       })}
