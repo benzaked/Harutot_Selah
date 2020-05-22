@@ -75,7 +75,7 @@ class Quize extends Component {
             <View style={{flex:1, alignItems: "stretch", justifyContent: "center"}}>
             {this.state.showQuizeScreen ? ( 
             <View>
-            <Text style = {styles.medumBlackText}>{this.state.QuizeContent}</Text> 
+            <Text style = {quizeStyles.contentText}>{this.state.QuizeContent}</Text> 
             {(this.state.image!=null) ? (
             <View style={quizeStyles.imageSection}><Image source={{uri:this.state.image}} style={quizeStyles.quizeImage}/></View>
             ) : null}              
@@ -191,18 +191,25 @@ const quizeStyles = StyleSheet.create({
   imageSection:{
     alignItems: 'center',
     alignContent: 'center',
-    // marginTop: 7,
-    // marginBottom: 7,
     marginLeft: 7,
     marginRight:7,
+ 
   },
 
   quizeImage:{
     width:'100%',
-    height: 220,
+    height: 200,
     resizeMode:'contain',
     borderRadius:5
-  }
+  },
   
-  
+  contentText:{
+    
+    lineHeight: 25,
+    fontSize: 17,
+    fontWeight: '900',
+    color: "#526674",
+    textAlign: 'center'
+        
+  },
 })
