@@ -19,7 +19,7 @@ class QuizeList extends Component {
             isQuitModalVisible: false,
             isEndGameModalVisible: false,
             isScoreModalVisible: false,
-            
+            showMoveOnButton:false,
 
         };
         if (!firebase.apps.length) {firebase.initializeApp(firebaseConfig)};
@@ -234,11 +234,13 @@ class QuizeList extends Component {
         });
           this.setState({quizeList: aux});
           global.totalNumberOfQiueses=global.totalNumberOfQiueses+this.state.quizeList.length;
+          this.setState({showMoveOnButton:true})
+
         });
       };  // listenForQuizes-data loading to the quizeList state
     
       renderList = () => {
-        
+
             return(
             this.state.quizeList.map((data,key,val) => {
                 return (
@@ -256,9 +258,9 @@ class QuizeList extends Component {
                 handler={this.handler}
                 handlerRight={this.handlerRight}
                 ></Quize>
-             
                   )}
                 ))
+                
       }//renderList
  
      
@@ -302,10 +304,11 @@ class QuizeList extends Component {
          <View>
          
         {this.renderList()}
+        {(this.state.showMoveOnButton==true) ? (
         <TouchableOpacity style={styles.darkButtonStyleStretch} onPress = {this.checkIsQuizeOver}>
           <Text style={styles.darkButtonText}> לחץ כאן להמשך המשחק </Text>
         </TouchableOpacity>
-        
+        ) : null}
          <Modal isVisible={this.state.isQuitModalVisible}>
           <View style={styles.lightBlueContainer}>
             <View style={{alignItems: "center"}}>

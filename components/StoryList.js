@@ -137,7 +137,7 @@ render() {
   return (
     
     <View style={styles.main}>
-    <ScrollView style={styles.viewStory}>
+    <ScrollView persistentScrollbar={true} style={styles.viewStory}>
      
      {this.renderList()} 
      

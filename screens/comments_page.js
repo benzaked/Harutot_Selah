@@ -128,7 +128,7 @@ class comments_page extends Component {
       
         return(  
           <View style={commentsStyles.main} >
-                  <ScrollView style={commentsStyles.viewComments}>
+                  <ScrollView persistentScrollbar={true} style={commentsStyles.viewComments}>
                     <MenuButton navigation={this.props.navigation} showIcon = {this.state.showMenuButtom} />
                     
                     <TouchableOpacity style={commentsStyles.share} onPress = { () =>  this.ShareStuff('טעימה מהטיול בליפא גל','  לחצו על הקישור',this.state.siteImg)}>

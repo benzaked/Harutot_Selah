@@ -73,7 +73,7 @@ export default class SitesCatalog extends React.Component {
     console.log(global.sites)
     return (
       <View style={catalogStyles.container}>
-      <ScrollView>
+      <ScrollView persistentScrollbar={true}>
       <MenuButton navigation={this.props.navigation} showIcon={true} />
       <Header content={'התרשמות מחרותות הסלע'}/>
       <View style={catalogStyles.rightContent}>

@@ -24,7 +24,7 @@ export default {
   gameHeight,
 
   sites :[
-    // {id:0,wasOnsite :1, latitude: 30.8214602, longitude: 34.7415208, //real start point
+    // {id:0,wasOnsite :1, latitude: 30.8214602, longitude: 34.7415208, //real start point from daniel
     {id:0,wasOnsite :1, latitude: Daniellatitude, longitude:Daniellongitude,  //elena check
       marker :'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/Map%20markers%2F0.png?alt=media&token=f6726d9b-5c42-4013-898a-a36f006d3dfd'}, 
     // {id:1,wasOnsite :0, latitude: Daniellatitude, longitude:Daniellongitude, 
@@ -44,6 +44,7 @@ export default {
       marker : 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/Map%20markers%2F4.png?alt=media&token=b3e55dbf-b114-4513-846e-c6832b1daf28', 
       imageBig : 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/4.jpg?alt=media&token=36094b83-3bb2-477e-9b50-2cb18b905030'}, 
     {id:5,wasOnsite :0, latitude: 30.8216163, longitude:34.7449705, 
+    // {id:5,wasOnsite :0, latitude: Daniellatitude, longitude:Daniellongitude, 
       marker : 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/Map%20markers%2F5.png?alt=media&token=60e91133-0ea5-458a-8ea2-3ea50f5cc971', 
       imageBig : 'https://firebasestorage.googleapis.com/v0/b/finalprojectrn.appspot.com/o/5.jpg?alt=media&token=f2fc9ee1-87ce-42cd-9dbc-92d4d9b1a2ba'}, 
     {id:6,wasOnsite :0, latitude: 30.8190776, longitude:34.7441376, 
