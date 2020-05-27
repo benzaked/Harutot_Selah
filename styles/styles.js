@@ -3,7 +3,7 @@ import { StyleSheet, PixelRatio } from "react-native";
 const styles = StyleSheet.create({
     commentContainer: {
         paddingRight: 5,
-        marginBottom: 10,
+        marginBottom: 2,
         flexDirection: "row",
 
     },
@@ -213,8 +213,8 @@ const styles = StyleSheet.create({
         minHeight: 190,
         backgroundColor: "#daedf9",
         borderRadius:20,
-        marginBottom: 3,
-        marginTop: 7,
+        marginBottom: 4,
+        marginTop: 4,
         marginLeft: 40,
         marginRight:40,
         elevation: 3,

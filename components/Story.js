@@ -15,6 +15,7 @@ export default class Story extends Component {
         showQuize: false, 
         storyTitle: this.props.storyTitle,
         story: this.props.story,
+        showStory: false
        
       };
       
@@ -35,23 +36,31 @@ return (
 
 <View>
       <Header content={' הסיפור של אתר מספר ' + this.props.numberOfSite}/>
-      <View style= { storyStyles.titleContainer }>
-        <Text style = { styles.medumBlackText }>
-          {this.state.storyTitle}
-        </Text>
+      
+      {!(this.state.showQuize) || (this.state.showStory)? (
+      <View>
+        <View style= { storyStyles.titleContainer }>
+          <Text style = { styles.medumBlackText }>
+            {this.state.storyTitle}
+          </Text>
+          </View>
+          <View style= {storyStyles.contentContainer }> 
+          <Text style = { styles.smallBlackText }>
+            {this.state.story}
+          </Text>
         </View>
-        <View style= {storyStyles.contentContainer }> 
-        <Text style = { styles.smallBlackText }>
-          {this.state.story}
-        </Text>
-        </View>
-        
+      </View>
+      ) : null}  
       <View>
       {!(this.state.showQuize) ? (      
         <TouchableOpacity style={styles.darkButtonStyleStretch} onPress = {this.ShowfuncQuize}>
            <Text style={styles.darkButtonText}> המשך לחידון </Text>
         </TouchableOpacity>
-        ) : null}
+        ) : <TouchableOpacity style={styles.darkButtonStyleStretch} onPress = {this.ShowStory}>
+          {!(this.state.showStory)? (
+        <Text style={styles.darkButtonText}> הרחב סיפור </Text>     
+        ) : <Text style={styles.darkButtonText}> הסתר סיפור </Text>}
+     </TouchableOpacity>}
       {this.state.showQuize ? (
           <QuizeList
           numberOfSite={this.state.numberOfSite}
@@ -68,6 +77,10 @@ return (
  ShowfuncQuize = () => {
   this.props.QuizeStart()
   this.setState({ showQuize: true });
+};
+
+ShowStory = () => {
+  this.setState({ showStory: !this.state.showStory });
 };
 
 
@@ -102,7 +115,7 @@ contentContainer: {
   backgroundColor: "#daedf9",
   borderBottomRightRadius: 20,
   borderBottomLeftRadius: 20,
-  marginBottom: 3,
+  marginBottom: 4,
   marginLeft: 40,
   marginRight:40,
   elevation: 3,

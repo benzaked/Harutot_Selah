@@ -24,8 +24,8 @@ viewStyle: {
   justifyContent: 'center',
   alignItems: 'center',
   marginHorizontal: 50,
-  paddingTop: 40,
-  marginBottom: 20,
+  paddingTop: 30,
+  marginBottom: 4,
   // backgroundColor: "white",
 
 }

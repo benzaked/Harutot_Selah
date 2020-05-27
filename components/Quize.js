@@ -1,5 +1,5 @@
 import React ,  {Component} from 'react';
-import { StyleSheet, Text, View,TextInput,Button, TouchableOpacity , Image } from 'react-native';
+import { StyleSheet, Text, View,TextInput,Button, TouchableOpacity , Image, Dimensions } from 'react-native';
 import styles from "../styles/styles";
 
 class Quize extends Component {
@@ -19,9 +19,27 @@ class Quize extends Component {
             showQuizeScreen: true,
             showRightAnswerScreen: false,
             showWrongAnswerScreen: false,
+            imgWidth: 0,
+            imgHeight:0,
 
            };
-         }   
+         } 
+         
+         componentDidMount(){
+          const win = Dimensions.get('window');
+         
+          Image.getSize(this.state.image, (width, height) => {
+            // calculate image width and height 
+            const screenWidth = Dimensions.get('window').width-102
+            const scaleFactor = width / screenWidth
+            const imageHeight = height / scaleFactor
+            this.setState({imgWidth: screenWidth, imgHeight: imageHeight})
+          })
+
+
+
+
+          };//componentDidMount   
          
       checkAnswer1 = () => {
           this.setState({ showQuizeScreen: false });
@@ -70,14 +88,16 @@ class Quize extends Component {
       
     
     render(){
+      const {imgWidth, imgHeight} = this.state
+
          return(
           <View style= { styles.lightBlueContainer }>
             <View style={{flex:1, alignItems: "stretch", justifyContent: "center"}}>
             {this.state.showQuizeScreen ? ( 
             <View>
-            <Text style = {quizeStyles.contentText}>{this.state.QuizeContent}</Text> 
+            <Text style = {styles.smallBlackText}>{this.state.QuizeContent}</Text> 
             {(this.state.image!=null) ? (
-            <View style={quizeStyles.imageSection}><Image source={{uri:this.state.image}} style={quizeStyles.quizeImage}/></View>
+            <View style={quizeStyles.imageSection}><Image source={{uri:this.state.image}} style={{width: imgWidth, height: imgHeight, borderRadius:5}}/></View>
             ) : null}              
               <View style={quizeStyles.answerContainer}>
                 <TouchableOpacity style={quizeStyles.buttonStyle} onPress = {this.checkAnswer1}>
@@ -136,6 +156,7 @@ class Quize extends Component {
             </View>
         );
     }
+
 }
 
 export default Quize;
@@ -191,25 +212,11 @@ const quizeStyles = StyleSheet.create({
   imageSection:{
     alignItems: 'center',
     alignContent: 'center',
+    marginTop: 7,
+    marginBottom: 7,
     marginLeft: 7,
     marginRight:7,
  
   },
 
-  quizeImage:{
-    width:'100%',
-    height: 200,
-    resizeMode:'contain',
-    borderRadius:5
-  },
-  
-  contentText:{
-    
-    lineHeight: 25,
-    fontSize: 17,
-    fontWeight: '900',
-    color: "#526674",
-    textAlign: 'center'
-        
-  },
 })

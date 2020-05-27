@@ -204,10 +204,7 @@ const commentsStyles = StyleSheet.create({
       backgroundColor: "#526674",
       paddingHorizontal: 8,
       paddingVertical:8,
-      borderTopRightRadius: 20,
-      borderTopLeftRadius: 20,
-      borderBottomRightRadius: 20,
-      borderBottomLeftRadius: 20,
+      borderRadius:20
     },
 
     back: {
@@ -222,24 +219,18 @@ const commentsStyles = StyleSheet.create({
       backgroundColor: "#526674",
       paddingHorizontal: 8,
       paddingVertical:8,
-      borderTopRightRadius: 20,
-      borderTopLeftRadius: 20,
-      borderBottomRightRadius: 20,
-      borderBottomLeftRadius: 20,
+      borderRadius:20
     },
 
     buttonStyle: {
       flex:1,
       alignSelf: 'stretch',
       backgroundColor: "#526674",
-      marginTop:20,
-      marginBottom:20,
+      marginTop:7,
+      marginBottom:7,
       marginLeft: 5,
       marginRight:5,
-      borderTopRightRadius: 20,
-      borderTopLeftRadius: 20,
-      borderBottomRightRadius: 20,
-      borderBottomLeftRadius: 20,
+      borderRadius:20
           
     },
     
