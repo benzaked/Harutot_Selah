@@ -13,10 +13,10 @@ const { width, height } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
 const LATITUDE = 31.2674413;//מרכוז לפי משתמש
 const LONGITUDE = 34.8003693;
-const LATITUDE_DELTA = 0.00922;//רדיוס
+const LATITUDE_DELTA = 0.00222;//רדיוס
 const LONGITUDE_DELTA = ASPECT_RATIO*LATITUDE_DELTA;
 import {  StackActions } from 'react-navigation';
-
+import {getDistance} from 'geolib'
 // const site2long = 34.7430979
 // const site2llat = 30.8219382
 
@@ -98,7 +98,7 @@ export default class Mapp extends React.Component {
           name: global.userName,
           photoUrl: global.photoUrl,
           userID: global.userId,
-          pageNo: this.state.siteId,
+          pageNo: this.state.siteId -1,
           siteImg: this.state.imageBig,
         }
         });
@@ -111,7 +111,14 @@ export default class Mapp extends React.Component {
       
       temp = global.sites
       temp.map((site, key) =>{
-      (((Math.abs(newCoordinate.latitude - site.latitude)< 0.00003 || Math.abs(newCoordinate.longitude - site.longitude) <0.00003) && site.wasOnsite == 0  ?
+      
+      ((( getDistance(
+        {latitude:site.latitude,longitude:site.longitude},
+        {latitude:newCoordinate.latitude,longitude:newCoordinate.longitude}) <7
+
+        // Math.abs(newCoordinate.latitude - site.latitude)< 0.0000001 
+        // || Math.abs(newCoordinate.longitude - site.longitude) <0.0000001
+        ) && site.wasOnsite == 0  ?
           
           (
             site.wasOnsite = 1,
@@ -120,7 +127,9 @@ export default class Mapp extends React.Component {
             
               // console.log('Im in site ' + site.id + " and i changed his Was on site to  " + site.wasOnsite )
           )
-          : (console.log('the site id is : '+ site.id + " is Onsite value is  " + site.wasOnsite)
+          : (console.log(" the site is : "+ site.id+" " +getDistance(
+            {latitude:site.latitude,longitude:site.longitude},
+            {latitude:newCoordinate.latitude,longitude:newCoordinate.longitude}))
           )  
        ))
       }

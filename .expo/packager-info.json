@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "expoServerNgrokUrl": "https://n7-xsx.anonymous.harutot-selah.exp.direct",
   "packagerNgrokUrl": "https://packager.n7-xsx.anonymous.harutot-selah.exp.direct",
   "ngrokPid": 8488,
@@ -6,4 +7,13 @@
   "expoServerPort": 19000,
   "packagerPort": 19001,
   "packagerPid": 8576
+=======
+  "expoServerNgrokUrl": "https://n7-xsx.benzaked.harutot-selah.exp.direct",
+  "packagerNgrokUrl": "https://packager.n7-xsx.benzaked.harutot-selah.exp.direct",
+  "ngrokPid": 3940,
+  "devToolsPort": 19002,
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 17420
+>>>>>>> 336cb415c857d65f69fd2cdcec1d7a39f88dc79c
 }
