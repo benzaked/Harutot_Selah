@@ -39,6 +39,7 @@ class QuizeList extends Component {
     
     handler=()=>{
       this.setState({numOfAnswersFromUser: this.state.numOfAnswersFromUser+1})
+      global.totalNumber=global.totalNumber+1;
     }//setting the numOfAnswersFromUser from the child every time thr user clicks an answer so we wil know when the quizeList is done
 
     handlerRight=()=>{
@@ -51,8 +52,8 @@ class QuizeList extends Component {
     componentDidMount(){
     const quizesRef = firebase.database().ref('Quizes');
     this.listenForQuizes(quizesRef);//taking the data from database
+    this.setState({showMoveOnButton:true})
     // this.temp();//inserting fake data to database
-    
     };//componentDidMount
 
 //     temp = () =>{
@@ -77,140 +78,6 @@ class QuizeList extends Component {
 //         Answer4:"4",
 //         RightAnswerNum:3
 //     })
-
-//     firebase.database().ref('/Quizes/' + 3).set({
-//       QuizeID:3,
-//       numberOfSite:2,
-//       QuizeContent :"כמה רגליים יש לגמל?",
-//       Answer1:"1",
-//       Answer2:"2",
-//       Answer3:"3",
-//       Answer4:"4",
-//       RightAnswerNum:4
-//   })
-  
-//   firebase.database().ref('/Quizes/' + 4).set({
-//       QuizeID:4,
-//       numberOfSite:2,
-//       QuizeContent :"איך מכנים את ציורי הסלע ומדוע?",
-//       Answer1:"1",
-//       Answer2:"2",
-//       Answer3:"יש המכנים את ציורי הסלע כשפת המדבר מאחר והם מאפשרים הצצה לעולמם של אלו שחיים במדבר מתקופת עתיקות ועד היום",
-//       Answer4:"4",
-//       RightAnswerNum:3
-//   })
-
-//   firebase.database().ref('/Quizes/' + 5).set({
-//     QuizeID:5,
-//     numberOfSite:3,
-//     QuizeContent :"כמה רגליים יש לגמל?",
-//     Answer1:"1",
-//     Answer2:"2",
-//     Answer3:"3",
-//     Answer4:"4",
-//     RightAnswerNum:4
-// })
-
-// firebase.database().ref('/Quizes/' + 6).set({
-//     QuizeID:6,
-//     numberOfSite:3,
-//     QuizeContent :"איך מכנים את ציורי הסלע ומדוע?",
-//     Answer1:"1",
-//     Answer2:"2",
-//     Answer3:"יש המכנים את ציורי הסלע כשפת המדבר מאחר והם מאפשרים הצצה לעולמם של אלו שחיים במדבר מתקופת עתיקות ועד היום",
-//     Answer4:"4",
-//     RightAnswerNum:3
-// })
-
-// firebase.database().ref('/Quizes/' + 7).set({
-//   QuizeID:7,
-//   numberOfSite:4,
-//   QuizeContent :"כמה רגליים יש לגמל?",
-//   Answer1:"1",
-//   Answer2:"2",
-//   Answer3:"3",
-//   Answer4:"4",
-//   RightAnswerNum:4
-// })
-
-// firebase.database().ref('/Quizes/' + 8).set({
-//   QuizeID:8,
-//   numberOfSite:4,
-//   QuizeContent :"איך מכנים את ציורי הסלע ומדוע?",
-//   Answer1:"1",
-//   Answer2:"2",
-//   Answer3:"יש המכנים את ציורי הסלע כשפת המדבר מאחר והם מאפשרים הצצה לעולמם של אלו שחיים במדבר מתקופת עתיקות ועד היום",
-//   Answer4:"4",
-//   RightAnswerNum:3
-// })
-
-// firebase.database().ref('/Quizes/' + 9).set({
-//     QuizeID:9,
-//     numberOfSite:5,
-//     QuizeContent :"כמה רגליים יש לגמל?",
-//     Answer1:"1",
-//     Answer2:"2",
-//     Answer3:"3",
-//     Answer4:"4",
-//     RightAnswerNum:4
-// })
-
-// firebase.database().ref('/Quizes/' + 10).set({
-//     QuizeID:10,
-//     numberOfSite:5,
-//     QuizeContent :"איך מכנים את ציורי הסלע ומדוע?",
-//     Answer1:"1",
-//     Answer2:"2",
-//     Answer3:"יש המכנים את ציורי הסלע כשפת המדבר מאחר והם מאפשרים הצצה לעולמם של אלו שחיים במדבר מתקופת עתיקות ועד היום",
-//     Answer4:"4",
-//     RightAnswerNum:3
-// })
-
-
-// firebase.database().ref('/Quizes/' + 11).set({
-//   QuizeID:11,
-//   numberOfSite:6,
-//   QuizeContent :"כמה רגליים יש לגמל?",
-//   Answer1:"1",
-//   Answer2:"2",
-//   Answer3:"3",
-//   Answer4:"4",
-//   RightAnswerNum:4
-// })
-
-// firebase.database().ref('/Quizes/' + 12).set({
-//   QuizeID:12,
-//   numberOfSite:6,
-//   QuizeContent :"איך מכנים את ציורי הסלע ומדוע?",
-//   Answer1:"1",
-//   Answer2:"2",
-//   Answer3:"יש המכנים את ציורי הסלע כשפת המדבר מאחר והם מאפשרים הצצה לעולמם של אלו שחיים במדבר מתקופת עתיקות ועד היום",
-//   Answer4:"4",
-//   RightAnswerNum:3
-// })
-
-
-// firebase.database().ref('/Quizes/' + 13).set({
-//   QuizeID:13,
-//   numberOfSite:7,
-//   QuizeContent :"כמה רגליים יש לגמל?",
-//   Answer1:"1",
-//   Answer2:"2",
-//   Answer3:"3",
-//   Answer4:"4",
-//   RightAnswerNum:4
-// })
-
-// firebase.database().ref('/Quizes/' + 14).set({
-//   QuizeID:14,
-//   numberOfSite:7,
-//   QuizeContent :"איך מכנים את ציורי הסלע ומדוע?",
-//   Answer1:"1",
-//   Answer2:"2",
-//   Answer3:"יש המכנים את ציורי הסלע כשפת המדבר מאחר והם מאפשרים הצצה לעולמם של אלו שחיים במדבר מתקופת עתיקות ועד היום",
-//   Answer4:"4",
-//   RightAnswerNum:3
-// })
 //         }//temp - inserting fake data to database
     
     listenForQuizes = (quizesRef) => {
@@ -233,10 +100,8 @@ class QuizeList extends Component {
           
         });
           this.setState({quizeList: aux});
-          global.totalNumberOfQiueses=global.totalNumberOfQiueses+this.state.quizeList.length;
-          this.setState({showMoveOnButton:true})
-
         });
+        
       };  // listenForQuizes-data loading to the quizeList state
     
       renderList = () => {
@@ -286,12 +151,12 @@ class QuizeList extends Component {
 
       checkLastSite= ()=>{
         this.setState({isScoreModalVisible: false});
-        if((this.state.numberOfSite==4 && global.firtSiteVisit==1) ||(this.state.numberOfSite==1 && global.firtSiteVisit==4 )){ //real if
-        // if(global.firtSiteVisit==1 ){ // check end modal
+        // if((this.state.numberOfSite==4 && global.firtSiteVisit==1) ||(this.state.numberOfSite==1 && global.firtSiteVisit==4 )){ //real if
+        if(global.firtSiteVisit==1 ){ // check end modal
 
         
           this.toggleEndGameModal();
-          global.messege="להתראות, מקווה שנהנת"
+          global.messege="להתראות, מקווים שנהנת"
         }
 
         else{
@@ -339,7 +204,7 @@ class QuizeList extends Component {
              ביקרת בכל אתרי המסלול</Text>
             <Text style={styles.smallBlackText}>
             {"\n"}
-           הרווחת {global.score} נקודות מתוך סך של {global.totalNumberOfQiueses*10} נקודות
+           הרווחת {global.score} נקודות מתוך סך של {global.totalNumber*10} נקודות
            {"\n"}
            נתראה בסיבוב הבא :)
           </Text>
@@ -384,10 +249,7 @@ const quizeStyles = StyleSheet.create({
     marginBottom:7,
     marginLeft: 7,
     marginRight:7,
-    borderTopRightRadius: 20,
-    borderTopLeftRadius: 20,
-    borderBottomRightRadius: 20,
-    borderBottomLeftRadius: 20,
+    borderRadius:20,
     
   },
 
@@ -400,10 +262,7 @@ const quizeStyles = StyleSheet.create({
         paddingLeft: 4,
         paddingRight:4,
         backgroundColor: "#abd6f4",
-        borderTopRightRadius: 20,
-        borderTopLeftRadius: 20,
-        borderBottomRightRadius: 20,
-        borderBottomLeftRadius: 20,
+        borderRadius:20,
         marginBottom: 3,
         marginLeft: 40,
         marginRight:40,
