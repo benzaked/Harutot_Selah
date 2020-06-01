@@ -151,8 +151,8 @@ class QuizeList extends Component {
 
       checkLastSite= ()=>{
         this.setState({isScoreModalVisible: false});
-        // if((this.state.numberOfSite==4 && global.firtSiteVisit==1) ||(this.state.numberOfSite==1 && global.firtSiteVisit==4 )){ //real if
-        if(global.firtSiteVisit==1 ){ // check end modal
+        if((this.state.numberOfSite==4 && global.firtSiteVisit==1) ||(this.state.numberOfSite==1 && global.firtSiteVisit==4 )){ //real if
+        // if(global.firtSiteVisit==1 ){ // check end modal
 
         
           this.toggleEndGameModal();
