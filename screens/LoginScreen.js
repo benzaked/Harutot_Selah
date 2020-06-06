@@ -107,17 +107,19 @@ export default class LoginScreen extends Component {
           // });
       
           if (result.type === 'success') {
-            console.log('the user id is ::::::::::::;' + result.user.id);
+            console.log('the user email is ::::::::::::;' + result.user.email);
             this.onSignIn(result,result.user.id);
             global.userName = result.user.name
             global.photoUrl = result.user.photoUrl
             global.userId = result.user.id
+            global.userEmail = result.user.email
             console.log('the user id is ::::::::::::;' + global.userId);
             this.setState({
               signedIn: true,
               name: result.user.name,
               photoUrl: result.user.photoUrl,
-              userID: result.user.id
+              userID: result.user.id,
+              userEmail: result.user.email
             });
             console.log('the name is ',this.state.name)
 

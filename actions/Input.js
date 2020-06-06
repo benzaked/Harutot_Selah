@@ -43,10 +43,10 @@ export default class Input extends Component {
     return (
       // This moves children view with input field and submit button
       // up above the keyboard when it's active
-      <KeyboardAwareScrollView
-        style={{fles: 1}}
-        behavior='padding'
-        enabled={true}>
+      
+      <KeyboardAvoidingView style={{ 
+        flex: 1, flexDirection: 'column',justifyContent: 'center',}}
+         behavior="null" enabled   keyboardVerticalOffset={100}>
           <ScrollView>
             <View  style={styles.container}>
               {/* Comment input field */}
@@ -72,8 +72,7 @@ export default class Input extends Component {
               </TouchableOpacity>
             </View>
           </ScrollView>
-          
-        </KeyboardAwareScrollView>
+        </KeyboardAvoidingView>
       
       
     );

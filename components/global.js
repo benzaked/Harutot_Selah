@@ -4,6 +4,8 @@ import resolveAssetSource from 'resolveAssetSource';
 const userName =''
 const photoUrl = ''
 const userId = ''
+const userEmail = ''
+const ownerEmail = ['Joshua@adssc.org', 'benzaked@post.bgu.ac.il']
 var score=0
 var messege='' 
 var firtSiteVisit=-1
@@ -23,7 +25,7 @@ export default {
   firtSiteVisit,
   totalNumber,
   gameHeight,
-
+  ownerEmail,
   sites :[
     {id:0,wasOnsite :1, latitude: 30.8214602, longitude: 34.7415208, //real start point from daniel
     // {id:0,wasOnsite :1, latitude: Daniellatitude , longitude: Daniellongitude, //elena check

@@ -21,8 +21,10 @@ class comments_page extends Component {
             name: this.props.navigation.state.params.name,
             photoUrl: this.props.navigation.state.params.photoUrl,
             userID: this.props.navigation.state.params.userID,
+            userEmail: this.props.navigation.state.params.userEmail,
             pageNo: this.props.navigation.state.params.pageNo,
             siteImg:this.props.navigation.state.params.siteImg,
+            
             showMenuButtom: false,
             comment_text: '',
             all_comments: []
@@ -59,8 +61,10 @@ class comments_page extends Component {
         return firebase.database().ref('comments').child('' + key).remove();
     }
     isOwner(userID){
-        if(this.state.userID ==userID ){return true}
-        else return false;
+        if(this.state.userID == userID || global.ownerEmail.includes(global.userEmail) ){          
+          return true}
+        else {
+          return false};
      }
     submitComment(content){
         firebase.database().ref('/comments/').push({
