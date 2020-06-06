@@ -1,9 +1,10 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 13672,
-  "expoServerNgrokUrl": "https://n7-xsx.benzaked.harutot-selah.exp.direct",
-  "packagerNgrokUrl": "https://packager.n7-xsx.benzaked.harutot-selah.exp.direct",
-  "ngrokPid": 4796
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
+  "webpackServerPort": null
 }

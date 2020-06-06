@@ -1,7 +1,7 @@
 import React,  { Component } from 'react';
 import {Text, View, Image, Dimensions} from 'react-native';
 import global from './global'
-import resolveAssetSource from 'resolveAssetSource';
+import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource';
 
 
 export default class GameBanner extends Component {

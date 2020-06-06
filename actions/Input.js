@@ -46,7 +46,7 @@ export default class Input extends Component {
       
       <KeyboardAvoidingView style={{ 
         flex: 1, flexDirection: 'column',justifyContent: 'center',}}
-         behavior="null" enabled   keyboardVerticalOffset={100}>
+         behavior="pedding" enabled   keyboardVerticalOffset={100}>
           <ScrollView>
             <View  style={styles.container}>
               {/* Comment input field */}

@@ -1,6 +1,6 @@
 import React ,  {Component} from 'react';
 import {Dimensions} from 'react-native';
-import resolveAssetSource from 'resolveAssetSource';
+import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource';
 const userName =''
 const photoUrl = ''
 const userId = ''

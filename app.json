@@ -3,7 +3,6 @@
     "name": "חרותות סלע - ליפא גל",
     "slug": "my-new-project",
     "privacy": "public",
-    "sdkVersion": "35.0.0",
     "platforms": [
       "android",
       "web"
@@ -30,8 +29,7 @@
           "apiKey": "AIzaSyB-7zpG79ceraLuBvnAKDlWhbmxwjN3aX4",
           "certificateHash": "EC962687F191231EB1BECCAB4D80C9DEA9AE9B6F"
         },
-        "googleMaps" :{    
-
+        "googleMaps": {
           "apiKey": "AIzaSyBF0VPe3ztF5TeoQ5LvpGKwMjl84_MOE-I"
         }
       }
