@@ -9,7 +9,7 @@
   "dependencies": {
     "@react-native-community/masked-view": "0.1.6",
     "@react-navigation/native": "^5.0.8",
-    "ajv": "^6.8.1",
+    "ajv": "^6.12.3",
     "expo": "^37.0.0",
     "expo-google-app-auth": "^7.0.0",
     "expo-google-sign-in": "~8.1.0",
